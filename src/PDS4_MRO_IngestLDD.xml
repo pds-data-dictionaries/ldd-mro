@@ -29,6 +29,8 @@
         
         2022-09-29 JGW. Added SHARAD_Parameters class.
         Reorganized attribute definitions.
+        
+        2022-12-02 DVP. Added CRISM_ATO_Parameters class.
     </comment>
     <last_modification_date_time>2022-09-27T12:13</last_modification_date_time>
 
@@ -796,7 +798,7 @@
         <local_identifier>mro.ato.max_column</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Daniel Politte</submitter_name>
-        <definition>TODO TODO TODO TODO TODO TODO
+        <definition>The index of the highest-numbered column/sample of this product relative to the original CRISM scene. The first column of the original CRISM scene corresponds to a value of 1.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -808,7 +810,7 @@
         <local_identifier>mro.ato.max_row</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Daniel Politte</submitter_name>
-        <definition>TODO TODO TODO TODO TODO TODO
+        <definition>The index of the highest-numbered row/line of this product relative to the original CRISM scene. The first row of the original CRISM scene corresponds to a value of 1.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -820,7 +822,7 @@
         <local_identifier>mro.ato.min_column</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Daniel Politte</submitter_name>
-        <definition>TODO TODO TODO TODO TODO TODO
+        <definition>The index of the lowest-numbered column/sample of this product relative to the original CRISM scene. The first column of the original CRISM scene corresponds to a value of 1.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -832,7 +834,7 @@
         <local_identifier>mro.ato.min_row</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Daniel Politte</submitter_name>
-        <definition>TODO TODO TODO TODO TODO TODO
+        <definition>The index of the lowest-numbered row/line of this product relative to the original CRISM scene. The first row of the original CRISM scene corresponds to a value of 1.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
