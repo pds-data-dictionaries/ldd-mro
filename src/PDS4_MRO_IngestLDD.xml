@@ -9,7 +9,7 @@
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1
                         http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.xsd">
     <name>MRO</name>
-    <ldd_version_id>1.0.0.0</ldd_version_id>
+    <ldd_version_id>1.1.0.0</ldd_version_id>
     <dictionary_type>Mission</dictionary_type>
     <full_name>Susan Slavney</full_name>
     <steward_id>geo</steward_id>
@@ -18,7 +18,7 @@
         The MRO dictionary contains classes that describe aspects of the 
         Mars Reconnaissance Orbiter mission and related instruments.
         
-        MRO version 1.0.0.0
+        MRO version 1.1.0.0
         PDS Build 1.18.0.0 (1I00)
         LDDTool version 14.0.13
         
@@ -29,6 +29,10 @@
         
         2022-09-29 JGW. Added SHARAD_Parameters class.
         Reorganized attribute definitions.
+        
+        2022-12-02 DVP. Added CRISM_ATO_Parameters class.
+        
+        2022-12-06 DVP. Bumped to version 1.1.0.0 because of addition of class.
     </comment>
     <last_modification_date_time>2022-09-27T12:13</last_modification_date_time>
 
@@ -37,6 +41,8 @@
         mro:CRISM_Parameters
             [Defined below]
         mro:SHARAD_Parameters
+            [Defined below]
+        mro:CRISM_ATO_Parameters
             [Defined below]
 -->               
     <!-- Begin definitions of MRO Mission Dictionary attributes -->
@@ -780,6 +786,66 @@
     
     <!-- End attribute definitions for the SHARAD_Parameters class. -->
     
+    <!-- Attribute definitions for the CRISM_ATO_Parameters class, in alphabetical order:
+ 
+	    max_column
+	    max_row
+	    min_column
+	    min_row
+	    
+    -->
+
+    <DD_Attribute> <name>max_column</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ato.max_column</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Daniel Politte</submitter_name>
+        <definition>The index of the highest-numbered column/sample of this product relative to the original CRISM scene. The first column of the original CRISM scene corresponds to a value of 1.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>max_row</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ato.max_row</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Daniel Politte</submitter_name>
+        <definition>The index of the highest-numbered row/line of this product relative to the original CRISM scene. The first row of the original CRISM scene corresponds to a value of 1.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>min_column</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ato.min_column</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Daniel Politte</submitter_name>
+        <definition>The index of the lowest-numbered column/sample of this product relative to the original CRISM scene. The first column of the original CRISM scene corresponds to a value of 1.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>min_row</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ato.min_row</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Daniel Politte</submitter_name>
+        <definition>The index of the lowest-numbered row/line of this product relative to the original CRISM scene. The first row of the original CRISM scene corresponds to a value of 1.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+
+    <!-- End attribute definitions for the CRISM_ATO_Parameters class. -->
+
 <!-- END OF ATTRIBUTE DEFINITIONS -->
     
 <!-- BEGINNING OF CLASS DEFINITIONS -->
@@ -914,6 +980,41 @@
             <maximum_occurrences>*</maximum_occurrences>
         </DD_Association>
     </DD_Class>    
+    <!-- End of CRISM_Parameters Class definition -->
+
+    <!-- Beginning of CRISM_ATO_Parameters Class definition with attributes in the order as they appear in the label -->
+    <DD_Class> <name>CRISM_ATO_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.CRISM_ATO_Parameters</local_identifier>
+        <submitter_name>GEO</submitter_name>
+        <definition>The CRISM_ATO_Parameters class is the container for observation parameters specific to the CRISM ATO (Along-Track Oversampled) reprocessing project.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mro.ato.min_row</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ato.max_row</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ato.min_column</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ato.max_column</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
     <!-- End of CRISM_Parameters Class definition -->
 
     <!-- Beginning of Array_Sampled Class definition with attributes in the order as they appear in the label -->    
@@ -1052,6 +1153,12 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>mro.SHARAD_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.CRISM_ATO_Parameters</identifier_reference>
             <reference_type>component_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
