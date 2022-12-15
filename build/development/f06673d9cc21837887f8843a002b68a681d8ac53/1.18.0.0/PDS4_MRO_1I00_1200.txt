@@ -2,12 +2,12 @@ PDS4 Local Data Dictionary Processing Report
 
 Configuration:
    LDDTool Version        14.1.2
-   LDD Version Id:        1.1.0.0
+   LDD Version Id:        1.2.0.0
    LDD Label Version Id:  1.24
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Thu Dec 15 23:51:10 UTC 2022
+   Time                   Thu Dec 15 23:54:36 UTC 2022
    Common Schema          [PDS4_PDS_1I00.xsd]
    Common Schematron      [PDS4_PDS_1I00.sch]
    IM Version Id:         1.18.0.0
@@ -40,7 +40,7 @@ Detailed validation messages
 
 Parsed Input - Header:
    LDD Name               MRO
-   LDD Version            1.1.0.0
+   LDD Version            1.2.0.0
    Full Name              Susan Slavney
    Steward                geo
    Namespace Id           mro
@@ -64,7 +64,7 @@ Parsed Input - Header:
         
         2022-12-06 DVP. Bumped to version 1.1.0.0 because of addition of class.
 	
-	2022-12-15 PG (pgeissler@usgs.gov) added HiRISE parameters, bumped to 1.2.0.0
+	    2022-12-15 PG (pgeissler@usgs.gov) added HiRISE parameters, bumped to 1.2.0.0
 	
     
    Last Modification Time 2022-09-27T12:13
