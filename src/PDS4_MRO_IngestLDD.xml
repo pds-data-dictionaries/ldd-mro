@@ -18,7 +18,7 @@
         The MRO dictionary contains classes that describe aspects of the 
         Mars Reconnaissance Orbiter mission and related instruments.
         
-        MRO version 1.1.0.0
+        MRO version 1.2.0.0
         PDS Build 1.18.0.0 (1I00)
         LDDTool version 14.0.13
         
@@ -33,6 +33,9 @@
         2022-12-02 DVP. Added CRISM_ATO_Parameters class.
         
         2022-12-06 DVP. Bumped to version 1.1.0.0 because of addition of class.
+	
+	2022-12-15 PG (pgeissler@usgs.gov) added HiRISE parameters, bumped to 1.2.0.0
+	
     </comment>
     <last_modification_date_time>2022-09-27T12:13</last_modification_date_time>
 
@@ -43,6 +46,14 @@
         mro:SHARAD_Parameters
             [Defined below]
         mro:CRISM_ATO_Parameters
+            [Defined below]
+	mro.HiRISE_Time_Parameters
+            [Defined below]
+	mro.HiRISE_Instrument_Setting_Parameters
+            [Defined below]
+	mro.HiRISE_Temperature_Parameters
+            [Defined below]
+	mro.HiRISE_Power_Parameters
             [Defined below]
 -->               
     <!-- Begin definitions of MRO Mission Dictionary attributes -->
@@ -845,11 +856,3189 @@
     </DD_Attribute>
 
     <!-- End attribute definitions for the CRISM_ATO_Parameters class. -->
+    
+    <!-- Attribute definitions for the HiRISE_Time_Parameters class, in alphabetical order:
 
+        readout_start_count           
+        readout_start_time            
+
+	    
+    -->
+    <DD_Attribute><name>readout_start_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.readout_start_count</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The readout_start_count attribute provides the spacecraft clock count
+     when the HiRISE CCD Process/Memory Module begins transferring image data
+     out of its buffer memory.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>readout_start_time</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.readout_start_time</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The readout_start_time attribute provides the UTC time when the HiRISE
+     CCD Process/Memory Module begins transferring image data out of buffer
+     memory.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Date_Time_YMD_UTC</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <!-- End attribute definitions for the HiRISE_Time_Parameters class. -->
+    
+     <!-- Attribute definitions for the HiRISE_Instrument_Setting_Parameters class, in alphabetical order:
+
+        adc_timing_settings_image           
+        adc_timing_settings_reset           
+        binning                       
+        channel_number                
+        cpmm_number                   
+        delta_line_timer_count        
+        dll_frequency_correct_count  
+        dll_locked_flag_01               
+        dll_locked_flag_02               
+        dll_locked_once_flag_01          
+        dll_locked_once_flag_02          
+        dll_reset_count               
+        felics_compression_flag       
+        focus_position_count          
+        heater_control_flag_01           
+        heater_control_flag_02           
+        heater_control_flag_03           
+        heater_control_flag_04           
+        heater_control_flag_05           
+        heater_control_flag_06           
+        heater_control_flag_07           
+        heater_control_flag_08           
+        heater_control_flag_09           
+        heater_control_flag_10           
+        heater_control_flag_11           
+        heater_control_flag_12           
+        heater_control_flag_13           
+        heater_control_flag_14           
+        heater_control_mode           
+        image_exposure_duration       
+        line_exposure_duration        
+        lookup_table_k_value          
+        lookup_table_maximum          
+        lookup_table_median           
+        lookup_table_minimum          
+        lookup_table_number           
+        lookup_table_type             
+        powered_cpmm_flag_01             
+        powered_cpmm_flag_02             
+        powered_cpmm_flag_03             
+        powered_cpmm_flag_04             
+        powered_cpmm_flag_05             
+        powered_cpmm_flag_06             
+        powered_cpmm_flag_07             
+        powered_cpmm_flag_08             
+        powered_cpmm_flag_09             
+        powered_cpmm_flag_10             
+        powered_cpmm_flag_11             
+        powered_cpmm_flag_12             
+        powered_cpmm_flag_13             
+        powered_cpmm_flag_14             
+        scan_exposure_duration        
+        stimulation_lamp_flag_01        
+        stimulation_lamp_flag_02        
+        stimulation_lamp_flag_03        
+        tdi                           
+        trim_lines                    
+            
+	    
+    -->
+    
+    <DD_Attribute><name>adc_timing_settings_image</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.adc_timing_settings_image</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The adc_timing_settings_image attribute provides the HiRISE Channel 0
+     analog-to-digital conversion timing settings for the readout of the video waveform.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+	     <DD_Permissible_Value>
+                <value>4</value>
+		<value_meaning>4</value_meaning>
+             </DD_Permissible_Value>
+ 	     <DD_Permissible_Value>
+                <value>5</value>
+		<value_meaning>5</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>6</value>
+		<value_meaning>6</value_meaning>
+             </DD_Permissible_Value>	     	     
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute><name>adc_timing_settings_reset</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.adc_timing_settings_reset</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The adc_timing_settings_reset attribute provides the HiRISE Channel 0
+     analog-to-digital conversion timing settings for the reset of the video waveform.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+	     <DD_Permissible_Value>
+                <value>4</value>
+		<value_meaning>4</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>5</value>
+		<value_meaning>5</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>6</value>
+		<value_meaning>6</value_meaning>
+             </DD_Permissible_Value>	     	     
+        </DD_Value_Domain>
+    </DD_Attribute> 
+    <DD_Attribute><name>binning</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.binning</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The binning element provides the HiRISE observation binning mode;
+         i.e., the number of lines binned in an observation.
+         mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+             </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+	     <DD_Permissible_Value>
+                <value>1</value>
+		<value_meaning>bin 1</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>2</value>
+		<value_meaning>bin 2</value_meaning>
+             </DD_Permissible_Value>	    
+	          <DD_Permissible_Value>
+                <value>3</value>
+		<value_meaning>bin 3</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>4</value>
+		<value_meaning>bin 4</value_meaning>
+             </DD_Permissible_Value>	  
+	          <DD_Permissible_Value>
+                <value>8</value>
+		<value_meaning>bin 8</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>16</value>
+		<value_meaning>bin 16</value_meaning>
+             </DD_Permissible_Value>	       	     
+        </DD_Value_Domain>
+    </DD_Attribute>           
+    <DD_Attribute><name>channel_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.channel_number</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The channel_number attribute provides the HiRISE CCD channel number.        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+	     <DD_Permissible_Value>
+                <value>0</value>
+		<value_meaning>channel 0</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>1</value>
+		<value_meaning>channel 1</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>cpmm_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_number</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_number attribute provides the HiRISE
+          CCD Processing/Memory Module number.
+             </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+	     <DD_Permissible_Value>
+                <value>0</value>
+		<value_meaning>Module 0</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>1</value>
+		<value_meaning>Module 1</value_meaning>
+             </DD_Permissible_Value>	    
+	      <DD_Permissible_Value>
+                <value>2</value>
+		<value_meaning>Module 2</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>3</value>
+		<value_meaning>Module 3</value_meaning>
+             </DD_Permissible_Value>	  
+	     <DD_Permissible_Value>
+                <value>4</value>
+		<value_meaning>Module 4</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>5</value>
+		<value_meaning>Module 5</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>6</value>
+		<value_meaning>Module 6</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>7</value>
+		<value_meaning>Module 7</value_meaning>
+             </DD_Permissible_Value>	    
+             <DD_Permissible_Value>
+                <value>8</value>
+		<value_meaning>Module 8</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>9</value>
+		<value_meaning>Module 9</value_meaning>
+             </DD_Permissible_Value>	  
+             <DD_Permissible_Value>
+                <value>10</value>
+		<value_meaning>Module 10</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>11</value>
+		<value_meaning>Module 11</value_meaning>
+             </DD_Permissible_Value>	
+	     <DD_Permissible_Value>
+                <value>12</value>
+		<value_meaning>Module 12</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>13</value>
+		<value_meaning>Module 13</value_meaning>
+             </DD_Permissible_Value>	       	     
+        </DD_Value_Domain>
+    </DD_Attribute> 
+    <DD_Attribute><name>delta_line_timer_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.delta_line_timer_count</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The delta_line_timer_count element provides the commanded
+        count given to the HiRISE instrument to set the scan line duration.
+        mro:scan_line_duration = 74 + mro:delta_line_timer_count/16
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+	    <minimum_value>0</minimum_value>
+            <maximum_value>16777216</maximum_value>				         	     
+        </DD_Value_Domain>
+    </DD_Attribute> 
+    <DD_Attribute><name>dll_frequency_correct_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.dll_frequency_correct_count</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The dll_frequency_correct_count attribute provides a count of
+        the number of times the HiRISE 96 MHz clock frequency was observed to
+        be correct.  This is used with the recursive Digital Lock Loop
+        reset circuit.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+	    <minimum_value>0</minimum_value>
+            <maximum_value>255</maximum_value>				         	     
+        </DD_Value_Domain>
+    </DD_Attribute>  
+    <DD_Attribute><name>dll_locked_flag_01</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.dll_locked_flag_01</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The dll_locked_flag_01 attribute provides the state of the 1st
+        96 Mhz Digital Lock Loop flag for a HiRISE observation. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>NO</value>
+		<value_meaning>Lock off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>YES</value>
+		<value_meaning>Lock on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>         
+    <DD_Attribute><name>dll_locked_flag_02</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.dll_locked_flag_02</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The dll_locked_flag_02 attribute provides the state of the 2nd
+        96 Mhz Digital Lock Loop flag for a HiRISE observation.        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>NO</value>
+		<value_meaning>Lock off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>YES</value>
+		<value_meaning>Lock on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>  
+    <DD_Attribute><name>dll_locked_once_flag_01</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.dll_locked_once_flag_01</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The dll_locked_once_flag_01 attribute indicates if the 1st Digital
+         Lock Loop ever locked during a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>NO</value>
+		<value_meaning>did not lock</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>YES</value>
+		<value_meaning>locked at least once</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>                     
+    <DD_Attribute><name>dll_locked_once_flag_02</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.dll_locked_once_flag_02</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The dll_locked_once_flag_02 attribute indicates if the 2nd Digital
+         Lock Loop ever locked during a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>NO</value>
+		<value_meaning>did not lock</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>YES</value>
+		<value_meaning>locked at least once</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>  
+    <DD_Attribute><name>dll_reset_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.dll_reset_count</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The dll_reset_count attribute provides the count of the number of
+     times during a HiRISE observation the 96 MHz Digital Lock Loop had
+     to be reset in order to lock to the incoming 48 Mhz clock and produce
+     an 96 MHz clock.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+	    <minimum_value>0</minimum_value>
+            <maximum_value>255</maximum_value>				         	     
+        </DD_Value_Domain>
+    </DD_Attribute>    
+    <DD_Attribute><name>felics_compression_flag</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.felics_compression_flag</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The felics_compression_flag element identifies whether FELICS
+        data compression was applied to a HiRISE image.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>NO</value>
+		<value_meaning>No felics compression</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>YES</value>
+		<value_meaning>felics compression applied</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>                                                       
+    <DD_Attribute><name>focus_position_count</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.focus_position_count</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The focus_position_count attribute provides the raw count of the
+        focus mechanism position in a HiRISE observation.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>				         	     
+        </DD_Value_Domain>
+    </DD_Attribute>  
+    <DD_Attribute><name>heater_control_flag_01</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_01</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_flag element is a set of 14 on/off flags
+        that indicate which of the 14 heater control areas were on at the
+        time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+		<value_meaning>heater on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+		<value_meaning>heater off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>	
+    <DD_Attribute><name>heater_control_flag_02</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_02</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_flag element is a set of 14 on/off flags
+        that indicate which of the 14 heater control areas were on at the
+        time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+		<value_meaning>heater on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+		<value_meaning>heater off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>	
+    <DD_Attribute><name>heater_control_flag_03</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_03</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_flag element is a set of 14 on/off flags
+        that indicate which of the 14 heater control areas were on at the
+        time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+		<value_meaning>heater on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+		<value_meaning>heater off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute><name>heater_control_flag_04</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_04</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_flag element is a set of 14 on/off flags
+        that indicate which of the 14 heater control areas were on at the
+        time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+		<value_meaning>heater on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+		<value_meaning>heater off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>	
+    <DD_Attribute><name>heater_control_flag_05</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_05</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_flag element is a set of 14 on/off flags
+        that indicate which of the 14 heater control areas were on at the
+        time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+		<value_meaning>heater on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+		<value_meaning>heater off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute><name>heater_control_flag_06</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_06</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_flag element is a set of 14 on/off flags
+        that indicate which of the 14 heater control areas were on at the
+        time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+		<value_meaning>heater on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+		<value_meaning>heater off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>	
+    <DD_Attribute><name>heater_control_flag_07</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_07</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_flag element is a set of 14 on/off flags
+        that indicate which of the 14 heater control areas were on at the
+        time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+		<value_meaning>heater on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+		<value_meaning>heater off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>	
+    <DD_Attribute><name>heater_control_flag_08</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_08</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_flag element is a set of 14 on/off flags
+        that indicate which of the 14 heater control areas were on at the
+        time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+		<value_meaning>heater on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+		<value_meaning>heater off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute><name>heater_control_flag_09</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_09</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_flag element is a set of 14 on/off flags
+        that indicate which of the 14 heater control areas were on at the
+        time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+		<value_meaning>heater on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+		<value_meaning>heater off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute><name>heater_control_flag_10</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_10</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_flag element is a set of 14 on/off flags
+        that indicate which of the 14 heater control areas were on at the
+        time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+		<value_meaning>heater on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+		<value_meaning>heater off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute><name>heater_control_flag_11</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_11</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_flag element is a set of 14 on/off flags
+        that indicate which of the 14 heater control areas were on at the
+        time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+		<value_meaning>heater on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+		<value_meaning>heater off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute><name>heater_control_flag_12</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_12</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_flag element is a set of 14 on/off flags
+        that indicate which of the 14 heater control areas were on at the
+        time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>heater on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>heater off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute><name>heater_control_flag_13</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_13</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_flag element is a set of 14 on/off flags
+        that indicate which of the 14 heater control areas were on at the
+        time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+		<value_meaning>heater on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+		<value_meaning>heater off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute><name>heater_control_flag_14</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_flag_14</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_flag element is a set of 14 on/off flags
+        that indicate which of the 14 heater control areas were on at the
+        time of a HiRISE observation.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+		<value_meaning>heater on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+		<value_meaning>heater off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>     
+     <DD_Attribute><name>heater_control_mode</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_control_mode</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_control_mode attribute provides the state of the HiRISE
+        heater control, either closed-loop or duty-cycle.  Normally the
+        closed-loop mode is used to keep nominal operating temperatures of the
+        instrument. A duty-cycle mode is enabled during periods of high EM
+        emissions from other MRO instruments.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>CLOSED LOOP</value>
+                <value_meaning>closed-loop mode</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>DUTY CYCLE</value>
+                <value_meaning>duty cycle mode</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>     
+    <DD_Attribute><name>image_exposure_duration</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.image_exposure_duration</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The image_exposure_duration attribute provides the total time
+        of a HiRISE observation from the start of the first line to the end
+        of the last line computed by multiplying the total number of
+        lines in the array times the line exposure duration. 
+	Units of microseconds.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>	    				         	     
+        </DD_Value_Domain>
+    </DD_Attribute>   
+    <DD_Attribute><name>line_exposure_duration</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.line_exposure_duration</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The line_exposure_duration attribute provides the time from the
+        start of exposure of one binned line to the start of exposure of
+        the next binned line in a HiRISE image. 
+	Units of microseconds.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>	    				         	     
+        </DD_Value_Domain>
+    </DD_Attribute> 
+    <DD_Attribute><name>lookup_table_k_value</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.lookup_table_k_value</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The lookup_table_k_value attribute provides the 'pixel spread'
+        value in a HiRISE image. This parameter is used only for the
+        HiRISE SQUARE-ROOT LUT table mode.  A -9998 value indicates a K
+        value was not used.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+	    <minimum_value>-9998</minimum_value>
+            <maximum_value>32</maximum_value>				         	     
+        </DD_Value_Domain>
+    </DD_Attribute>    
+    <DD_Attribute><name>lookup_table_maximum</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.lookup_table_maximum</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The lookup_table_maximum attribute provides the maximum 14-bit
+        pixel value mapped to the 254 DN 8-bit pixel in a HiRISE image.
+        This parameter is used only for the HiRISE LINEAR LUT table mode.
+        A -9998 value indicates that the maximum value was not used.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+	    <minimum_value>-9998</minimum_value>
+            <maximum_value>16384</maximum_value>				         	     
+        </DD_Value_Domain>
+    </DD_Attribute>   
+    <DD_Attribute><name>lookup_table_median</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.lookup_table_median</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The lookup_table_median attribute provides the median 14-bit
+        pixel value mapped to the 254 DN 8-bit pixel in a HiRISE image.
+        This parameter is used only for the HiRISE SQUARE-ROOT LUT table
+        mode. A -9998 value indicates that the table median value was not used.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+	    <minimum_value>-9998</minimum_value>
+            <maximum_value>16384</maximum_value>				         	     
+        </DD_Value_Domain>
+    </DD_Attribute>   
+    <DD_Attribute><name>lookup_table_minimum</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.lookup_table_minimum</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The lookup_table_minimum attribute provides the minimum 14-bit
+        pixel value mapped to the 0 DN output pixel in a HiRISE image.
+        This parameter is used only for the HiRISE LINEAR LUT table mode.
+        A -9998 value indicates that the maximum value was not used.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+	    <minimum_value>-9998</minimum_value>
+            <maximum_value>16384</maximum_value>				         	     
+        </DD_Value_Domain>
+    </DD_Attribute>     
+    <DD_Attribute><name>lookup_table_number</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.lookup_table_number</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The lookup_table_number attribute provides the number of the
+        stored LUT used in a HiRISE image. This parameter is used only for
+        the HiRISE STORED LUT table mode. A value of -9998 indicates that a
+        table number was not used.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+	    <minimum_value>-9998</minimum_value>
+            <maximum_value>28</maximum_value>				         	     
+        </DD_Value_Domain>
+    </DD_Attribute>     
+     <DD_Attribute><name>lookup_table_type</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.lookup_table_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The lookup_table_type attribute provides the type of lookup table
+        that was applied to convert 14-bit pixels to 8-bit pixels in a HiRISE
+        image.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>LINEAR</value>
+                <value_meaning>linear LUT</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>N/A</value>
+                <value_meaning>no LUT</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>SQUARE ROOT</value>
+                <value_meaning>square root LUT</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>STORED</value>
+                <value_meaning>stored LUT</value_meaning>
+             </DD_Permissible_Value>	     	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>     
+    <DD_Attribute><name>powered_cpmm_flag_01</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_01</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The powered_cpmm_flag attribute provides a set of 14 values that
+        identify which HiRISE CCD Processing/Memory Modules were commanded to
+        acquire imaging during the observation. The first element is for CPMM 0
+       and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>        
+    <DD_Attribute><name>powered_cpmm_flag_02</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_02</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The powered_cpmm_flag attribute provides a set of 14 values that
+        identify which HiRISE CCD Processing/Memory Modules were commanded to
+        acquire imaging during the observation. The first element is for CPMM 0
+       and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>        
+    <DD_Attribute><name>powered_cpmm_flag_03</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_03</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The powered_cpmm_flag attribute provides a set of 14 values that
+        identify which HiRISE CCD Processing/Memory Modules were commanded to
+        acquire imaging during the observation. The first element is for CPMM 0
+       and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>        
+    <DD_Attribute><name>powered_cpmm_flag_04</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_04</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The powered_cpmm_flag attribute provides a set of 14 values that
+        identify which HiRISE CCD Processing/Memory Modules were commanded to
+        acquire imaging during the observation. The first element is for CPMM 0
+       and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>        
+    <DD_Attribute><name>powered_cpmm_flag_05</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_05</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The powered_cpmm_flag attribute provides a set of 14 values that
+        identify which HiRISE CCD Processing/Memory Modules were commanded to
+        acquire imaging during the observation. The first element is for CPMM 0
+       and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>        
+    <DD_Attribute><name>powered_cpmm_flag_06</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_06</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The powered_cpmm_flag attribute provides a set of 14 values that
+        identify which HiRISE CCD Processing/Memory Modules were commanded to
+        acquire imaging during the observation. The first element is for CPMM 0
+       and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>        
+    <DD_Attribute><name>powered_cpmm_flag_07</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_07</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The powered_cpmm_flag attribute provides a set of 14 values that
+        identify which HiRISE CCD Processing/Memory Modules were commanded to
+        acquire imaging during the observation. The first element is for CPMM 0
+       and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>        
+    <DD_Attribute><name>powered_cpmm_flag_08</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_08</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The powered_cpmm_flag attribute provides a set of 14 values that
+        identify which HiRISE CCD Processing/Memory Modules were commanded to
+        acquire imaging during the observation. The first element is for CPMM 0
+       and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>        
+    <DD_Attribute><name>powered_cpmm_flag_09</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_09</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The powered_cpmm_flag attribute provides a set of 14 values that
+        identify which HiRISE CCD Processing/Memory Modules were commanded to
+        acquire imaging during the observation. The first element is for CPMM 0
+       and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>        
+    <DD_Attribute><name>powered_cpmm_flag_10</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_10</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The powered_cpmm_flag attribute provides a set of 14 values that
+        identify which HiRISE CCD Processing/Memory Modules were commanded to
+        acquire imaging during the observation. The first element is for CPMM 0
+       and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>        
+    <DD_Attribute><name>powered_cpmm_flag_11</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_11</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The powered_cpmm_flag attribute provides a set of 14 values that
+        identify which HiRISE CCD Processing/Memory Modules were commanded to
+        acquire imaging during the observation. The first element is for CPMM 0
+       and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>        
+    <DD_Attribute><name>powered_cpmm_flag_12</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_12</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The powered_cpmm_flag attribute provides a set of 14 values that
+        identify which HiRISE CCD Processing/Memory Modules were commanded to
+        acquire imaging during the observation. The first element is for CPMM 0
+       and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>        
+    <DD_Attribute><name>powered_cpmm_flag_13</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_13</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The powered_cpmm_flag attribute provides a set of 14 values that
+        identify which HiRISE CCD Processing/Memory Modules were commanded to
+        acquire imaging during the observation. The first element is for CPMM 0
+       and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>        
+    <DD_Attribute><name>powered_cpmm_flag_14</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.powered_cpmm_flag_14</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The powered_cpmm_flag attribute provides a set of 14 values that
+        identify which HiRISE CCD Processing/Memory Modules were commanded to
+        acquire imaging during the observation. The first element is for CPMM 0
+       and the last element is for CPMM 13.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>CPMM powered off</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>CPMM powered on</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>        
+    <DD_Attribute><name>scan_exposure_duration</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.scan_exposure_duration</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The scan_exposure_duration attribute provides the
+        unbinned line readout rate of the HiRISE instrument in microseconds.
+        This corresponds to the time between successive steps in the
+        Time Delay Integration (TDI) process. The adjustment of this
+        parameter is used to match image line acquisition to the
+        boresight ground velocity.  The value is the same for all
+        CCDs for a given observation.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+	    <minimum_value>74</minimum_value>
+            <maximum_value>1048650</maximum_value>
+	    <unit_of_measure_type>Units_of_Time</unit_of_measure_type>				         	     
+        </DD_Value_Domain>
+    </DD_Attribute>     
+    <DD_Attribute><name>stimulation_lamp_flag_01</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.stimulation_lamp_flag_01</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The stimulation_lamp_flag attribute is a set of three flags that
+        identify which of the three HiRISE stimulation lamps have been turned
+        on or off. Stimulation lamps are used to evaluate relative changes in
+        instrument calibration throughout the mission.  Stimulation lamps are
+        always turned off for science observation data.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>stim lamp on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>stim lamp off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>      
+    <DD_Attribute><name>stimulation_lamp_flag_02</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.stimulation_lamp_flag_02</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The stimulation_lamp_flag attribute is a set of three flags that
+        identify which of the three HiRISE stimulation lamps have been turned
+        on or off. Stimulation lamps are used to evaluate relative changes in
+        instrument calibration throughout the mission.  Stimulation lamps are
+        always turned off for science observation data.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>stim lamp on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>stim lamp off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>      
+    <DD_Attribute><name>stimulation_lamp_flag_03</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.stimulation_lamp_flag_03</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The stimulation_lamp_flag attribute is a set of three flags that
+        identify which of the three HiRISE stimulation lamps have been turned
+        on or off. Stimulation lamps are used to evaluate relative changes in
+        instrument calibration throughout the mission.  Stimulation lamps are
+        always turned off for science observation data.        
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+	     <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>stim lamp on</value_meaning>
+             </DD_Permissible_Value>
+	     <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>stim lamp off</value_meaning>
+             </DD_Permissible_Value>	         	     
+        </DD_Value_Domain>													
+    </DD_Attribute>      
+    <DD_Attribute><name>tdi</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.tdi</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The tdi attribute provides the number of time delay and
+        integration (TDI) stages used to increase the exposure time
+        of a HiRISE observation.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+	    <minimum_value>8</minimum_value>
+            <maximum_value>128</maximum_value>				         	     
+        </DD_Value_Domain>
+    </DD_Attribute>      
+    <DD_Attribute><name>trim_lines</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.trim_lines</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The trim_lines attribute provides the number of lines that have
+        been trimmed at the beginning of a HiRISE observation.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+	    <minimum_value>0</minimum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>      
+    
+     <!-- End attribute definitions for the HiRISE_Instrument_Setting_Parameters class -->
+    
+    
+     <!-- Attribute definitions for the HiRISE_Temperature_Parameters class, in alphabetical order:
+
+        barrel_baffle_temperature     
+        cpmm_pws_board_temperature    
+        field_stop_temperature        
+        focus_motor_temperature       
+        fpa_negative_y_temperature    
+        fpa_positive_y_temperature    
+        (fpe_temperature ALREADY DEFINED ABOVE)             
+        iea_temperature               
+        ie_pws_board_temperature      
+        inst_cont_board_temperature     
+        mech_tlm_board_temperature    
+        ms_truss_leg_0_a_temperature  
+        ms_truss_leg_0_b_temperature  
+        ms_truss_leg_120_a_temperature
+        ms_truss_leg_120_b_temperature
+        ms_truss_leg_240_a_temperature
+        ms_truss_leg_240_b_temperature
+        opt_bnch_box_beam_temperature 
+        opt_bnch_cover_temperature    
+        opt_bnch_flexure_temperature  
+        opt_bnch_fold_flat_temperature
+        opt_bnch_fpa_temperature      
+        opt_bnch_fpe_temperature      
+        opt_bnch_living_rm_temperature
+        opt_bnch_mirror_temperature   
+        primary_mirror_baf_temperature
+        primary_mirror_mnt_temperature
+        primary_mirror_temperature    
+        sec_mirror_baffle_temperature 
+        sec_mirror_mtr_rng_temperature
+        sec_mirror_temperature        
+        spider_leg_150_temperature    
+        spider_leg_270_temperature    
+        spider_leg_30_temperature     
+        sun_shade_temperature         
+
+
+
+      --> 
+    <DD_Attribute><name>barrel_baffle_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.barrel_baffle_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The barrel_baffle_temperature attribute provides the temperature
+        of the HiRISE instrument's barrel baffle in degrees Centigrade.
+        See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>      
+    <DD_Attribute><name>cpmm_pws_board_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_pws_board_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_pws_board_temperature attribute provides the temperature
+        of the HiRISE instrument's CCD Processing/Memory Module Power Supply
+        Board in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS,
+        REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>field_stop_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.field_stop_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The field_stop_temperature attribute provides the temperature
+        of the HiRISE instrument's focus mechanism field stop in degrees
+        Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>focus_motor_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.focus_motor_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The focus_motor_temperature attribute provides the temperature
+        of the HiRISE instrument's focus mirror in degrees Centigrade.
+        See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>fpa_negative_y_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.fpa_negative_y_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The fpa_negative_y_temperature attribute provides the temperature
+        of the HiRISE instrument's Focal Plane Array -Y location in
+        degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID
+        JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>fpa_positive_y_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.fpa_positive_y_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The fpa_positive_y_temperature attribute provides the temperature
+        of the HiRISE instrument's Focal Plane Array  +Y side location in
+        degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID
+        JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>iea_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.iea_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The iea_temperature attribute provides the temperature of the
+        HiRISE instrument's Instrument Electronics Assembly in degrees
+        Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>ie_pws_board_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ie_pws_board_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The ie_pws_board_temperature attribute provides the temperature
+        of the HiRISE instrument's Instrument Electronics Power Supply
+        Board in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS,
+        REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>inst_cont_board_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.inst_cont_board_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The inst_cont_board_temperature attribute provides the temperature
+        of the HiRISE instrument control board in degrees Centigrade.
+        See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>mech_tlm_board_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.mech_tlm_board_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The mech_tlm_board_temperature attribute provides the temperature
+        of the HiRISE instrument's Mech/TLM Board in degrees Centigrade.
+        See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>ms_truss_leg_0_a_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ms_truss_leg_0_a_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The ms_truss_leg_0_a_temperature attribute provides the
+        temperature of the HiRISE instrument's metering structure
+        truss 0-A leg in degrees Centigrade. See Figure 2.3, MRO
+        HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>ms_truss_leg_0_b_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ms_truss_leg_0_b_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The ms_truss_leg_0_b_temperature attribute provides the
+        temperature of the HiRISE instrument's metering structure
+        truss 0-B leg in degrees Centigrade. See Figure 2.3, MRO
+        HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>ms_truss_leg_120_a_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ms_truss_leg_120_a_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The ms_truss_leg_120_a_temperature attribute provides the
+        temperature of the HiRISE instrument's metering structure
+        truss 120-A leg in degrees Centigrade. See Figure 2.3, MRO
+        HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>ms_truss_leg_120_b_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ms_truss_leg_120_b_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The ms_truss_leg_120_b_temperature attribute provides the
+        temperature of the HiRISE instrument's metering structure
+        truss 120-B leg in degrees Centigrade. See Figure 2.3, MRO
+        HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>ms_truss_leg_240_a_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ms_truss_leg_240_a_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The ms_truss_leg_240_a_temperature attribute provides the
+        temperature of the HiRISE instrument's metering structure
+        truss 240-A leg in degrees Centigrade. See Figure 2.3, MRO
+        HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>ms_truss_leg_240_b_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.ms_truss_leg_240_b_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The ms_truss_leg_240_b_temperature attribute provides the
+        temperature of the HiRISE instrument's metering structure
+        truss 240-B leg in degrees Centigrade. See Figure 2.3, MRO
+        HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>opt_bnch_box_beam_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.opt_bnch_box_beam_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The opt_bnch_box_beam_temperature attribute provides the temperature
+        of the HiRISE instrument's optical bench near the box beam (+Y face)
+        in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID
+        JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>opt_bnch_cover_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.opt_bnch_cover_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The opt_bnch_cover_temperature attribute provides the temperature
+        of the HiRISE instrument's optical bench cover (external) in degrees
+        Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>opt_bnch_flexure_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.opt_bnch_flexure_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The opt_bnch_flexure_temperature attribute provides the temperature
+        of the HiRISE instrument's optical bench near the +X MDR flexure in
+        degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID
+        JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>opt_bnch_fold_flat_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.opt_bnch_fold_flat_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The opt_bnch_fold_flat_temperature attribute provides the
+        temperature of the HiRISE instrument's optical fold flat mirror
+        location in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR
+        SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>opt_bnch_fpa_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.opt_bnch_fpa_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The opt_bnch_fpa_temperature attribute provides the temperature
+        of the HiRISE instrument's optical bench near the Focal Plane
+        Array in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR
+        SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>opt_bnch_fpe_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.opt_bnch_fpe_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The opt_bnch_fpe_temperature attribute provides the temperature
+        of the HiRISE instrument's optical bench near the Focal Plane
+        Electronics in degrees Centigrade. See Figure 2.3, MRO HiRISE
+        EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>opt_bnch_living_rm_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.opt_bnch_living_rm_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The opt_bnch_living_rm_temperature attribute provides the
+        temperature of the HiRISE instrument's optical bench in the
+        sunken living room location in degrees Centigrade. See Figure
+        2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>opt_bnch_mirror_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.opt_bnch_mirror_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The opt_bnch_mirror_temperature attribute provides the temperature
+        of the HiRISE instrument's optical bench near the tertiary mirror
+        in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS,
+        REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>primary_mirror_baf_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.primary_mirror_baf_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The primary_mirror_baf_temperature attribute provides the
+        temperature of the HiRISE instrument's primary mirror baffle
+        near the base (external) in degrees Centigrade. See Figure 2.3,
+        MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>primary_mirror_mnt_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.primary_mirror_mnt_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The primary_mirror_mnt_temperature attribute provides the temperature
+        of the HiRISE instrument's primary mirror mount in degrees Centigrade.
+        See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>             
+    <DD_Attribute><name>primary_mirror_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.primary_mirror_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The primary_mirror_temperature attribute provides the
+        temperature of the HiRISE instrument's primary mirror
+        at its maximum thickness in degrees Centigrade. See
+        Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>sec_mirror_baffle_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.sec_mirror_baffle_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The sec_mirror_baffle_temperature attribute provides the
+        temperature of the HiRISE instrument's secondary mirror
+        baffle near the base (external) in degrees Centigrade.
+        See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>sec_mirror_mtr_rng_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.sec_mirror_mtr_rng_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The sec_mirror_mtr_rng_temperature attribute provides the
+        temperature of the HiRISE instrument's secondary mirror
+        metering ring in degrees Centigrade. See Figure 2.3, MRO
+        HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>sec_mirror_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.sec_mirror_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The sec_mirror_temperature attribute provides the temperature
+        of the HiRISE instrument's secondary mirror in degrees Centigrade.
+        See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>spider_leg_150_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.spider_leg_150_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The spider_leg_150_temperature attribute provides the
+        temperature of the HiRISE instrument's spider leg at the
+        150 degree location in degrees Centigrade. See Figure 2.3,
+        MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>spider_leg_270_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.spider_leg_270_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The spider_leg_270_temperature attribute provides the
+        temperature of the HiRISE instrument's spider leg at the
+        270 degree location in degrees Centigrade. See Figure 2.3,
+        MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>spider_leg_30_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.spider_leg_30_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The spider_leg_30_temperature attribute provides the
+        temperature of the HiRISE instrument's spider leg at the
+        30 degree location in degrees Centigrade. See Figure 2.3,
+        MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>sun_shade_temperature</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.sun_shade_temperature</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The sun_shade_temperature attribute provides the temperature of
+       the HiRISE instrument's sun shade under the MLI in degrees Centigrade.
+       See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Temperature</unit_of_measure_type>
+            <specified_unit_id>C</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+
+    
+     <!-- End of attribute definitions for the HiRISE_Temperature_Parameters class  -->
+
+
+
+    
+     <!-- Attribute definitions for the HiRISE_Power_Parameters class, in alphabetical order:
+
+
+        cpmm_negative_5_current       
+        cpmm_negative_5_voltage       
+        cpmm_positive_10_current      
+        cpmm_positive_10_voltage      
+        cpmm_positive_1_8_current     
+        cpmm_positive_1_8_voltage     
+        cpmm_positive_2_5_current     
+        cpmm_positive_2_5_voltage     
+        cpmm_positive_29_current      
+        cpmm_positive_29_voltage      
+        cpmm_positive_3_3_current     
+        cpmm_positive_3_3_voltage     
+        cpmm_positive_5_current       
+        cpmm_positive_5_voltage       
+        heater_current                
+        iea_negative_15_voltage       
+        iea_positive_15_voltage       
+        iea_positive_28_voltage       
+        iea_positive_5_voltage        
+        inst_cont_fpga_pos_2_5_voltage
+        mech_tlm_fpga_pos_2_5_voltage 
+
+
+     -->
+
+
+    <DD_Attribute><name>cpmm_negative_5_current</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_negative_5_current</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_negative_5_current attribute provides the negative 5
+        current of the HiRISE CCD Processing/Memory Module.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Current</unit_of_measure_type>
+            <specified_unit_id>A</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>cpmm_negative_5_voltage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_negative_5_voltage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_negative_5_voltage attribute provides the negative
+        5 voltage state of the HiRISE CCD Processing/Memory Module.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+            <specified_unit_id>V</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>cpmm_positive_10_current</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_positive_10_current</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_positive_10_current attribute provides the positive 10
+        current of the HiRISE CCD Processing/Memory Module.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Current</unit_of_measure_type>
+            <specified_unit_id>A</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>cpmm_positive_10_voltage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_positive_10_voltage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_positive_10_voltage attribute provides the positive 10
+        voltage state of the HiRISE CCD Processing/Memory Module.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+            <specified_unit_id>V</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>cpmm_positive_1_8_current</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_positive_1_8_current</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_positive_1_8_current attribute provides the positive 1_8
+        current of the HiRISE CCD Processing/Memory Module.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Current</unit_of_measure_type>
+            <specified_unit_id>A</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>cpmm_positive_1_8_voltage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_positive_1_8_voltage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_positive_1_8_voltage attribute provides the positive 1_8
+        voltage state of the HiRISE CCD Processing/Memory Module.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+            <specified_unit_id>V</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>cpmm_positive_2_5_current</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_positive_2_5_current</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_positive_2_5_current attribute provides the positive 2_5
+        current of the HiRISE CCD Processing/Memory Module.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Current</unit_of_measure_type>
+            <specified_unit_id>A</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>cpmm_positive_2_5_voltage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_positive_2_5_voltage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_positive_2_5_voltage attribute provides the positive 2_5
+        voltage state of the HiRISE CCD Processing/Memory Module.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+            <specified_unit_id>V</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>cpmm_positive_29_current</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_positive_29_current</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_positive_29_current attribute provides the positive 29
+        current of the HiRISE CCD Processing/Memory Module.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Current</unit_of_measure_type>
+            <specified_unit_id>A</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>cpmm_positive_29_voltage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_positive_29_voltage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_positive_29_voltage attribute provides the positive 29
+        voltage state of the HiRISE CCD Processing/Memory Module.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+            <specified_unit_id>V</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>cpmm_positive_3_3_current</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_positive_3_3_current</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_positive_3_3_current attribute provides the positive 3_3
+        current of the HiRISE CCD Processing/Memory Module.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Current</unit_of_measure_type>
+            <specified_unit_id>A</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>cpmm_positive_3_3_voltage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_positive_3_3_voltage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_positive_3_3_voltage attribute provides the positive 3_3
+        voltage state of the HiRISE CCD Processing/Memory Module.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+            <specified_unit_id>V</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>cpmm_positive_5_current</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_positive_5_current</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_positive_5_current attribute provides the positive 5
+        current of the HiRISE CCD Processing/Memory Module.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Current</unit_of_measure_type>
+            <specified_unit_id>A</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>cpmm_positive_5_voltage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.cpmm_positive_5_voltage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The cpmm_positive_5_voltage attribute provides the positive 5
+        voltage state of the HiRISE CCD Processing/Memory Module.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+            <specified_unit_id>V</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>heater_current</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.heater_current</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The heater_current attribute provides the HiRISE heater current
+        in amps.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Current</unit_of_measure_type>
+            <specified_unit_id>A</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>iea_negative_15_voltage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.iea_negative_15_voltage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The iea_negative_15_voltage attribute provides the negative
+        15 voltage state of the HiRISE Interface Electronics Assembly.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+            <specified_unit_id>V</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>iea_positive_15_voltage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.iea_positive_15_voltage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The iea_positive_15_voltage attribute provides the positive
+        15 voltage state of the HiRISE Interface Electronics Assembly.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+            <specified_unit_id>V</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>iea_positive_28_voltage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.iea_positive_28_voltage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The iea_positive_28_voltage attribute provides the positive
+        28 voltage state of the HiRISE Interface Electronics Assembly.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+            <specified_unit_id>V</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>iea_positive_5_voltage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.iea_positive_5_voltage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The iea_positive_5_voltage attribute provides the positive
+        5 voltage state of the HiRISE Interface Electronics Assembly.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+            <specified_unit_id>V</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>inst_cont_fpga_pos_2_5_voltage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.inst_cont_fpga_pos_2_5_voltage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The inst_cont_fpga_pos_2_5_voltage attribute provides the
+        positive 2_5 voltage state of the HiRISE instrument control
+        Field-Programmable Gate Array.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+            <specified_unit_id>V</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+    <DD_Attribute><name>mech_tlm_fpga_pos_2_5_voltage</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.mech_tlm_fpga_pos_2_5_voltage</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>IMG</submitter_name>
+        <definition>
+	The mech_tlm_fpga_pos_2_5_voltage attribute provides the
+        positive 2_5 voltage state of the HiRISE Mech/TLM Field-Programmable
+        Gate Array.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Voltage</unit_of_measure_type>
+            <specified_unit_id>V</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>       
+
+
+<!-- End attribute definitions for the HiRISE_Power_Parameters class -->
+
+     
+     
+    
 <!-- END OF ATTRIBUTE DEFINITIONS -->
     
 <!-- BEGINNING OF CLASS DEFINITIONS -->
 <!-- Class definitions are in order from innermost to outermost -->
+
+    
+    <!-- Beginning of HiRISE_Time_Parameters definition with attributes in the order as they appear in the label -->
+    <DD_Class> <name>HiRISE_Time_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.HiRISE_Time_Parameters</local_identifier>
+        <submitter_name>IMG</submitter_name>
+        <definition>The HiRISE_Time_Parameters class contains attributes specific to HiRISE EDRs.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mro.readout_start_time</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.readout_start_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>	
+    </DD_Class>    
+    <!-- End of HiRISE_Time_Parameters Class definition -->
+    
+    
+    <!-- Beginning of HiRISE_Instrument_Setting_Parameters definition with attributes in the order as they appear in the label -->
+    <DD_Class> <name>HiRISE_Instrument_Setting_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.HiRISE_Instrument_Setting_Parameters</local_identifier>
+        <submitter_name>IMG</submitter_name>
+        <definition>The HiRISE_Instrument_Setting_Parameters class contains attributes specific to HiRISE EDRs.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.channel_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.scan_exposure_duration</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.line_exposure_duration</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.image_exposure_duration</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.delta_line_timer_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_01</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_02</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_03</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_04</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_05</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_06</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_07</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_08</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_09</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_10</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_11</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_12</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_13</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.powered_cpmm_flag_14</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.binning</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.tdi</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.trim_lines</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.focus_position_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.felics_compression_flag</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.stimulation_lamp_flag</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_mode</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_01</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_02</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_03</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_04</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_05</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_06</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_07</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_08</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_09</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_10</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_11</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_12</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_13</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_control_flag_14</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.lookup_table_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.lookup_table_minimum</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.lookup_table_maximum</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.lookup_table_median</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.lookup_table_k_value</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.lookup_table_number</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.adc_timing_settings_image</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.adc_timing_settings_reset</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.dll_locked_flag_01</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.dll_locked_flag_02</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.dll_locked_once_flag_01</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.dll_locked_once_flag_02</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.dll_reset_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.dll_frequency_correct_count</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+		
+    </DD_Class>    
+    <!-- End of HiRISE_Instrument_Setting_Parameters Class definition -->
+    
+    
+    <!-- Beginning of HiRISE_Temperature_Parameters definition with attributes in the order as they appear in the label -->
+    <DD_Class> <name>HiRISE_Temperature_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.HiRISE_Temperature_Parameters</local_identifier>
+        <submitter_name>IMG</submitter_name>
+        <definition>The HiRISE_Temperature_Parameters class contains attributes specific to HiRISE EDRs.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mro.opt_bnch_flexure_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.opt_bnch_mirror_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.opt_bnch_fold_flat_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.opt_bnch_fpe_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.opt_bnch_living_rm_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.opt_bnch_box_beam_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.opt_bnch_cover_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.field_stop_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.fpa_positive_y_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.fpa_negative_y_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.fpe_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.primary_mirror_mnt_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.primary_mirror_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.primary_mirror_baf_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ms_truss_leg_0_a_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ms_truss_leg_0_b_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ms_truss_leg_120_a_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ms_truss_leg_120_b_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ms_truss_leg_240_a_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ms_truss_leg_240_b_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.barrel_baffle_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.sun_shade_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.spider_leg_30_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.spider_leg_150_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.spider_leg_270_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.sec_mirror_mtr_rng_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.sec_mirror_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.sec_mirror_baffle_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.iea_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.focus_motor_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.ie_pws_board_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_pws_board_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.mech_tlm_board_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.inst_cont_board_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+
+    </DD_Class>    
+    <!-- End of HiRISE_Temperature_Parameters Class definition -->
+             
+    <!-- Beginning of HiRISE_Power_Parameters definition with attributes in the order as they appear in the label -->
+    <DD_Class> <name>HiRISE_Power_Parameters</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.HiRISE_Power_Parameters</local_identifier>
+        <submitter_name>IMG</submitter_name>
+        <definition>The HiRISE_Power_Parameters class contains attributes specific to HiRISE EDRs.</definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_positive_29_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_positive_29_current</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_positive_10_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_positive_10_current</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_positive_5_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_positive_5_current</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_positive_3_3_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_positive_3_3_current</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_positive_2_5_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_positive_2_5_current</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_positive_1_8_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_positive_1_8_current</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_negative_5_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.cpmm_negative_5_current</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.heater_current</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.inst_cont_fpga_pos_2_5_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.mech_tlm_fpga_pos_2_5_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.iea_positive_28_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.iea_negative_15_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.iea_positive_15_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.iea_positive_5_voltage</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+		
+    </DD_Class>    
+    <!-- End of HiRISE_Power_Parameters Class definition -->
+
 
     <!-- Beginning of CRISM_Temperatures class definition with attributes in order as they appear in the label -->
     <DD_Class> <name>CRISM_Temperatures</name>
@@ -1142,6 +4331,30 @@
         <DD_Association>
             <identifier_reference>mro.producer_institution_name</identifier_reference>
             <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.HiRISE_Time_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.HiRISE_Instrument_Setting_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.HiRISE_Temperature_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.HiRISE_Power_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
