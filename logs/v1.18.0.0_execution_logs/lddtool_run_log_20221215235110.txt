@@ -3,13 +3,11 @@
 >>  INFO IM Version Id: 1.18.0.0
 >>  INFO IM Namespace Id: pds
 >>  INFO IM Label Version Id: 1.24
->>  INFO Date: Thu Dec 15 23:34:29 UTC 2022
+>>  INFO Date: Thu Dec 15 23:51:10 UTC 2022
 >>  INFO PARENT_DIR: /tmp/lddtool-14.1.2
 >>  INFO SCRIPT_DIR: /tmp/lddtool-14.1.2/bin
 >>  INFO LIB_DIR: /tmp/lddtool-14.1.2/lib
 
->>> ERROR Class:0001_NASA_PDS_1.mro.HiRISE_Instrument_Setting_Parameters  Association:mro.stimulation_lamp_flag  Attribute: mro.stimulation_lamp_flag - Missing Attribute
->>> ERROR Association: mro.stimulation_lamp_flag - Could not find referenced attribute - Reference Type: attribute_of
 >>> INFO Init:  - Config.Properties Namespace Id Found:mro
 >>> INFO Init:  - Config.Properties Namespace Id Using:mro
 >>> INFO Init:  - LDD Dictionary_Type is Mission
@@ -56,14 +54,11 @@
 >>> INFO Attribute: <tdi> - The default maximum value provided by the attribute's data type is being overridden with 128
 >>> INFO Attribute: <trim_lines> - The default minimum value provided by the attribute's data type is being overridden with 0
 >>> WARNING Attribute: <opt_bnch_fpa_temperature> - This local attribute was not used in an Association.
->>> WARNING Attribute: <stimulation_lamp_flag_01> - This local attribute was not used in an Association.
->>> WARNING Attribute: <stimulation_lamp_flag_02> - This local attribute was not used in an Association.
->>> WARNING Attribute: <stimulation_lamp_flag_03> - This local attribute was not used in an Association.
 >>> WARNING Attribute: <array_unit> - The terms 'unit', 'units', 'unit_of_measure' should not be used as the rightmost part of an attribute's name.
 
  -- LDDTool Execution Summary --
-     5 warning(s)
-     2 error(s)
+     2 warning(s)
+     0 error(s)
      0 fatal error(s)
 
 Input:
@@ -83,4 +78,4 @@ Output:
      - ./PDS4_MRO_1I00_1100.xml
      - ./PDS4_MRO_1I00_1100.JSON
 
->>  INFO Exit(1)
+>>  INFO Exit(0)
