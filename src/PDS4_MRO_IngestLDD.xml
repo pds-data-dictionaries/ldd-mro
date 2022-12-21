@@ -11,7 +11,7 @@
     <name>MRO</name>
     <ldd_version_id>1.2.0.0</ldd_version_id>
     <dictionary_type>Mission</dictionary_type>
-    <full_name>Susan Slavney</full_name>
+    <full_name>Jennifer Ward</full_name>
     <steward_id>geo</steward_id>
     <namespace_id>mro</namespace_id>
     <comment>
@@ -34,27 +34,28 @@
         
         2022-12-06 DVP. Bumped to version 1.1.0.0 because of addition of class.
 	
-	    2022-12-15 PG (pgeissler@usgs.gov) added HiRISE parameters, bumped to 1.2.0.0
+	    2022-12-20 PG (pgeissler@usgs.gov) added HiRISE parameters, bumped to 1.2.0.0
 	
     </comment>
-    <last_modification_date_time>2022-09-27T12:13</last_modification_date_time>
+    <last_modification_date_time>2022-12-20T17:11</last_modification_date_time>
 
 <!--Hierarchy of classes and attributes 
     mro:MRO_Parameters
+        mro.HiRISE_Time_Parameters
+            [Defined below]
+        mro.HiRISE_Instrument_Setting_Parameters
+            [Defined below]
+        mro.HiRISE_Temperature_Parameters
+            [Defined below]
+        mro.HiRISE_Power_Parameters
+            [Defined below]
         mro:CRISM_Parameters
             [Defined below]
         mro:SHARAD_Parameters
             [Defined below]
         mro:CRISM_ATO_Parameters
             [Defined below]
-	mro.HiRISE_Time_Parameters
-            [Defined below]
-	mro.HiRISE_Instrument_Setting_Parameters
-            [Defined below]
-	mro.HiRISE_Temperature_Parameters
-            [Defined below]
-	mro.HiRISE_Power_Parameters
-            [Defined below]
+
 -->               
     <!-- Begin definitions of MRO Mission Dictionary attributes -->
     <!-- Attributes for the MRO_Parameters class, in alphabetical order:
@@ -4216,7 +4217,7 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
     </DD_Class>
-    <!-- End of CRISM_Parameters Class definition -->
+    <!-- End of CRISM_ATO_Parameters Class definition -->
 
     <!-- Beginning of Array_Sampled Class definition with attributes in the order as they appear in the label -->    
     <DD_Class> <name>Array_Sampled</name>
