@@ -4,7 +4,7 @@
       "Title": "PDS4 Data Dictionary" ,
       "IM Version": "1.18.0.0" ,
       "LDD Version": "1.2.0.0" ,
-      "Date": "2022-12-20T16:14:45" ,
+      "Date": "2022-12-22T15:22:02" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
       "namespaces": ["pds:", "mro:"] ,
       "classDictionary": [
@@ -4864,13 +4864,13 @@
           , "PermissibleValueList": [
               {"PermissibleValue": {
                   "value": "OFF" ,
-                  "valueMeaning": "CPMM powered on" ,
+                  "valueMeaning": "CPMM powered off" ,
                   "isDeprecated": "false"
                 }
              }
             , {"PermissibleValue": {
                   "value": "ON" ,
-                  "valueMeaning": "CPMM powered off" ,
+                  "valueMeaning": "CPMM powered on" ,
                   "isDeprecated": "false"
                 }
              }
@@ -4903,13 +4903,13 @@
           , "PermissibleValueList": [
               {"PermissibleValue": {
                   "value": "OFF" ,
-                  "valueMeaning": "CPMM powered on" ,
+                  "valueMeaning": "CPMM powered off" ,
                   "isDeprecated": "false"
                 }
              }
             , {"PermissibleValue": {
                   "value": "ON" ,
-                  "valueMeaning": "CPMM powered off" ,
+                  "valueMeaning": "CPMM powered on" ,
                   "isDeprecated": "false"
                 }
              }
@@ -4942,13 +4942,13 @@
           , "PermissibleValueList": [
               {"PermissibleValue": {
                   "value": "OFF" ,
-                  "valueMeaning": "CPMM powered on" ,
+                  "valueMeaning": "CPMM powered off" ,
                   "isDeprecated": "false"
                 }
              }
             , {"PermissibleValue": {
                   "value": "ON" ,
-                  "valueMeaning": "CPMM powered off" ,
+                  "valueMeaning": "CPMM powered on" ,
                   "isDeprecated": "false"
                 }
              }
@@ -4981,13 +4981,13 @@
           , "PermissibleValueList": [
               {"PermissibleValue": {
                   "value": "OFF" ,
-                  "valueMeaning": "CPMM powered on" ,
+                  "valueMeaning": "CPMM powered off" ,
                   "isDeprecated": "false"
                 }
              }
             , {"PermissibleValue": {
                   "value": "ON" ,
-                  "valueMeaning": "CPMM powered off" ,
+                  "valueMeaning": "CPMM powered on" ,
                   "isDeprecated": "false"
                 }
              }
@@ -5020,13 +5020,13 @@
           , "PermissibleValueList": [
               {"PermissibleValue": {
                   "value": "OFF" ,
-                  "valueMeaning": "CPMM powered on" ,
+                  "valueMeaning": "CPMM powered off" ,
                   "isDeprecated": "false"
                 }
              }
             , {"PermissibleValue": {
                   "value": "ON" ,
-                  "valueMeaning": "CPMM powered off" ,
+                  "valueMeaning": "CPMM powered on" ,
                   "isDeprecated": "false"
                 }
              }
@@ -5059,13 +5059,13 @@
           , "PermissibleValueList": [
               {"PermissibleValue": {
                   "value": "OFF" ,
-                  "valueMeaning": "CPMM powered on" ,
+                  "valueMeaning": "CPMM powered off" ,
                   "isDeprecated": "false"
                 }
              }
             , {"PermissibleValue": {
                   "value": "ON" ,
-                  "valueMeaning": "CPMM powered off" ,
+                  "valueMeaning": "CPMM powered on" ,
                   "isDeprecated": "false"
                 }
              }
@@ -5098,13 +5098,13 @@
           , "PermissibleValueList": [
               {"PermissibleValue": {
                   "value": "OFF" ,
-                  "valueMeaning": "CPMM powered on" ,
+                  "valueMeaning": "CPMM powered off" ,
                   "isDeprecated": "false"
                 }
              }
             , {"PermissibleValue": {
                   "value": "ON" ,
-                  "valueMeaning": "CPMM powered off" ,
+                  "valueMeaning": "CPMM powered on" ,
                   "isDeprecated": "false"
                 }
              }
@@ -5137,13 +5137,13 @@
           , "PermissibleValueList": [
               {"PermissibleValue": {
                   "value": "OFF" ,
-                  "valueMeaning": "CPMM powered on" ,
+                  "valueMeaning": "CPMM powered off" ,
                   "isDeprecated": "false"
                 }
              }
             , {"PermissibleValue": {
                   "value": "ON" ,
-                  "valueMeaning": "CPMM powered off" ,
+                  "valueMeaning": "CPMM powered on" ,
                   "isDeprecated": "false"
                 }
              }
@@ -5176,13 +5176,13 @@
           , "PermissibleValueList": [
               {"PermissibleValue": {
                   "value": "OFF" ,
-                  "valueMeaning": "CPMM powered on" ,
+                  "valueMeaning": "CPMM powered off" ,
                   "isDeprecated": "false"
                 }
              }
             , {"PermissibleValue": {
                   "value": "ON" ,
-                  "valueMeaning": "CPMM powered off" ,
+                  "valueMeaning": "CPMM powered on" ,
                   "isDeprecated": "false"
                 }
              }
@@ -5215,13 +5215,13 @@
           , "PermissibleValueList": [
               {"PermissibleValue": {
                   "value": "OFF" ,
-                  "valueMeaning": "CPMM powered on" ,
+                  "valueMeaning": "CPMM powered off" ,
                   "isDeprecated": "false"
                 }
              }
             , {"PermissibleValue": {
                   "value": "ON" ,
-                  "valueMeaning": "CPMM powered off" ,
+                  "valueMeaning": "CPMM powered on" ,
                   "isDeprecated": "false"
                 }
              }
@@ -5254,13 +5254,13 @@
           , "PermissibleValueList": [
               {"PermissibleValue": {
                   "value": "OFF" ,
-                  "valueMeaning": "CPMM powered on" ,
+                  "valueMeaning": "CPMM powered off" ,
                   "isDeprecated": "false"
                 }
              }
             , {"PermissibleValue": {
                   "value": "ON" ,
-                  "valueMeaning": "CPMM powered off" ,
+                  "valueMeaning": "CPMM powered on" ,
                   "isDeprecated": "false"
                 }
              }
@@ -5293,13 +5293,13 @@
           , "PermissibleValueList": [
               {"PermissibleValue": {
                   "value": "OFF" ,
-                  "valueMeaning": "CPMM powered on" ,
+                  "valueMeaning": "CPMM powered off" ,
                   "isDeprecated": "false"
                 }
              }
             , {"PermissibleValue": {
                   "value": "ON" ,
-                  "valueMeaning": "CPMM powered off" ,
+                  "valueMeaning": "CPMM powered on" ,
                   "isDeprecated": "false"
                 }
              }
@@ -5332,13 +5332,13 @@
           , "PermissibleValueList": [
               {"PermissibleValue": {
                   "value": "OFF" ,
-                  "valueMeaning": "CPMM powered on" ,
+                  "valueMeaning": "CPMM powered off" ,
                   "isDeprecated": "false"
                 }
              }
             , {"PermissibleValue": {
                   "value": "ON" ,
-                  "valueMeaning": "CPMM powered off" ,
+                  "valueMeaning": "CPMM powered on" ,
                   "isDeprecated": "false"
                 }
              }
@@ -5371,13 +5371,13 @@
           , "PermissibleValueList": [
               {"PermissibleValue": {
                   "value": "OFF" ,
-                  "valueMeaning": "CPMM powered on" ,
+                  "valueMeaning": "CPMM powered off" ,
                   "isDeprecated": "false"
                 }
              }
             , {"PermissibleValue": {
                   "value": "ON" ,
-                  "valueMeaning": "CPMM powered off" ,
+                  "valueMeaning": "CPMM powered on" ,
                   "isDeprecated": "false"
                 }
              }
