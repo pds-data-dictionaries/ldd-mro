@@ -1,17 +1,5 @@
 # LDD Source Directory
 
-MRO Mission Namespace Revisions:
+This directory should contain one IngestLDD for the LDD being built. The auto-generation script does not currently support multiple versions of an LDD being maintained.
 
-2022-09-27 JGW. 
-- Revised SCLK pattern to allow between 3 and 6 fractional digits.
-- Added release_id.
-        
-2022-09-29 JGW. 
-- Added SHARAD_Parameters class. 
-- Reorganized attribute definitions.
-
-----------
-
-This directory should contain one IngestLDD for the LDD being built.
-
-**The auto-generation script does not currently support multiple versions of an LDD being maintained.**
+See the [tutorial on updating and building an IngestLDD](https://pds-data-dictionaries.github.io/support/tutorials.html#ldd-update-and-build-tutorial) and the [LDD Update Process](https://pds-data-dictionaries.github.io/development/ldd-update.html) for more details.
