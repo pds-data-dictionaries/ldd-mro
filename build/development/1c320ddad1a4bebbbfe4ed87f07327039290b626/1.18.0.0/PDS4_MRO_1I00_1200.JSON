@@ -4,7 +4,7 @@
       "Title": "PDS4 Data Dictionary" ,
       "IM Version": "1.18.0.0" ,
       "LDD Version": "1.2.0.0" ,
-      "Date": "2022-12-22T15:22:02" ,
+      "Date": "2023-01-20T08:10:36" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
       "namespaces": ["pds:", "mro:"] ,
       "classDictionary": [
@@ -1838,6 +1838,22 @@
               }
             }
            , {"association": {
+                "identifier": "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.opt_bnch_fpa_temperature" ,
+                "title": "opt_bnch_fpa_temperature" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1040" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.opt_bnch_fpa_temperature"
+                 ]
+              }
+            }
+           , {"association": {
                 "identifier": "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.opt_bnch_fpe_temperature" ,
                 "title": "opt_bnch_fpe_temperature" ,
                 "assocType": "attribute_of" ,
@@ -1847,7 +1863,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1040" ,
+                "classOrder": "1050" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.opt_bnch_fpe_temperature"
                  ]
@@ -1863,7 +1879,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1050" ,
+                "classOrder": "1060" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.opt_bnch_living_rm_temperature"
                  ]
@@ -1879,7 +1895,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1060" ,
+                "classOrder": "1070" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.opt_bnch_box_beam_temperature"
                  ]
@@ -1895,7 +1911,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1070" ,
+                "classOrder": "1080" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.opt_bnch_cover_temperature"
                  ]
@@ -1911,7 +1927,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1080" ,
+                "classOrder": "1090" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.field_stop_temperature"
                  ]
@@ -1927,7 +1943,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1090" ,
+                "classOrder": "1100" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.fpa_positive_y_temperature"
                  ]
@@ -1943,7 +1959,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1100" ,
+                "classOrder": "1110" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.fpa_negative_y_temperature"
                  ]
@@ -1959,7 +1975,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1110" ,
+                "classOrder": "1120" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.fpe_temperature"
                  ]
@@ -1975,7 +1991,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1120" ,
+                "classOrder": "1130" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.primary_mirror_mnt_temperature"
                  ]
@@ -1991,7 +2007,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1130" ,
+                "classOrder": "1140" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.primary_mirror_temperature"
                  ]
@@ -2007,7 +2023,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1140" ,
+                "classOrder": "1150" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.primary_mirror_baf_temperature"
                  ]
@@ -2023,7 +2039,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1150" ,
+                "classOrder": "1160" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.ms_truss_leg_0_a_temperature"
                  ]
@@ -2039,7 +2055,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1160" ,
+                "classOrder": "1170" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.ms_truss_leg_0_b_temperature"
                  ]
@@ -2055,7 +2071,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1170" ,
+                "classOrder": "1180" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.ms_truss_leg_120_a_temperature"
                  ]
@@ -2071,7 +2087,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1180" ,
+                "classOrder": "1190" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.ms_truss_leg_120_b_temperature"
                  ]
@@ -2087,7 +2103,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1190" ,
+                "classOrder": "1200" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.ms_truss_leg_240_a_temperature"
                  ]
@@ -2103,7 +2119,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1200" ,
+                "classOrder": "1210" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.ms_truss_leg_240_b_temperature"
                  ]
@@ -2119,7 +2135,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1210" ,
+                "classOrder": "1220" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.barrel_baffle_temperature"
                  ]
@@ -2135,7 +2151,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1220" ,
+                "classOrder": "1230" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.sun_shade_temperature"
                  ]
@@ -2151,7 +2167,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1230" ,
+                "classOrder": "1240" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.spider_leg_30_temperature"
                  ]
@@ -2167,7 +2183,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1240" ,
+                "classOrder": "1250" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.spider_leg_150_temperature"
                  ]
@@ -2183,7 +2199,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1250" ,
+                "classOrder": "1260" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.spider_leg_270_temperature"
                  ]
@@ -2199,7 +2215,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1260" ,
+                "classOrder": "1270" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.sec_mirror_mtr_rng_temperature"
                  ]
@@ -2215,7 +2231,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1270" ,
+                "classOrder": "1280" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.sec_mirror_temperature"
                  ]
@@ -2231,7 +2247,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1280" ,
+                "classOrder": "1290" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.sec_mirror_baffle_temperature"
                  ]
@@ -2247,7 +2263,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1290" ,
+                "classOrder": "1300" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.iea_temperature"
                  ]
@@ -2263,7 +2279,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1300" ,
+                "classOrder": "1310" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.focus_motor_temperature"
                  ]
@@ -2279,7 +2295,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1310" ,
+                "classOrder": "1320" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.ie_pws_board_temperature"
                  ]
@@ -2295,7 +2311,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1320" ,
+                "classOrder": "1330" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.cpmm_pws_board_temperature"
                  ]
@@ -2311,7 +2327,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1330" ,
+                "classOrder": "1340" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.mech_tlm_board_temperature"
                  ]
@@ -2327,7 +2343,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1340" ,
+                "classOrder": "1350" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.inst_cont_board_temperature"
                  ]
@@ -6610,6 +6626,31 @@
             "steward": "geo" ,
             "versionId": "1.18" ,
             "description": " The opt_bnch_fold_flat_temperature attribute provides the temperature of the HiRISE instrument's optical fold flat mirror location in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Real" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Real" ,
+            "minimumCharacters": "Unbounded" ,
+            "maximumCharacters": "Unbounded" ,
+            "minimumValue": "-1.7976931348623157e308" ,
+            "maximumValue": "1.7976931348623157e308" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "Units_of_Temperature" ,
+            "unitOfMeasureId": "0001_NASA_PDS_1.pds.Units_of_Temperature" ,
+            "unitId": "K, degC" ,
+            "defaultUnitId": "null"
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters.mro.opt_bnch_fpa_temperature" ,
+            "title": "opt_bnch_fpa_temperature" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mro" ,
+            "steward": "geo" ,
+            "versionId": "1.18" ,
+            "description": " The opt_bnch_fpa_temperature attribute provides the temperature of the HiRISE instrument's optical bench near the Focal Plane Array in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004. " ,
             "isNillable": "false" ,
             "isEnumerated": "false" ,
             "isDeprecated": "false" ,

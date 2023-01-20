@@ -7,7 +7,7 @@ Configuration:
    LDD Discipline (T/F):  false
    LDD Namespace URL:     http://pds.nasa.gov/pds4/
    LDD URN Prefix:        urn:nasa:pds:
-   Time                   Thu Dec 22 23:22:02 UTC 2022
+   Time                   Fri Jan 20 16:10:36 UTC 2023
    Common Schema          [PDS4_PDS_1I00.xsd]
    Common Schematron      [PDS4_PDS_1I00.sch]
    IM Version Id:         1.18.0.0
@@ -31,7 +31,7 @@ Parameters:
 Summary:
    Classes                11
    Attributes             147
-   Associations           157
+   Associations           158
    Error messages         0
    Warning messages       0
    Information messages   0
@@ -67,7 +67,7 @@ Parsed Input - Header:
 	    2022-12-22 PG (pgeissler@usgs.gov) added HiRISE parameters, bumped to 1.2.0.0
 	
     
-   Last Modification Time 2022-12-22T16:20
+   Last Modification Time 2023-01-20T16:06
    PDS4 Merge Flag        false
 
 Parsed Input - Attributes:
@@ -684,7 +684,7 @@ Parsed Input - Attributes:
    unit of measure type   Units_of_Temperature
 
    name                   opt_bnch_fpa_temperature
-   version                1.0
+   version                1.18
    value data type        ASCII_Real
    description             The opt_bnch_fpa_temperature attribute provides the temperature of the HiRISE instrument's optical bench near the Focal Plane Array in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004. 
    unit of measure type   Units_of_Temperature
@@ -1225,6 +1225,11 @@ Parsed Input - Classes:
       reference type        attribute_of
 
       local identifier      mro.opt_bnch_fold_flat_temperature
+      minimum occurrences   0
+      maximum occurrences   1
+      reference type        attribute_of
+
+      local identifier      mro.opt_bnch_fpa_temperature
       minimum occurrences   0
       maximum occurrences   1
       reference type        attribute_of
