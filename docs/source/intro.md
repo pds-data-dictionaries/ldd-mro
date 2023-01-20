@@ -1,1 +1,1 @@
-Short abstract for the namespace should go here
+The Mars Reconnaissance Orbiter Mission Dictionary (mro) contains classes, attributes and rules specific to the MRO mission and its instruments.
