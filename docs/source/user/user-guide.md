@@ -1,5 +1,5 @@
 PDS4 Mars Reconnainssance Orbiter Mission Dictionary User's Guide  
-2022-12-21 
+2023-01-20 
 Jennifer Ward
 
 # Introduction
@@ -184,6 +184,7 @@ See the Definitions section for complete definitions.
 - opt_bnch_flexure_temperature
 - opt_bnch_mirror_temperature
 - opt_bnch_fold_flat_temperature
+- opt_bnch_fpa_temperature
 - opt_bnch_fpe_temperature
 - opt_bnch_living_rm_temperature
 - opt_bnch_box_beam_temperature
