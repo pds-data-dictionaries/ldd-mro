@@ -37,7 +37,7 @@
 	    2022-12-22 PG (pgeissler@usgs.gov) added HiRISE parameters, bumped to 1.2.0.0
 	
     </comment>
-    <last_modification_date_time>2022-12-22T16:20</last_modification_date_time>
+    <last_modification_date_time>2023-01-20T16:06</last_modification_date_time>
 
 <!--Hierarchy of classes and attributes 
     mro:MRO_Parameters
@@ -3720,6 +3720,12 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>mro.opt_bnch_fold_flat_temperature</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.opt_bnch_fpa_temperature</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
