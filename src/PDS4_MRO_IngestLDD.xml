@@ -800,55 +800,55 @@
     
     <!-- Attribute definitions for the CRISM_ATO_Parameters class, in alphabetical order:
  
-	    max_column
-	    max_row
-	    min_column
-	    min_row
+	    max_sample
+	    max_line
+	    min_sample
+	    min_line
 	    
     -->
 
-    <DD_Attribute> <name>max_column</name>
+    <DD_Attribute> <name>max_sample</name>
         <version_id>1.0</version_id>
-        <local_identifier>mro.ato.max_column</local_identifier>
+        <local_identifier>mro.ato.max_sample</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Daniel Politte</submitter_name>
-        <definition>The index of the highest-numbered column/sample of this product relative to the original CRISM scene. The first column of the original CRISM scene corresponds to a value of 1.
+        <definition>The index of the highest-numbered sample/column of this product relative to the original CRISM scene. The first sample of the original CRISM scene corresponds to a value of 1.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Integer</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
-    <DD_Attribute> <name>max_row</name>
+    <DD_Attribute> <name>max_line</name>
         <version_id>1.0</version_id>
-        <local_identifier>mro.ato.max_row</local_identifier>
+        <local_identifier>mro.ato.max_line</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Daniel Politte</submitter_name>
-        <definition>The index of the highest-numbered row/line of this product relative to the original CRISM scene. The first row of the original CRISM scene corresponds to a value of 1.
+        <definition>The index of the highest-numbered line/row of this product relative to the original CRISM scene. The first line of the original CRISM scene corresponds to a value of 1.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Integer</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
-    <DD_Attribute> <name>min_column</name>
+    <DD_Attribute> <name>min_sample</name>
         <version_id>1.0</version_id>
-        <local_identifier>mro.ato.min_column</local_identifier>
+        <local_identifier>mro.ato.min_sample</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Daniel Politte</submitter_name>
-        <definition>The index of the lowest-numbered column/sample of this product relative to the original CRISM scene. The first column of the original CRISM scene corresponds to a value of 1.
+        <definition>The index of the lowest-numbered sample/column of this product relative to the original CRISM scene. The first sample of the original CRISM scene corresponds to a value of 1.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Integer</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
-    <DD_Attribute> <name>min_row</name>
+    <DD_Attribute> <name>min_line</name>
         <version_id>1.0</version_id>
-        <local_identifier>mro.ato.min_row</local_identifier>
+        <local_identifier>mro.ato.min_line</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Daniel Politte</submitter_name>
-        <definition>The index of the lowest-numbered row/line of this product relative to the original CRISM scene. The first row of the original CRISM scene corresponds to a value of 1.
+        <definition>The index of the lowest-numbered line/row of this product relative to the original CRISM scene. The first line of the original CRISM scene corresponds to a value of 1.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
