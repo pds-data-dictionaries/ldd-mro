@@ -4202,25 +4202,25 @@
         <abstract_flag>false</abstract_flag>
         <element_flag>false</element_flag>
         <DD_Association>
-            <identifier_reference>mro.ato.min_row</identifier_reference>
+            <identifier_reference>mro.ato.min_line</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>mro.ato.max_row</identifier_reference>
+            <identifier_reference>mro.ato.max_line</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>mro.ato.min_column</identifier_reference>
+            <identifier_reference>mro.ato.min_sample</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>mro.ato.max_column</identifier_reference>
+            <identifier_reference>mro.ato.max_sample</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
