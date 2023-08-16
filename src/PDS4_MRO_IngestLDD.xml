@@ -9,7 +9,7 @@
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1
                         http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.xsd">
     <name>MRO</name>
-    <ldd_version_id>1.2.0.0</ldd_version_id>
+    <ldd_version_id>1.2.1.0</ldd_version_id>
     <dictionary_type>Mission</dictionary_type>
     <full_name>Jennifer Ward</full_name>
     <steward_id>geo</steward_id>
@@ -18,7 +18,7 @@
         The MRO dictionary contains classes that describe aspects of the 
         Mars Reconnaissance Orbiter mission and related instruments.
         
-        MRO version 1.2.0.0
+        MRO version 1.2.1.0
         PDS Build 1.18.0.0 (1I00)
         LDDTool version 14.0.13
         
@@ -35,6 +35,9 @@
         2022-12-06 DVP. Bumped to version 1.1.0.0 because of addition of class.
 	
 	    2022-12-22 PG (pgeissler@usgs.gov) added HiRISE parameters, bumped to 1.2.0.0
+	    
+	    2023-08-16 DVP. Modifications to some parameters of CRISM_ATO_Parameters class
+	    following urn:nasa:pds:crism_ato_s_iof_lml peer review; bumped to 1.2.1.0.
 	
     </comment>
     <last_modification_date_time>2023-01-20T16:06</last_modification_date_time>
@@ -800,55 +803,55 @@
     
     <!-- Attribute definitions for the CRISM_ATO_Parameters class, in alphabetical order:
  
-	    max_column
-	    max_row
-	    min_column
-	    min_row
+	    max_sample
+	    max_line
+	    min_sample
+	    min_line
 	    
     -->
 
-    <DD_Attribute> <name>max_column</name>
+    <DD_Attribute> <name>max_sample</name>
         <version_id>1.0</version_id>
-        <local_identifier>mro.ato.max_column</local_identifier>
+        <local_identifier>mro.ato.max_sample</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Daniel Politte</submitter_name>
-        <definition>The index of the highest-numbered column/sample of this product relative to the original CRISM scene. The first column of the original CRISM scene corresponds to a value of 1.
+        <definition>The index of the highest-numbered sample/column of this product relative to the original CRISM scene. The first sample of the original CRISM scene corresponds to a value of 1.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Integer</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
-    <DD_Attribute> <name>max_row</name>
+    <DD_Attribute> <name>max_line</name>
         <version_id>1.0</version_id>
-        <local_identifier>mro.ato.max_row</local_identifier>
+        <local_identifier>mro.ato.max_line</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Daniel Politte</submitter_name>
-        <definition>The index of the highest-numbered row/line of this product relative to the original CRISM scene. The first row of the original CRISM scene corresponds to a value of 1.
+        <definition>The index of the highest-numbered line/row of this product relative to the original CRISM scene. The first line of the original CRISM scene corresponds to a value of 1.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Integer</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
-    <DD_Attribute> <name>min_column</name>
+    <DD_Attribute> <name>min_sample</name>
         <version_id>1.0</version_id>
-        <local_identifier>mro.ato.min_column</local_identifier>
+        <local_identifier>mro.ato.min_sample</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Daniel Politte</submitter_name>
-        <definition>The index of the lowest-numbered column/sample of this product relative to the original CRISM scene. The first column of the original CRISM scene corresponds to a value of 1.
+        <definition>The index of the lowest-numbered sample/column of this product relative to the original CRISM scene. The first sample of the original CRISM scene corresponds to a value of 1.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Integer</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
-    <DD_Attribute> <name>min_row</name>
+    <DD_Attribute> <name>min_line</name>
         <version_id>1.0</version_id>
-        <local_identifier>mro.ato.min_row</local_identifier>
+        <local_identifier>mro.ato.min_line</local_identifier>
         <nillable_flag>false</nillable_flag>
         <submitter_name>Daniel Politte</submitter_name>
-        <definition>The index of the lowest-numbered row/line of this product relative to the original CRISM scene. The first row of the original CRISM scene corresponds to a value of 1.
+        <definition>The index of the lowest-numbered line/row of this product relative to the original CRISM scene. The first line of the original CRISM scene corresponds to a value of 1.
         </definition>
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
@@ -4199,25 +4202,25 @@
         <abstract_flag>false</abstract_flag>
         <element_flag>false</element_flag>
         <DD_Association>
-            <identifier_reference>mro.ato.min_row</identifier_reference>
+            <identifier_reference>mro.ato.min_line</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>mro.ato.max_row</identifier_reference>
+            <identifier_reference>mro.ato.max_line</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>mro.ato.min_column</identifier_reference>
+            <identifier_reference>mro.ato.min_sample</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
-            <identifier_reference>mro.ato.max_column</identifier_reference>
+            <identifier_reference>mro.ato.max_sample</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
