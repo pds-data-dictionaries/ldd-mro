@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 XML/Schema for Name Space Id:mro  Version:1.3.0.0 - Thu Mar 23 16:31:49 UTC 2023 -->
-  <!-- Generated from the PDS4 Information Model Version 1.18.0.0 - System Build 12.1 -->
+  <!-- PDS4 XML/Schema for Name Space Id:mro  Version:1.2.1.0 - Wed Aug 30 22:54:41 UTC 2023 -->
+  <!-- Generated from the PDS4 Information Model Version 1.20.0.0 - System Build 13.1 -->
   <!-- *** This PDS4 product schema is an operational deliverable. *** -->
   <!--                                                                           -->
   <!--               Dictionary Stack                                            -->
-  <!-- 1.18.0.0 - pds: - Common Dictionary                                       -->
-  <!-- 1.3.0.0 - mro: - MRO                                                      -->
+  <!-- 1.20.0.0 - pds: - Common Dictionary                                       -->
+  <!-- 1.2.1.0 - mro: - MRO                                                      -->
   <!--                                                                           -->
   <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://pds.nasa.gov/pds4/mission/mro/v1"
@@ -13,9 +13,9 @@
     xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
     elementFormDefault="qualified"
     attributeFormDefault="unqualified"
-    version="1.3.0.0">
+    version="1.2.1.0">
  
-    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.xsd"/>
+    <xs:import namespace="http://pds.nasa.gov/pds4/pds/v1" schemaLocation="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1K00.xsd"/>
  
   <xs:annotation>
     <xs:documentation>
@@ -23,7 +23,7 @@
         The MRO dictionary contains classes that describe aspects of the 
         Mars Reconnaissance Orbiter mission and related instruments.
         
-        MRO version 1.3.0.0
+        MRO version 1.2.1.0
         PDS Build 1.18.0.0 (1I00)
         LDDTool version 14.0.13
         
@@ -39,9 +39,12 @@
         
         2022-12-06 DVP. Bumped to version 1.1.0.0 because of addition of class.
 	
-	    2022-12-22 PG (pgeissler@usgs.gov) added HiRISE EDR parameters, bumped to 1.2.0.0
+	    2022-12-22 PG (pgeissler@usgs.gov) added HiRISE parameters, bumped to 1.2.0.0
+	            
+        2023-03-23 PG (pgeissler@usgs.gov) added HiRISE RDR class
 
-        2023-03-23 PG (pgeissler@usgs.gov) added HiRISE RDR class, bumped to 1.3.0.0
+	    2023-08-16 DVP. Modifications to some parameters of CRISM_ATO_Parameters class
+	    following urn:nasa:pds:crism_ato_s_iof_lml peer review; bumped to 1.2.1.0.
 	
     
     </xs:documentation>
@@ -75,10 +78,10 @@
         project.</xs:documentation>
     </xs:annotation>
     <xs:sequence>
-      <xs:element name="min_row" type="mro:min_row" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="max_row" type="mro:max_row" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="min_column" type="mro:min_column" minOccurs="0" maxOccurs="1"> </xs:element>
-      <xs:element name="max_column" type="mro:max_column" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="min_line" type="mro:min_line" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="max_line" type="mro:max_line" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="min_sample" type="mro:min_sample" minOccurs="0" maxOccurs="1"> </xs:element>
+      <xs:element name="max_sample" type="mro:max_sample" minOccurs="0" maxOccurs="1"> </xs:element>
     </xs:sequence>
   </xs:complexType>
 
@@ -2132,11 +2135,11 @@
 	   </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="max_column">
+  <xs:simpleType name="max_line">
     <xs:annotation>
-      <xs:documentation>The index of the highest-numbered column/sample
-        of this product relative to the original CRISM scene. The first
-        column of the original CRISM scene corresponds to a value of 1.
+      <xs:documentation>The index of the highest-numbered line/row of
+        this product relative to the original CRISM scene. The first
+        line of the original CRISM scene corresponds to a value of 1.
         </xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Integer">
@@ -2145,11 +2148,11 @@
 	   </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="max_row">
+  <xs:simpleType name="max_sample">
     <xs:annotation>
-      <xs:documentation>The index of the highest-numbered row/line of
-        this product relative to the original CRISM scene. The first row
-        of the original CRISM scene corresponds to a value of 1.
+      <xs:documentation>The index of the highest-numbered sample/column
+        of this product relative to the original CRISM scene. The first
+        sample of the original CRISM scene corresponds to a value of 1.
         </xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Integer">
@@ -2214,11 +2217,11 @@
     </xs:simpleContent>
   </xs:complexType>
 
-  <xs:simpleType name="min_column">
+  <xs:simpleType name="min_line">
     <xs:annotation>
-      <xs:documentation>The index of the lowest-numbered column/sample
-        of this product relative to the original CRISM scene. The first
-        column of the original CRISM scene corresponds to a value of 1.
+      <xs:documentation>The index of the lowest-numbered line/row of
+        this product relative to the original CRISM scene. The first
+        line of the original CRISM scene corresponds to a value of 1.
         </xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Integer">
@@ -2227,11 +2230,11 @@
 	   </xs:restriction>
   </xs:simpleType>
 
-  <xs:simpleType name="min_row">
+  <xs:simpleType name="min_sample">
     <xs:annotation>
-      <xs:documentation>The index of the lowest-numbered row/line of
-        this product relative to the original CRISM scene. The first row
-        of the original CRISM scene corresponds to a value of 1.
+      <xs:documentation>The index of the lowest-numbered sample/column
+        of this product relative to the original CRISM scene. The first
+        sample of the original CRISM scene corresponds to a value of 1.
         </xs:documentation>
     </xs:annotation>
     <xs:restriction base="pds:ASCII_Integer">

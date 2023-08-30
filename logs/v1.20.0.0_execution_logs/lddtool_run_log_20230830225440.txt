@@ -1,12 +1,12 @@
 
->>  INFO LDDTOOL Version: 14.1.2
->>  INFO IM Version Id: 1.19.0.0
+>>  INFO LDDTOOL Version: 14.2.4
+>>  INFO IM Version Id: 1.20.0.0
 >>  INFO IM Namespace Id: pds
->>  INFO IM Label Version Id: 1.25
->>  INFO Date: Thu Mar 23 16:41:41 UTC 2023
->>  INFO PARENT_DIR: /tmp/lddtool-14.1.2
->>  INFO SCRIPT_DIR: /tmp/lddtool-14.1.2/bin
->>  INFO LIB_DIR: /tmp/lddtool-14.1.2/lib
+>>  INFO IM Label Version Id: 1.26
+>>  INFO Date: Wed Aug 30 22:54:41 UTC 2023
+>>  INFO PARENT_DIR: /tmp/lddtool-14.2.4
+>>  INFO SCRIPT_DIR: /tmp/lddtool-14.2.4/bin
+>>  INFO LIB_DIR: /tmp/lddtool-14.2.4/lib
 
 >>> INFO Init:  - Config.Properties Namespace Id Found:mro
 >>> INFO Init:  - Config.Properties Namespace Id Using:mro
@@ -92,7 +92,7 @@
 
 Input:
 
-     - IM Version: 1J00
+     - IM Version: 1K00
      - PDS4 Flag: true
      - LDD Flag: true
      - Export JSON Flag: true
@@ -101,9 +101,9 @@ Input:
 
 Output:
 
-     - ./PDS4_MRO_1J00_1300.xsd
-     - ./PDS4_MRO_1J00_1300.sch
-     - ./PDS4_MRO_1J00_1300.xml
-     - ./PDS4_MRO_1J00_1300.JSON
+     - ./PDS4_MRO_1K00_1210.xsd
+     - ./PDS4_MRO_1K00_1210.sch
+     - ./PDS4_MRO_1K00_1210.xml
+     - ./PDS4_MRO_1K00_1210.JSON
 
 >>  INFO Exit(0)
