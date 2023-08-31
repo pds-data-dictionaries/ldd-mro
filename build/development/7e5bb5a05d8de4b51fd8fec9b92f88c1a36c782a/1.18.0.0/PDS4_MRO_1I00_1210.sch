@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!-- PDS4 Schematron for Name Space Id:mro  Version:1.2.0.0 - Fri Jan 20 16:25:29 UTC 2023 -->
+  <!-- PDS4 Schematron for Name Space Id:mro  Version:1.2.1.0 - Wed Aug 30 22:54:34 UTC 2023 -->
   <!-- Generated from the PDS4 Information Model Version 1.18.0.0 - System Build 12.1 -->
   <!-- *** This PDS4 schematron file is an operational deliverable. *** -->
 <sch:schema xmlns:sch="http://purl.oclc.org/dsdl/schematron" queryBinding="xslt2">
@@ -414,6 +414,13 @@
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
+    <sch:rule context="mro:HiRISE_Instrument_Setting_Parameters/mro:tdi">
+      <sch:assert test=". = ('128', '32', '64', '8')">
+        <title>mro:HiRISE_Instrument_Setting_Parameters/mro:tdi/mro:tdi</title>
+        The attribute mro:HiRISE_Instrument_Setting_Parameters/mro:tdi must be equal to one of the following values '128', '32', '64', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
     <sch:rule context="mro:HiRISE_Power_Parameters/mro:cpmm_negative_5_current">
       <sch:assert test="@unit = ('A', 'mA')">
         <title>mro:HiRISE_Power_Parameters/mro:cpmm_negative_5_current/mro:cpmm_negative_5_current</title>
@@ -558,6 +565,398 @@
       <sch:assert test="@unit = ('V', 'mV')">
         <title>mro:HiRISE_Power_Parameters/mro:mech_tlm_fpga_pos_2_5_voltage/mro:mech_tlm_fpga_pos_2_5_voltage</title>
         The attribute @unit must be equal to one of the following values 'V', 'mV'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:binning_bg12">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('1', '16', '2', '3', '4', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:binning_bg12/mro:binning_bg12</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:binning_bg12 must be nulled or equal to one of the following values '1', '16', '2', '3', '4', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:binning_bg13">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('1', '16', '2', '3', '4', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:binning_bg13/mro:binning_bg13</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:binning_bg13 must be nulled or equal to one of the following values '1', '16', '2', '3', '4', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:binning_ir10">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('1', '16', '2', '3', '4', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:binning_ir10/mro:binning_ir10</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:binning_ir10 must be nulled or equal to one of the following values '1', '16', '2', '3', '4', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:binning_ir11">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('1', '16', '2', '3', '4', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:binning_ir11/mro:binning_ir11</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:binning_ir11 must be nulled or equal to one of the following values '1', '16', '2', '3', '4', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:binning_red0">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('1', '16', '2', '3', '4', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:binning_red0/mro:binning_red0</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:binning_red0 must be nulled or equal to one of the following values '1', '16', '2', '3', '4', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:binning_red1">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('1', '16', '2', '3', '4', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:binning_red1/mro:binning_red1</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:binning_red1 must be nulled or equal to one of the following values '1', '16', '2', '3', '4', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:binning_red2">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('1', '16', '2', '3', '4', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:binning_red2/mro:binning_red2</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:binning_red2 must be nulled or equal to one of the following values '1', '16', '2', '3', '4', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:binning_red3">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('1', '16', '2', '3', '4', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:binning_red3/mro:binning_red3</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:binning_red3 must be nulled or equal to one of the following values '1', '16', '2', '3', '4', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:binning_red4">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('1', '16', '2', '3', '4', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:binning_red4/mro:binning_red4</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:binning_red4 must be nulled or equal to one of the following values '1', '16', '2', '3', '4', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:binning_red5">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('1', '16', '2', '3', '4', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:binning_red5/mro:binning_red5</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:binning_red5 must be nulled or equal to one of the following values '1', '16', '2', '3', '4', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:binning_red6">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('1', '16', '2', '3', '4', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:binning_red6/mro:binning_red6</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:binning_red6 must be nulled or equal to one of the following values '1', '16', '2', '3', '4', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:binning_red7">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('1', '16', '2', '3', '4', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:binning_red7/mro:binning_red7</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:binning_red7 must be nulled or equal to one of the following values '1', '16', '2', '3', '4', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:binning_red8">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('1', '16', '2', '3', '4', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:binning_red8/mro:binning_red8</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:binning_red8 must be nulled or equal to one of the following values '1', '16', '2', '3', '4', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:binning_red9">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('1', '16', '2', '3', '4', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:binning_red9/mro:binning_red9</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:binning_red9 must be nulled or equal to one of the following values '1', '16', '2', '3', '4', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:ccd_flag_bg12">
+      <sch:assert test=". = ('OFF', 'ON')">
+        <title>mro:HiRISE_RDR_Parameters/mro:ccd_flag_bg12/mro:ccd_flag_bg12</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:ccd_flag_bg12 must be equal to one of the following values 'OFF', 'ON'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:ccd_flag_bg13">
+      <sch:assert test=". = ('OFF', 'ON')">
+        <title>mro:HiRISE_RDR_Parameters/mro:ccd_flag_bg13/mro:ccd_flag_bg13</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:ccd_flag_bg13 must be equal to one of the following values 'OFF', 'ON'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:ccd_flag_ir10">
+      <sch:assert test=". = ('OFF', 'ON')">
+        <title>mro:HiRISE_RDR_Parameters/mro:ccd_flag_ir10/mro:ccd_flag_ir10</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:ccd_flag_ir10 must be equal to one of the following values 'OFF', 'ON'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:ccd_flag_ir11">
+      <sch:assert test=". = ('OFF', 'ON')">
+        <title>mro:HiRISE_RDR_Parameters/mro:ccd_flag_ir11/mro:ccd_flag_ir11</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:ccd_flag_ir11 must be equal to one of the following values 'OFF', 'ON'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:ccd_flag_red0">
+      <sch:assert test=". = ('OFF', 'ON')">
+        <title>mro:HiRISE_RDR_Parameters/mro:ccd_flag_red0/mro:ccd_flag_red0</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:ccd_flag_red0 must be equal to one of the following values 'OFF', 'ON'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:ccd_flag_red1">
+      <sch:assert test=". = ('OFF', 'ON')">
+        <title>mro:HiRISE_RDR_Parameters/mro:ccd_flag_red1/mro:ccd_flag_red1</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:ccd_flag_red1 must be equal to one of the following values 'OFF', 'ON'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:ccd_flag_red2">
+      <sch:assert test=". = ('OFF', 'ON')">
+        <title>mro:HiRISE_RDR_Parameters/mro:ccd_flag_red2/mro:ccd_flag_red2</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:ccd_flag_red2 must be equal to one of the following values 'OFF', 'ON'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:ccd_flag_red3">
+      <sch:assert test=". = ('OFF', 'ON')">
+        <title>mro:HiRISE_RDR_Parameters/mro:ccd_flag_red3/mro:ccd_flag_red3</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:ccd_flag_red3 must be equal to one of the following values 'OFF', 'ON'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:ccd_flag_red4">
+      <sch:assert test=". = ('OFF', 'ON')">
+        <title>mro:HiRISE_RDR_Parameters/mro:ccd_flag_red4/mro:ccd_flag_red4</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:ccd_flag_red4 must be equal to one of the following values 'OFF', 'ON'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:ccd_flag_red5">
+      <sch:assert test=". = ('OFF', 'ON')">
+        <title>mro:HiRISE_RDR_Parameters/mro:ccd_flag_red5/mro:ccd_flag_red5</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:ccd_flag_red5 must be equal to one of the following values 'OFF', 'ON'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:ccd_flag_red6">
+      <sch:assert test=". = ('OFF', 'ON')">
+        <title>mro:HiRISE_RDR_Parameters/mro:ccd_flag_red6/mro:ccd_flag_red6</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:ccd_flag_red6 must be equal to one of the following values 'OFF', 'ON'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:ccd_flag_red7">
+      <sch:assert test=". = ('OFF', 'ON')">
+        <title>mro:HiRISE_RDR_Parameters/mro:ccd_flag_red7/mro:ccd_flag_red7</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:ccd_flag_red7 must be equal to one of the following values 'OFF', 'ON'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:ccd_flag_red8">
+      <sch:assert test=". = ('OFF', 'ON')">
+        <title>mro:HiRISE_RDR_Parameters/mro:ccd_flag_red8/mro:ccd_flag_red8</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:ccd_flag_red8 must be equal to one of the following values 'OFF', 'ON'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:ccd_flag_red9">
+      <sch:assert test=". = ('OFF', 'ON')">
+        <title>mro:HiRISE_RDR_Parameters/mro:ccd_flag_red9/mro:ccd_flag_red9</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:ccd_flag_red9 must be equal to one of the following values 'OFF', 'ON'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:special_processing_flag_bg12">
+      <sch:assert test=". = ('CUBENORM', 'NOMINAL', 'NULL')">
+        <title>mro:HiRISE_RDR_Parameters/mro:special_processing_flag_bg12/mro:special_processing_flag_bg12</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:special_processing_flag_bg12 must be equal to one of the following values 'CUBENORM', 'NOMINAL', 'NULL'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:special_processing_flag_bg13">
+      <sch:assert test=". = ('CUBENORM', 'NOMINAL', 'NULL')">
+        <title>mro:HiRISE_RDR_Parameters/mro:special_processing_flag_bg13/mro:special_processing_flag_bg13</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:special_processing_flag_bg13 must be equal to one of the following values 'CUBENORM', 'NOMINAL', 'NULL'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:special_processing_flag_ir10">
+      <sch:assert test=". = ('CUBENORM', 'NOMINAL', 'NULL')">
+        <title>mro:HiRISE_RDR_Parameters/mro:special_processing_flag_ir10/mro:special_processing_flag_ir10</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:special_processing_flag_ir10 must be equal to one of the following values 'CUBENORM', 'NOMINAL', 'NULL'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:special_processing_flag_ir11">
+      <sch:assert test=". = ('CUBENORM', 'NOMINAL', 'NULL')">
+        <title>mro:HiRISE_RDR_Parameters/mro:special_processing_flag_ir11/mro:special_processing_flag_ir11</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:special_processing_flag_ir11 must be equal to one of the following values 'CUBENORM', 'NOMINAL', 'NULL'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red0">
+      <sch:assert test=". = ('CUBENORM', 'NOMINAL', 'NULL')">
+        <title>mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red0/mro:special_processing_flag_red0</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red0 must be equal to one of the following values 'CUBENORM', 'NOMINAL', 'NULL'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red1">
+      <sch:assert test=". = ('CUBENORM', 'NOMINAL', 'NULL')">
+        <title>mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red1/mro:special_processing_flag_red1</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red1 must be equal to one of the following values 'CUBENORM', 'NOMINAL', 'NULL'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red2">
+      <sch:assert test=". = ('CUBENORM', 'NOMINAL', 'NULL')">
+        <title>mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red2/mro:special_processing_flag_red2</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red2 must be equal to one of the following values 'CUBENORM', 'NOMINAL', 'NULL'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red3">
+      <sch:assert test=". = ('CUBENORM', 'NOMINAL', 'NULL')">
+        <title>mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red3/mro:special_processing_flag_red3</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red3 must be equal to one of the following values 'CUBENORM', 'NOMINAL', 'NULL'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red4">
+      <sch:assert test=". = ('CUBENORM', 'NOMINAL', 'NULL')">
+        <title>mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red4/mro:special_processing_flag_red4</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red4 must be equal to one of the following values 'CUBENORM', 'NOMINAL', 'NULL'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red5">
+      <sch:assert test=". = ('CUBENORM', 'NOMINAL', 'NULL')">
+        <title>mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red5/mro:special_processing_flag_red5</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red5 must be equal to one of the following values 'CUBENORM', 'NOMINAL', 'NULL'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red6">
+      <sch:assert test=". = ('CUBENORM', 'NOMINAL', 'NULL')">
+        <title>mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red6/mro:special_processing_flag_red6</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red6 must be equal to one of the following values 'CUBENORM', 'NOMINAL', 'NULL'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red7">
+      <sch:assert test=". = ('CUBENORM', 'NOMINAL', 'NULL')">
+        <title>mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red7/mro:special_processing_flag_red7</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red7 must be equal to one of the following values 'CUBENORM', 'NOMINAL', 'NULL'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red8">
+      <sch:assert test=". = ('CUBENORM', 'NOMINAL', 'NULL')">
+        <title>mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red8/mro:special_processing_flag_red8</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red8 must be equal to one of the following values 'CUBENORM', 'NOMINAL', 'NULL'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red9">
+      <sch:assert test=". = ('CUBENORM', 'NOMINAL', 'NULL')">
+        <title>mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red9/mro:special_processing_flag_red9</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:special_processing_flag_red9 must be equal to one of the following values 'CUBENORM', 'NOMINAL', 'NULL'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:tdi_bg12">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('128', '32', '64', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:tdi_bg12/mro:tdi_bg12</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:tdi_bg12 must be nulled or equal to one of the following values '128', '32', '64', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:tdi_bg13">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('128', '32', '64', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:tdi_bg13/mro:tdi_bg13</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:tdi_bg13 must be nulled or equal to one of the following values '128', '32', '64', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:tdi_ir10">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('128', '32', '64', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:tdi_ir10/mro:tdi_ir10</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:tdi_ir10 must be nulled or equal to one of the following values '128', '32', '64', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:tdi_ir11">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('128', '32', '64', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:tdi_ir11/mro:tdi_ir11</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:tdi_ir11 must be nulled or equal to one of the following values '128', '32', '64', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:tdi_red0">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('128', '32', '64', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:tdi_red0/mro:tdi_red0</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:tdi_red0 must be nulled or equal to one of the following values '128', '32', '64', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:tdi_red1">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('128', '32', '64', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:tdi_red1/mro:tdi_red1</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:tdi_red1 must be nulled or equal to one of the following values '128', '32', '64', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:tdi_red2">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('128', '32', '64', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:tdi_red2/mro:tdi_red2</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:tdi_red2 must be nulled or equal to one of the following values '128', '32', '64', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:tdi_red3">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('128', '32', '64', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:tdi_red3/mro:tdi_red3</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:tdi_red3 must be nulled or equal to one of the following values '128', '32', '64', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:tdi_red4">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('128', '32', '64', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:tdi_red4/mro:tdi_red4</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:tdi_red4 must be nulled or equal to one of the following values '128', '32', '64', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:tdi_red5">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('128', '32', '64', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:tdi_red5/mro:tdi_red5</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:tdi_red5 must be nulled or equal to one of the following values '128', '32', '64', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:tdi_red6">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('128', '32', '64', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:tdi_red6/mro:tdi_red6</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:tdi_red6 must be nulled or equal to one of the following values '128', '32', '64', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:tdi_red7">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('128', '32', '64', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:tdi_red7/mro:tdi_red7</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:tdi_red7 must be nulled or equal to one of the following values '128', '32', '64', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:tdi_red8">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('128', '32', '64', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:tdi_red8/mro:tdi_red8</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:tdi_red8 must be nulled or equal to one of the following values '128', '32', '64', '8'.</sch:assert>
+    </sch:rule>
+  </sch:pattern>
+  <sch:pattern>
+    <sch:rule context="mro:HiRISE_RDR_Parameters/mro:tdi_red9">
+      <sch:assert test="if (not(@xsi:nil eq 'true') and (not(. = ('128', '32', '64', '8')))) then false() else true()">
+        <title>mro:HiRISE_RDR_Parameters/mro:tdi_red9/mro:tdi_red9</title>
+        The attribute mro:HiRISE_RDR_Parameters/mro:tdi_red9 must be nulled or equal to one of the following values '128', '32', '64', '8'.</sch:assert>
     </sch:rule>
   </sch:pattern>
   <sch:pattern>
