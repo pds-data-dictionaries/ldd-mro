@@ -3,8 +3,8 @@
     "dataDictionary": {
       "Title": "PDS4 Data Dictionary" ,
       "IM Version": "1.19.0.0" ,
-      "LDD Version": "1.2.1.0" ,
-      "Date": "2023-08-30T22:54:35Z" ,
+      "LDD Version": "1.2.2.0" ,
+      "Date": "2023-09-01T15:15:25Z" ,
       "Description": "This document is a dump of the contents of the PDS4 Data Dictionary" ,
       "namespaces": ["pds:", "mro:"] ,
       "classDictionary": [
@@ -3419,6 +3419,22 @@
               }
             }
            , {"association": {
+                "identifier": "0001_NASA_PDS_1.mro.MRO_Parameters.mro.observation_rationale" ,
+                "title": "observation_rationale" ,
+                "assocType": "attribute_of" ,
+                "isAttribute": "true" ,
+                "isChoice": "false" ,
+                "isAny": "false" ,
+                "groupName": "null" ,
+                "minimumCardinality": "0" ,
+                "maximumCardinality": "1" ,
+                "classOrder": "1040" ,
+                "attributeId": [
+                  "0001_NASA_PDS_1.mro.MRO_Parameters.mro.observation_rationale"
+                 ]
+              }
+            }
+           , {"association": {
                 "identifier": "0001_NASA_PDS_1.mro.MRO_Parameters.mro.orbit_number" ,
                 "title": "orbit_number" ,
                 "assocType": "attribute_of" ,
@@ -3428,7 +3444,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1040" ,
+                "classOrder": "1050" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.MRO_Parameters.mro.orbit_number"
                  ]
@@ -3444,7 +3460,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1050" ,
+                "classOrder": "1060" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.MRO_Parameters.mro.mission_phase_name"
                  ]
@@ -3460,7 +3476,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1060" ,
+                "classOrder": "1070" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.MRO_Parameters.mro.spacecraft_clock_count_partition"
                  ]
@@ -3476,7 +3492,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1070" ,
+                "classOrder": "1080" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.MRO_Parameters.mro.spacecraft_clock_start_count"
                  ]
@@ -3492,7 +3508,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1080" ,
+                "classOrder": "1090" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.MRO_Parameters.mro.spacecraft_clock_stop_count"
                  ]
@@ -3508,7 +3524,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1090" ,
+                "classOrder": "1100" ,
                 "attributeId": [
                   "0001_NASA_PDS_1.mro.MRO_Parameters.mro.producer_institution_name"
                  ]
@@ -3524,7 +3540,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1100" ,
+                "classOrder": "1110" ,
                 "classId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Time_Parameters"
                  ]
@@ -3540,7 +3556,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1110" ,
+                "classOrder": "1120" ,
                 "classId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Instrument_Setting_Parameters"
                  ]
@@ -3556,7 +3572,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1120" ,
+                "classOrder": "1130" ,
                 "classId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Temperature_Parameters"
                  ]
@@ -3572,7 +3588,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1130" ,
+                "classOrder": "1140" ,
                 "classId": [
                   "0001_NASA_PDS_1.mro.HiRISE_Power_Parameters"
                  ]
@@ -3588,7 +3604,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1140" ,
+                "classOrder": "1150" ,
                 "classId": [
                   "0001_NASA_PDS_1.mro.HiRISE_RDR_Parameters"
                  ]
@@ -3604,7 +3620,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1150" ,
+                "classOrder": "1160" ,
                 "classId": [
                   "0001_NASA_PDS_1.mro.CRISM_Parameters"
                  ]
@@ -3620,7 +3636,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1160" ,
+                "classOrder": "1170" ,
                 "classId": [
                   "0001_NASA_PDS_1.mro.SHARAD_Parameters"
                  ]
@@ -3636,7 +3652,7 @@
                 "groupName": "null" ,
                 "minimumCardinality": "0" ,
                 "maximumCardinality": "1" ,
-                "classOrder": "1170" ,
+                "classOrder": "1180" ,
                 "classId": [
                   "0001_NASA_PDS_1.mro.CRISM_ATO_Parameters"
                  ]
@@ -10987,6 +11003,31 @@
                 }
              }
            ]
+          }
+        }
+      , {
+          "attribute": {
+            "identifier": "0001_NASA_PDS_1.mro.MRO_Parameters.mro.observation_rationale" ,
+            "title": "observation_rationale" ,
+            "registrationAuthorityId": "0001_NASA_PDS_1" ,
+            "nameSpaceId": "mro" ,
+            "steward": "geo" ,
+            "versionId": "1.19" ,
+            "description": " The observation_rationale attribute identifies the name of the specific feature on Mars that was targeted by the observation. " ,
+            "isNillable": "false" ,
+            "isEnumerated": "false" ,
+            "isDeprecated": "false" ,
+            "dataType": "ASCII_Short_String_Collapsed" ,
+            "dataTypeId": "0001_NASA_PDS_1.pds.ASCII_Short_String_Collapsed" ,
+            "minimumCharacters": "1" ,
+            "maximumCharacters": "255" ,
+            "minimumValue": "Unbounded" ,
+            "maximumValue": "Unbounded" ,
+            "pattern": "null" ,
+            "unitOfMeasure": "null" ,
+            "unitOfMeasureId": "null" ,
+            "unitId": "null" ,
+            "defaultUnitId": "null"
           }
         }
       , {
