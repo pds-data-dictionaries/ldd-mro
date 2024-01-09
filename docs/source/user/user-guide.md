@@ -1,5 +1,5 @@
 PDS4 Mars Reconnainssance Orbiter Mission Dictionary User's Guide  
-2023-01-20 
+2024-01-09
 Jennifer Ward
 
 # Introduction
@@ -17,7 +17,7 @@ Steward: Jennifer Ward, PDS Geosciences Node, geosci@wunder.wustl.edu
 
 The dictionary consists of a set of files with names in the form PDS4_MRO_xxxx_yyyy.ext, where
 - xxxx = the PDS4 Information Model version, e.g. 1I00 
-- yyyy = the MRO Mission Dictionary version, e.g. 1200
+- yyyy = the MRO Mission Dictionary version, e.g. 1300
 
 and the file extensions are
 
@@ -37,12 +37,12 @@ The following is an example showing the use of this dictionary in a PDS4 label.
 ```
    <?xml version="1.0" encoding="UTF-8"?>
    <?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-   <?xml-model href="https://pds.nasa.gov/pds4/mission/mro/v1/PDS4_MRO_1I00_1200.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
+   <?xml-model href="https://pds.nasa.gov/pds4/mission/mro/v1/PDS4_MRO_1I00_1300.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>    
    <Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1"
        xmlns:mro="http://pds.nasa.gov/pds4/mission/mro/v1"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1           https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1I00.xsd
-                           http://pds.nasa.gov/pds4/mission/mro/v1   https://pds.nasa.gov/pds4/mission/mro/v1/PDS4_MRO_1I00_1200.xsd">
+                           http://pds.nasa.gov/pds4/mission/mro/v1   https://pds.nasa.gov/pds4/mission/mro/v1/PDS4_MRO_1I00_1300.xsd">
 ```
 
 The following is an example showing the location of the MRO dictionary classes and attributes in a PDS4 label.
@@ -54,6 +54,8 @@ The following is an example showing the location of the MRO dictionary classes a
       <mro:MRO_Parameters>
         <mro:product_type>
         <mro:product_version_id>
+        <mro:release_id>
+        <mro:observation_rationale>        
         <mro:orbit_number>
         <mro:mission_phase_name>
         <mro:spacecraft_clock_count_partition>
@@ -68,6 +70,8 @@ The following is an example showing the location of the MRO dictionary classes a
             ...
         <mro.HiRISE_Power_Parameters>
             ...
+        <mro.HiRISE_RDR_Parameters>
+            ...    
         <mro:CRISM_Parameters>
             ...
         <mro:SHARAD_Parameters>
@@ -90,10 +94,12 @@ See the Definitions section for complete definitions.
     - HiRISE_Instrument_Setting_Parameters class
     - HiRISE_Temperature_Parameters class
     - HiRISE_Power_Parameters class
+    - HiRISE_RDR_Parameters class
     - CRISM_Parameters class
       - CRISM_Temperatures subclass
       - CRISM_Band subclass
     - SHARAD_Parameters class
+      - SHARAD_Observation_Parameters
       - Array_Sampled subclass
     - CRISM_ATO_Parameters class
 
@@ -103,6 +109,8 @@ See the Definitions section for complete definitions.
 ## MRO_Parameters Class
 - product_type
 - product_version_id
+- release_id
+- observation_rationale
 - orbit_number
 - mission_phase_name
 - spacecraft_clock_count_partition
@@ -113,11 +121,13 @@ See the Definitions section for complete definitions.
 - HiRISE_Instrument_Setting_Parameters
 - HiRISE_Temperature_Parameters
 - HiRISE_Power_Parameters
+- HiRISE_RDR_Parameters
 - CRISM_Parameters
 - SHARAD_Parameters
 - CRISM_ATO_Parameters
 
 ## HiRISE_Time_Parameters Class
+- observation_start_time
 - readout_start_time
 - readout_start_count
 
@@ -240,6 +250,66 @@ See the Definitions section for complete definitions.
 - iea_positive_15_voltage 
 - iea_positive_5_voltage
 
+## HiRISE_RDR_Parameters Class
+- ccd_flag_red0
+- ccd_flag_red1
+- ccd_flag_red2
+- ccd_flag_red3
+- ccd_flag_red4
+- ccd_flag_red5
+- ccd_flag_red6
+- ccd_flag_red7
+- ccd_flag_red8
+- ccd_flag_red9
+- ccd_flag_ir10
+- ccd_flag_ir11
+- ccd_flag_bg12
+- ccd_flag_bg13
+- binning_red0
+- binning_red1
+- binning_red2
+- binning_red3
+- binning_red4
+- binning_red5
+- binning_red6
+- binning_red7
+- binning_red8
+- binning_red9
+- binning_ir10
+- binning_ir11
+- binning_bg12
+- binning_bg13
+- tdi_red0
+- tdi_red1
+- tdi_red2
+- tdi_red3
+- tdi_red4
+- tdi_red5
+- tdi_red6
+- tdi_red7
+- tdi_red8
+- tdi_red9
+- tdi_ir10
+- tdi_ir11
+- tdi_bg12
+- tdi_bg13
+- special_processing_flag_red0
+- special_processing_flag_red1
+- special_processing_flag_red2
+- special_processing_flag_red3
+- special_processing_flag_red4
+- special_processing_flag_red5
+- special_processing_flag_red6
+- special_processing_flag_red7
+- special_processing_flag_red8
+- special_processing_flag_red9
+- special_processing_flag_ir10
+- special_processing_flag_ir11
+- special_processing_flag_bg12
+- special_processing_flag_bg13
+- minimum_stretch
+- maximum_stretch
+
 ## CRISM_Parameters Class
 - observation_type 
 - observation_id 
@@ -263,7 +333,16 @@ See the Definitions section for complete definitions.
 - value_offset 
 
 ## SHARAD_Parameters Class
+- SHARAD_Observation_Parameters
 - Array_Sampled
+
+### SHARAD_Observation_Parameters Class
+- synthetic_aperture_duration
+- multilook_doppler_bandwidth
+- number_of_looks
+- chirp_frequency_envelope
+- range_compression_window
+- azimuth_processing_window
 
 ### Array_Sampled Class
 - name 
@@ -274,10 +353,10 @@ See the Definitions section for complete definitions.
 - array_scale 
 
 ## CRISM_ATO_Parameters Class
-- ato.min_row 
-- ato.max_row 
-- ato.min_column 
-- ato.max_column
+- ato.min_line 
+- ato.max_line 
+- ato.min_sample 
+- ato.max_sample
 
 # Definitions
 
@@ -318,6 +397,11 @@ Classes (in alphabetical order)
 - Minimum occurrences: 0
 - Maximum occurrences: 1
 
+*HiRISE_RDR_Parameters*
+- The HiRISE_RDR_Parameters class contains attributes specific to HiRISE RDRs.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+
 *HiRISE_Temperature_Parameters*
 - The HiRISE_Temperature_Parameters class contains attributes specific to HiRISE EDRs.
 - Minimum occurrences: 0
@@ -332,6 +416,11 @@ Classes (in alphabetical order)
 - The MRO_Parameters class is the container for mission-specific metadata elements.
 - Minimum occurrences: 0
 - Maximum occurrences: 1
+
+*SHARAD_Observation_Parameters*
+- The SHARAD_Observation_Parameters class class provides parameters for SHARAD radar observations.
+- Minimum occurrences: 0
+- Maximum occurrences: *
 
 *SHARAD_Parameters*
 - The SHARAD_Parameters class contains attributes specific to SHARAD data.
@@ -417,6 +506,14 @@ The array_unit element specifies the unit of measure of associated data sampling
 - Maximum occurrences: 1
 - Nillable: No
 
+*azimuth_processing_window*
+The windowing function used to reduce sidelobes resulting from azimuth (along-track) synthetic aperture processing of the raw echo records. All radargrams in the SHARAD radargram archive use a Hann function.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: N/A
+- Minimum occurrences: 1
+- Maximum occurrences: 1
+- Nillable: No
+
 *band_name*
 Identifies the name of the CRISM band associated with the specific scaling and offset parameters used in a CRISM browse product.
 - PDS4 data type: ASCII_Short_String_Collapsed
@@ -459,12 +556,370 @@ mro:line_exposure_duration = mro:binning * mro:scan_line_duration
 - Maximum occurrences: 1
 - Nillable: No
 
+*binning_bg12*
+The binning element provides the HiRISE observation binning mode; i.e., the number of lines binned in an observation.
+mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+- PDS4 data type: ASCII_Integer
+- Valid values: 1, 2, 3, 4, 8, 16
+  - 1 - bin 1
+  - 2 - bin 2
+  - 3 - bin 3
+  - 4 - bin 4
+  - 8 - bin 8
+  - 16 - bin 16
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*binning_bg13*
+The binning element provides the HiRISE observation binning mode; i.e., the number of lines binned in an observation.
+mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+- PDS4 data type: ASCII_Integer
+- Valid values: 1, 2, 3, 4, 8, 16
+  - 1 - bin 1
+  - 2 - bin 2
+  - 3 - bin 3
+  - 4 - bin 4
+  - 8 - bin 8
+  - 16 - bin 16
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*binning_ir10*
+The binning element provides the HiRISE observation binning mode; i.e., the number of lines binned in an observation.
+mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+- PDS4 data type: ASCII_Integer
+- Valid values: 1, 2, 3, 4, 8, 16
+  - 1 - bin 1
+  - 2 - bin 2
+  - 3 - bin 3
+  - 4 - bin 4
+  - 8 - bin 8
+  - 16 - bin 16
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*binning_ir11*
+The binning element provides the HiRISE observation binning mode; i.e., the number of lines binned in an observation.
+mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+- PDS4 data type: ASCII_Integer
+- Valid values: 1, 2, 3, 4, 8, 16
+  - 1 - bin 1
+  - 2 - bin 2
+  - 3 - bin 3
+  - 4 - bin 4
+  - 8 - bin 8
+  - 16 - bin 16
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*binning_red0*
+The binning element provides the HiRISE observation binning mode; i.e., the number of lines binned in an observation.
+mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+- PDS4 data type: ASCII_Integer
+- Valid values: 1, 2, 3, 4, 8, 16
+  - 1 - bin 1
+  - 2 - bin 2
+  - 3 - bin 3
+  - 4 - bin 4
+  - 8 - bin 8
+  - 16 - bin 16
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*binning_red1*
+The binning element provides the HiRISE observation binning mode; i.e., the number of lines binned in an observation.
+mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+- PDS4 data type: ASCII_Integer
+- Valid values: 1, 2, 3, 4, 8, 16
+  - 1 - bin 1
+  - 2 - bin 2
+  - 3 - bin 3
+  - 4 - bin 4
+  - 8 - bin 8
+  - 16 - bin 16
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*binning_red2*
+The binning element provides the HiRISE observation binning mode; i.e., the number of lines binned in an observation.
+mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+- PDS4 data type: ASCII_Integer
+- Valid values: 1, 2, 3, 4, 8, 16
+  - 1 - bin 1
+  - 2 - bin 2
+  - 3 - bin 3
+  - 4 - bin 4
+  - 8 - bin 8
+  - 16 - bin 16
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*binning_red3*
+The binning element provides the HiRISE observation binning mode; i.e., the number of lines binned in an observation.
+mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+- PDS4 data type: ASCII_Integer
+- Valid values: 1, 2, 3, 4, 8, 16
+  - 1 - bin 1
+  - 2 - bin 2
+  - 3 - bin 3
+  - 4 - bin 4
+  - 8 - bin 8
+  - 16 - bin 16
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*binning_red4*
+The binning element provides the HiRISE observation binning mode; i.e., the number of lines binned in an observation.
+mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+- PDS4 data type: ASCII_Integer
+- Valid values: 1, 2, 3, 4, 8, 16
+  - 1 - bin 1
+  - 2 - bin 2
+  - 3 - bin 3
+  - 4 - bin 4
+  - 8 - bin 8
+  - 16 - bin 16
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*binning_red5*
+The binning element provides the HiRISE observation binning mode; i.e., the number of lines binned in an observation.
+mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+- PDS4 data type: ASCII_Integer
+- Valid values: 1, 2, 3, 4, 8, 16
+  - 1 - bin 1
+  - 2 - bin 2
+  - 3 - bin 3
+  - 4 - bin 4
+  - 8 - bin 8
+  - 16 - bin 16
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*binning_red6*
+The binning element provides the HiRISE observation binning mode; i.e., the number of lines binned in an observation.
+mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+- PDS4 data type: ASCII_Integer
+- Valid values: 1, 2, 3, 4, 8, 16
+  - 1 - bin 1
+  - 2 - bin 2
+  - 3 - bin 3
+  - 4 - bin 4
+  - 8 - bin 8
+  - 16 - bin 16
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*binning_red7*
+The binning element provides the HiRISE observation binning mode; i.e., the number of lines binned in an observation.
+mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+- PDS4 data type: ASCII_Integer
+- Valid values: 1, 2, 3, 4, 8, 16
+  - 1 - bin 1
+  - 2 - bin 2
+  - 3 - bin 3
+  - 4 - bin 4
+  - 8 - bin 8
+  - 16 - bin 16
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*binning_red8*
+The binning element provides the HiRISE observation binning mode; i.e., the number of lines binned in an observation.
+mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+- PDS4 data type: ASCII_Integer
+- Valid values: 1, 2, 3, 4, 8, 16
+  - 1 - bin 1
+  - 2 - bin 2
+  - 3 - bin 3
+  - 4 - bin 4
+  - 8 - bin 8
+  - 16 - bin 16
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*binning_red9*
+The binning element provides the HiRISE observation binning mode; i.e., the number of lines binned in an observation.
+mro:line_exposure_duration = mro:binning * mro:scan_line_duration
+- PDS4 data type: ASCII_Integer
+- Valid values: 1, 2, 3, 4, 8, 16
+  - 1 - bin 1
+  - 2 - bin 2
+  - 3 - bin 3
+  - 4 - bin 4
+  - 8 - bin 8
+  - 16 - bin 16
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*ccd_flag_bg12*
+The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - the CCD was actively acquiring data during the observation.
+  - OFF - the CCD was turned off during the observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*ccd_flag_bg13*
+The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - the CCD was actively acquiring data during the observation.
+  - OFF - the CCD was turned off during the observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*ccd_flag_ir10*
+The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - the CCD was actively acquiring data during the observation.
+  - OFF - the CCD was turned off during the observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*ccd_flag_ir11*
+The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - the CCD was actively acquiring data during the observation.
+  - OFF - the CCD was turned off during the observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*ccd_flag_red0*
+The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - the CCD was actively acquiring data during the observation.
+  - OFF - the CCD was turned off during the observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*ccd_flag_red1*
+The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - the CCD was actively acquiring data during the observation.
+  - OFF - the CCD was turned off during the observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*ccd_flag_red2*
+The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - the CCD was actively acquiring data during the observation.
+  - OFF - the CCD was turned off during the observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*ccd_flag_red3*
+The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - the CCD was actively acquiring data during the observation.
+  - OFF - the CCD was turned off during the observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*ccd_flag_red4*
+The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - the CCD was actively acquiring data during the observation.
+  - OFF - the CCD was turned off during the observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*ccd_flag_red5*
+The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - the CCD was actively acquiring data during the observation.
+  - OFF - the CCD was turned off during the observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*ccd_flag_red6*
+The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - the CCD was actively acquiring data during the observation.
+  - OFF - the CCD was turned off during the observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*ccd_flag_red7*
+The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - the CCD was actively acquiring data during the observation.
+  - OFF - the CCD was turned off during the observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*ccd_flag_red8*
+The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - the CCD was actively acquiring data during the observation.
+  - OFF - the CCD was turned off during the observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*ccd_flag_red9*
+The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - the CCD was actively acquiring data during the observation.
+  - OFF - the CCD was turned off during the observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
 *channel_number*
 channel_number attribute provides the HiRISE CCD channel number.        
 - PDS4 data type: ASCII_Integer
 - Valid values: 0, 1
   - 0 - channel 0
   - 1 - channel 1
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*chirp_frequency_envelope*
+The frequency-dependent amplitude variation used in range compression of the raw echo data. All radargrams in the SHARAD radargram archive use a uniform-amplitude model.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: N/A
 - Minimum occurrences: 0
 - Maximum occurrences: 1
 - Nillable: No
@@ -1050,7 +1505,7 @@ Units of microseconds.
 - Nillable: No
 - Unit of measure type: Units_of_Time
      
-lookup_table_k_value
+*lookup_table_k_value*
 lookup_table_k_value attribute provides the 'pixel spread' value in a HiRISE image. This parameter is used only for the HiRISE SQUARE-ROOT LUT table mode.  A -9998 value indicates a K value was not used.
 - PDS4 data type: ASCII_Integer
 - Valid values: N/A
@@ -1060,7 +1515,7 @@ lookup_table_k_value attribute provides the 'pixel spread' value in a HiRISE ima
 - Minimum value: -9998
 - Maximum value: 32     
         
-lookup_table_maximum
+*lookup_table_maximum*
 lookup_table_maximum attribute provides the maximum 14-bit pixel value mapped to the 254 DN 8-bit pixel in a HiRISE image. This parameter is used only for the HiRISE LINEAR LUT table mode. A -9998 value indicates that the maximum value was not used.
 - PDS4 data type: ASCII_Integer
 - Valid values: N/A
@@ -1070,7 +1525,7 @@ lookup_table_maximum attribute provides the maximum 14-bit pixel value mapped to
 - Minimum value: -9998
 - Maximum value: 16384
      
-lookup_table_median
+*lookup_table_median*
 lookup_table_median attribute provides the median 14-bit pixel value mapped to the 254 DN 8-bit pixel in a HiRISE image. This parameter is used only for the HiRISE SQUARE-ROOT LUT table mode. A -9998 value indicates that the table median value was not used.
 - PDS4 data type: ASCII_Integer
 - Valid values: N/A
@@ -1080,7 +1535,7 @@ lookup_table_median attribute provides the median 14-bit pixel value mapped to t
 - Minimum value: -9998
 - Maximum value: 16384
        
-lookup_table_minimum
+*lookup_table_minimum*
 lookup_table_minimum attribute provides the minimum 14-bit pixel value mapped to the 0 DN output pixel in a HiRISE image. This parameter is used only for the HiRISE LINEAR LUT table mode. A -9998 value indicates that the maximum value was not used.
 - PDS4 data type: ASCII_Integer
 - Valid values: N/A
@@ -1090,7 +1545,7 @@ lookup_table_minimum attribute provides the minimum 14-bit pixel value mapped to
 - Minimum value: -9998
 - Maximum value: 16384
      
-lookup_table_number
+*lookup_table_number*
 lookup_table_number attribute provides the number of the stored LUT used in a HiRISE image. This parameter is used only for the HiRISE STORED LUT table mode. A value of -9998 indicates that a table number was not used.
 - PDS4 data type: ASCII_Integer
 - Valid values: N/A
@@ -1100,7 +1555,7 @@ lookup_table_number attribute provides the number of the stored LUT used in a Hi
 - Minimum value: -9998
 - Maximum value: 28
      
-lookup_table_type
+*lookup_table_type*
 lookup_table_type attribute provides the type of lookup table that was applied to convert 14-bit pixels to 8-bit pixels in a HiRISE image.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Value values: LINEAR, N/A, SQUARE ROOT, STORED
@@ -1112,23 +1567,33 @@ lookup_table_type attribute provides the type of lookup table that was applied t
 - Maximum occurrences: 1
 - Nillable: No 
 
-max_column
-The index of the highest-numbered column/sample of this product relative to the original CRISM scene. The first column of the original CRISM scene corresponds to a value of 1.
+*maximum_stretch"
+The maximum_stretch attribute provides a contrast stretch value to be used in the display of a HiRISE Image. The mro.maximum_stretch parameter specifies the DN value to map to the 255 DN value of the display. For color images, there will be three values, one for each color.
+- PDS4 data type: ASCII_Integer  
+- Valid values: N/A
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+- Minimum value: 0
+- Maximum value: 1024
+
+*max_line*
+The index of the highest-numbered row/line of this product relative to the original CRISM scene. The first line of the original CRISM scene corresponds to a value of 1.
+- PDS4 data type: ASCII_Integer  
+- Valid values: N/A
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*max_sample*
+The index of the highest-numbered column/sample of this product relative to the original CRISM scene. The first sample of the original CRISM scene corresponds to a value of 1.
 - PDS4 data type: ASCII_Integer
 - Valid values: N/A
 - Minimum occurrences: 0
 - Maximum occurrences: 1
 - Nillable: No
-    
-max_row
-The index of the highest-numbered row/line of this product relative to the original CRISM scene. The first row of the original CRISM scene corresponds to a value of 1.
-- PDS4 data type: ASCII_Integer  
-- Valid values: N/A
-- Minimum occurrences: 0
-- Maximum occurrences: 1
-- Nillable: No   
-           
-mech_tlm_board_temperature
+              
+*mech_tlm_board_temperature*
 The mech_tlm_board_temperature attribute provides the temperature of the HiRISE instrument's Mech/TLM Board in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Minimum occurrences: 0
@@ -1137,7 +1602,7 @@ The mech_tlm_board_temperature attribute provides the temperature of the HiRISE 
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
 
-mech_tlm_fpga_pos_2_5_voltage
+*mech_tlm_fpga_pos_2_5_voltage*
 The mech_tlm_fpga_pos_2_5_voltage attribute provides the positive 2_5 voltage state of the HiRISE Mech/TLM Field-Programmable Gate Array.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1147,23 +1612,33 @@ The mech_tlm_fpga_pos_2_5_voltage attribute provides the positive 2_5 voltage st
 - Unit of measure type: Units_of_Voltage
 - Specified unit id: V 
 
-min_column
-The index of the lowest-numbered column/sample of this product relative to the original CRISM scene. The first column of the original CRISM scene corresponds to a value of 1.
-- PDS4 data type: ASCII_Integer
+*manimum_stretch"
+The minimum_stretch attribute provides a contrast stretch value to be used in the display of a HiRISE Image. The mro.minimum_stretch parameter specifies the DN value to map to the 0 DN value of the display. For color images, there will be three values, one for each color.
+- PDS4 data type: ASCII_Integer  
 - Valid values: N/A
 - Minimum occurrences: 0
 - Maximum occurrences: 1
 - Nillable: No
-    
-min_row
-The index of the lowest-numbered row/line of this product relative to the original CRISM scene. The first row of the original CRISM scene corresponds to a value of 1.
+- Minimum value: 0
+- Maximum value: 1024
+
+*min_line*
+The index of the lowest-numbered row/line of this product relative to the original CRISM scene. The first line of the original CRISM scene corresponds to a value of 1.
 - PDS4 data type: ASCII_Integer
 - Valid values: N/A
 - Minimum occurrences: 0
 - Maximum occurrences: 1
 - Nillable: No
 
-mission_phase_name
+*min_sample*
+The index of the lowest-numbered column/sample of this product relative to the original CRISM scene. The first sample of the original CRISM scene corresponds to a value of 1.
+- PDS4 data type: ASCII_Integer
+- Valid values: N/A
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+    
+*mission_phase_name*
 The mission_phase_name attribute provides the mission-defined name of a time period within the mission.
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: Launch, Cruise, Approach and Orbit Insertion, Aerobraking, Primary Science, Extended Science, Extended Mission 1, Extended Mission 2, Extended Mission 3, Extended Mission 4, Extended Mission 5, Extended Mission 6    
@@ -1181,9 +1656,18 @@ The mission_phase_name attribute provides the mission-defined name of a time per
   - Extended Mission 6 - 2022-10-01 to 2025-09-30
 - Minimum occurrences: 0
 - Maximum occurrences: 1
-- Nillable: No       
-           
-ms_truss_leg_0_a_temperature     
+- Nillable: No
+
+*multilook_doppler_bandwidth*
+The frequency span over which radar echoes are averaged, following synthetic aperture processing for each spatial footprint along the ground track. This frequency span is measured to either side of the zero-frequency component of the Doppler spectrum.
+- PDS4 data type: ASCII_Real
+- Valid values: N/A
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+- Unit of measure type: Units_of_Frequency
+
+*ms_truss_leg_0_a_temperature*     
 The ms_truss_leg_0_a_temperature attribute provides the temperature of the HiRISE instrument's metering structure truss 0-A leg in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1193,7 +1677,7 @@ The ms_truss_leg_0_a_temperature attribute provides the temperature of the HiRIS
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C    
            
-ms_truss_leg_0_b_temperature        
+*ms_truss_leg_0_b_temperature*        
 The ms_truss_leg_0_b_temperature attribute provides the temperature of the HiRISE instrument's metering structure truss 0-B leg in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.            
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1203,7 +1687,7 @@ The ms_truss_leg_0_b_temperature attribute provides the temperature of the HiRIS
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C       
            
-ms_truss_leg_120_a_temperature
+*ms_truss_leg_120_a_temperature*
 The ms_truss_leg_120_a_temperature attribute provides the temperature of the HiRISE instrument's metering structure truss 120-A leg in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1213,7 +1697,7 @@ The ms_truss_leg_120_a_temperature attribute provides the temperature of the HiR
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C        
            
-ms_truss_leg_120_b_temperature
+*ms_truss_leg_120_b_temperature*
 The ms_truss_leg_120_b_temperature attribute provides the temperature of the HiRISE instrument's metering structure truss 120-B leg in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1223,7 +1707,7 @@ The ms_truss_leg_120_b_temperature attribute provides the temperature of the HiR
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
                   
-ms_truss_leg_240_a_temperature    
+*ms_truss_leg_240_a_temperature*    
 The ms_truss_leg_240_a_temperature attribute provides the temperature of the HiRISE instrument's metering structure truss 240-A leg in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1233,7 +1717,7 @@ The ms_truss_leg_240_a_temperature attribute provides the temperature of the HiR
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C       
            
-ms_truss_leg_240_b_temperature       
+*ms_truss_leg_240_b_temperature*       
 The ms_truss_leg_240_b_temperature attribute provides the temperature of the HiRISE instrument's metering structure truss 240-B leg in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1243,7 +1727,7 @@ The ms_truss_leg_240_b_temperature attribute provides the temperature of the HiR
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
 
-name
+*name*
 The name element provides the name of the parameter which determines the sampling interval of a particular instrument or dataset parameter. For example, magnetic field intensity is sampled in time increments, and a spectrum is sampled in wavelength or frequency. 
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: N/A
@@ -1251,7 +1735,15 @@ The name element provides the name of the parameter which determines the samplin
 - Maximum occurrences: 1
 - Nillable: No
 
-observation_id
+*number_of_looks*
+The number of frequency-resolved cells included in the multi-look averaging. This varies with the chosen frequency span and the Doppler resolution set by the inverse of the coherent integration time.
+- PDS4 data type: ASCII_Integer
+- Valid values: N/A
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*observation_id*
 The observation_id attribute is a 8-byte hexadecimal integer uniquely identifying the observation.
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: N/A
@@ -1259,15 +1751,31 @@ The observation_id attribute is a 8-byte hexadecimal integer uniquely identifyin
 - Maximum occurrences: 1
 - Nillable: No
         
-observation_number
+*observation_number*
 The observation_number attribute gives the monotonically increasing ordinal counter of the EDRs generated for a particular CRISM observation_id. CRISM generates several EDRs for a given observation_id.
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: N/A
 - Minimum occurrences: 0
 - Maximum occurrences: 1
 - Nillable: No
-        
-observation_type
+
+*observation_rationale*
+The observation_rationale attribute identifies the name of the specific feature on Mars that was targeted by the observation.        
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: N/A
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*observation_start_time*
+The observation_start_time attribute provides the UTC start time of a HiRISE image acquisition sequence.
+- PDS4 data type: ASCII_Date_Time_YMD_UTC
+- Valid values: N/A
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*observation_type*
 The observation_type attribute identifies the general type of observation.
 - PDS4 data type: ASCII_Short_String_Collapsed
 Valid values: FRT, HRL, HRS, FRS, ATO, ATU, EPF, TOD, LMB, MSP, HSP, HSV, MSV, MSW, FFC, CAL, ICL, FUN, UNK, STO
@@ -1295,7 +1803,7 @@ Valid values: FRT, HRL, HRS, FRS, ATO, ATU, EPF, TOD, LMB, MSP, HSP, HSV, MSV, M
 - Maximum occurrences: 1
 - Nillable: No        
            
-opt_bnch_box_beam_temperature  
+*opt_bnch_box_beam_temperature*  
 The opt_bnch_box_beam_temperature attribute provides the temperature of the HiRISE instrument's optical bench near the box beam (+Y face) in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1305,7 +1813,7 @@ The opt_bnch_box_beam_temperature attribute provides the temperature of the HiRI
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C       
            
-opt_bnch_cover_temperature
+*opt_bnch_cover_temperature*
 The opt_bnch_cover_temperature attribute provides the temperature of the HiRISE instrument's optical bench cover (external) in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1315,7 +1823,7 @@ The opt_bnch_cover_temperature attribute provides the temperature of the HiRISE 
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C       
            
-opt_bnch_flexure_temperature    
+*opt_bnch_flexure_temperature*    
 The opt_bnch_flexure_temperature attribute provides the temperature of the HiRISE instrument's optical bench near the +X MDR flexure in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.        
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1325,7 +1833,7 @@ The opt_bnch_flexure_temperature attribute provides the temperature of the HiRIS
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
          
-opt_bnch_fold_flat_temperature
+*opt_bnch_fold_flat_temperature*
 The opt_bnch_fold_flat_temperature attribute provides the temperature of the HiRISE instrument's optical fold flat mirror location in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1335,7 +1843,7 @@ The opt_bnch_fold_flat_temperature attribute provides the temperature of the HiR
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C      
            
-opt_bnch_fpa_temperature       
+*opt_bnch_fpa_temperature*       
 The opt_bnch_fpa_temperature attribute provides the temperature of the HiRISE instrument's optical bench near the Focal Plane Array in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1345,7 +1853,7 @@ The opt_bnch_fpa_temperature attribute provides the temperature of the HiRISE in
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C        
            
-opt_bnch_fpe_temperature    
+*opt_bnch_fpe_temperature*    
 The opt_bnch_fpe_temperature attribute provides the temperature of the HiRISE instrument's optical bench near the Focal Plane Electronics in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1355,7 +1863,7 @@ The opt_bnch_fpe_temperature attribute provides the temperature of the HiRISE in
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
                    
-opt_bnch_living_rm_temperature        
+*opt_bnch_living_rm_temperature*        
 The opt_bnch_living_rm_temperature attribute provides the temperature of the HiRISE instrument's optical bench in the sunken living room location in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.    
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1365,7 +1873,7 @@ The opt_bnch_living_rm_temperature attribute provides the temperature of the HiR
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C        
            
-opt_bnch_mirror_temperature       
+*opt_bnch_mirror_temperature*       
 The opt_bnch_mirror_temperature attribute provides the temperature of the HiRISE instrument's optical bench near the tertiary mirror in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1375,7 +1883,7 @@ The opt_bnch_mirror_temperature attribute provides the temperature of the HiRISE
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
 
-optical_bench_temperature
+*optical_bench_temperature*
 The optical_bench_temperature attribute provides the temperature of the CRISM optical bench. It is a backup to sphere_temperature for modeling the output radiance of the onboard integrating sphere as a function of sphere temperature.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1385,7 +1893,7 @@ The optical_bench_temperature attribute provides the temperature of the CRISM op
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: K
 
-orbit_number
+*orbit_number*
 The orbit_number attribute identifies the orbit number when the observation was taken.
 - PDS4 data type: ASCII_NonNegative_Integer
 - Valid values: N/A
@@ -1393,7 +1901,7 @@ The orbit_number attribute identifies the orbit number when the observation was 
 - Maximum occurrences: 1
 - Nillable: No
 
-powered_cpmm_flag_01
+*powered_cpmm_flag_01*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1403,7 +1911,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Maximum occurrences: 1
 - Nillable: No
 
-powered_cpmm_flag_02
+*powered_cpmm_flag_02*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1413,7 +1921,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Maximum occurrences: 1
 - Nillable: No
   
-powered_cpmm_flag_03
+*powered_cpmm_flag_03*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1423,7 +1931,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Maximum occurrences: 1
 - Nillable: No
 
-powered_cpmm_flag_04
+*powered_cpmm_flag_04*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1433,7 +1941,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Maximum occurrences: 1
 - Nillable: No
         
-powered_cpmm_flag_05
+*powered_cpmm_flag_05*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1443,7 +1951,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Maximum occurrences: 1
 - Nillable: No
         
-powered_cpmm_flag_06
+*powered_cpmm_flag_06*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1453,7 +1961,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Maximum occurrences: 1
 - Nillable: No
         
-powered_cpmm_flag_07
+*powered_cpmm_flag_07*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1463,7 +1971,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Maximum occurrences: 1
 - Nillable: No
         
-powered_cpmm_flag_08
+*powered_cpmm_flag_08*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1473,7 +1981,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Maximum occurrences: 1
 - Nillable: No
         
-powered_cpmm_flag_09
+*powered_cpmm_flag_09*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1483,7 +1991,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Maximum occurrences: 1
 - Nillable: No
         
-powered_cpmm_flag_10
+*powered_cpmm_flag_10*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1493,7 +2001,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Maximum occurrences: 1
 - Nillable: No
         
-powered_cpmm_flag_11
+*powered_cpmm_flag_11*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1503,7 +2011,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Maximum occurrences: 1
 - Nillable: No
         
-powered_cpmm_flag_12
+*powered_cpmm_flag_12*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1513,7 +2021,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Maximum occurrences: 1
 - Nillable: No
 
-powered_cpmm_flag_13
+*powered_cpmm_flag_13*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1523,7 +2031,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Maximum occurrences: 1
 - Nillable: No
 
-powered_cpmm_flag_14
+*powered_cpmm_flag_14*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1533,7 +2041,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Maximum occurrences: 1
 - Nillable: No
           
-primary_mirror_baf_temperature       
+*primary_mirror_baf_temperature*       
 The primary_mirror_baf_temperature attribute provides the temperature of the HiRISE instrument's primary mirror baffle near the base (external) in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1543,7 +2051,7 @@ The primary_mirror_baf_temperature attribute provides the temperature of the HiR
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C        
            
-primary_mirror_mnt_temperature      
+*primary_mirror_mnt_temperature*     
 The primary_mirror_mnt_temperature attribute provides the temperature of the HiRISE instrument's primary mirror mount in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.        
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1553,7 +2061,7 @@ The primary_mirror_mnt_temperature attribute provides the temperature of the HiR
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
         
-primary_mirror_temperature        
+*primary_mirror_temperature*        
 The primary_mirror_temperature attribute provides the temperature of the HiRISE instrument's primary mirror at its maximum thickness in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1563,7 +2071,7 @@ The primary_mirror_temperature attribute provides the temperature of the HiRISE 
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
 
-producer_institution_name
+*producer_institution_name*
 The producer_institution_name attribute identifies the name of the institution that created the data product. 
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: N/A
@@ -1571,7 +2079,7 @@ The producer_institution_name attribute identifies the name of the institution t
 - Maximum occurrences: 1
 - Nillable: No
 
-product_type
+*product_type*
 The product_type attribute identifies the type of data product.
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: EDR, RDR, CDR, DDR, MTRDR, TER, TRDR, LDR, MRDR, MTRDR_Browse, MTRDR_Extras, TER_Browse, TER_Extras, TRDR_Browse
@@ -1594,7 +2102,7 @@ The product_type attribute identifies the type of data product.
 - Maximum occurrences: 1
 - Nillable: No
 
-product_version_id
+*product_version_id*
 The product_version_id element identifies the version of an individual data product.
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: N/A
@@ -1602,7 +2110,15 @@ The product_version_id element identifies the version of an individual data prod
 - Maximum occurrences: 1
 - Nillable: No
 
-readout_start_count
+*range_compression_window*
+The windowing function used to reduce sidelobes resulting from range compression of the raw echo records. All radargrams in the SHARAD radargram archive use a Hann function.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: N/A
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*readout_start_count*
 readout_start_count attribute provides the spacecraft clock count when the HiRISE CCD Process/Memory Module begins transferring image data out of its buffer memory.
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: N/A
@@ -1610,7 +2126,7 @@ readout_start_count attribute provides the spacecraft clock count when the HiRIS
 - Maximum occurrences: 1
 - Nillable: No
     
-readout_start_time
+*readout_start_time*
 readout_start_time attribute provides the UTC time when the HiRISE CCD Process/Memory Module begins transferring image data out of buffer memory.
 - PDS4 data type: ASCII_Date_Time_YMD_UTC
 - Valid values: N/A
@@ -1618,7 +2134,7 @@ readout_start_time attribute provides the UTC time when the HiRISE CCD Process/M
 - Maximum occurrences: 1
 - Nillable: No
 
-release_id
+*release_id*
 release_id is the identifier of a scheduled release of MRO data from PDS. The first MRO data release has release_number "0001". The release_number for a given product is always the first release in which it appears, and does not change if the product is revised later.
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: N/A
@@ -1627,7 +2143,7 @@ release_id is the identifier of a scheduled release of MRO data from PDS. The fi
 - Nillable: No
 - Minimum characters: 1
 
-scaling_factor
+*scaling_factor*
 The scaling_factor attribute is the scaling factor to be applied to each stored value in order to recover an original value. The observed value (Ov) is calculated from the stored value (Sv) thus: Ov = (Sv * scaling_factor) + value_offset. 
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1635,7 +2151,7 @@ The scaling_factor attribute is the scaling factor to be applied to each stored 
 - Maximum occurrences: 1
 - Nillable: No
 
-scan_exposure_duration
+*scan_exposure_duration*
 scan_exposure_duration attribute provides the unbinned line readout rate of the HiRISE instrument in microseconds. This corresponds to the time between successive steps in the Time Delay Integration (TDI) process. The adjustment of this parameter is used to match image line acquisition to the boresight ground velocity.  The value is the same for all CCDs for a given observation.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1646,7 +2162,7 @@ scan_exposure_duration attribute provides the unbinned line readout rate of the 
 - Maximum value: 1048650
 - Unit of measure type: Units_of_Time
 
-sec_mirror_baffle_temperature   
+*sec_mirror_baffle_temperature*   
 The sec_mirror_baffle_temperature attribute provides the temperature of the HiRISE instrument's secondary mirror baffle near the base (external) in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1656,7 +2172,7 @@ The sec_mirror_baffle_temperature attribute provides the temperature of the HiRI
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
         
-sec_mirror_mtr_rng_temperature
+*sec_mirror_mtr_rng_temperature*
 The sec_mirror_mtr_rng_temperature attribute provides the temperature of the HiRISE instrument's secondary mirror metering ring in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1666,7 +2182,7 @@ The sec_mirror_mtr_rng_temperature attribute provides the temperature of the HiR
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
                   
-sec_mirror_temperature
+*sec_mirror_temperature*
 The sec_mirror_temperature attribute provides the temperature of the HiRISE instrument's secondary mirror in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1676,7 +2192,7 @@ The sec_mirror_temperature attribute provides the temperature of the HiRISE inst
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
 
-sensor_id
+*sensor_id*
 The sensor_id attribute identifies the CRISM focal plane from which data in an EDR or RDR were returned; S = short-wavelength or VNIR, L = long-wavelength or IR, J = joint where a data product is applicable to either.
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: N/A
@@ -1684,7 +2200,7 @@ The sensor_id attribute identifies the CRISM focal plane from which data in an E
 - Maximum occurrences: 1
 - Nillable: No
 
-spacecraft_clock_count_partition
+*spacecraft_clock_count_partition*
 The spacecraft_clock_count_partition attribute indicates the clock partition active for the spacecraft_clock_start_count and spacecraft_clock_stop_count attributes.
 - PDS4 data type: ASCII_NonNegative_Integer
 - Valid values: N/A
@@ -1692,7 +2208,7 @@ The spacecraft_clock_count_partition attribute indicates the clock partition act
 - Maximum occurrences: 1
 - Nillable: No
             
-spacecraft_clock_start_count
+*spacecraft_clock_start_count*
 The spacecraft_clock_start_count attribute provides the value of the spacecraft clock at the beginning of a time period of interest.
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: N/A
@@ -1701,7 +2217,7 @@ The spacecraft_clock_start_count attribute provides the value of the spacecraft 
 - Nillable: No
 - Pattern: ([0-9]{1,2}/)?[0-9]{1,10}(:[0-9]{3,6})?
 
-spacecraft_clock_stop_count
+*spacecraft_clock_stop_count*
 The spacecraft_clock_stop_count attribute provides the value of the spacecraft clock at the end of a time period of interest.
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: N/A
@@ -1710,7 +2226,161 @@ The spacecraft_clock_stop_count attribute provides the value of the spacecraft c
 - Nillable: No
 - Pattern: ([0-9]{1,2}/)?[0-9]{1,10}(:[0-9]{3,6})?
 
-spectrometer_housing_temperature
+*special_processing_flag_bg12*
+The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: NOMINAL, CUBENORM, NONE
+  - NOMINAL - the standard calibration processing was used for the CCD image.
+  - CUBENORM - the calibration processing used a columnar gain correction based on columnar statistics of the image.
+  - NONE - the CCD was not operating or was missing for this observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*special_processing_flag_bg13*
+The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: NOMINAL, CUBENORM, NONE
+  - NOMINAL - the standard calibration processing was used for the CCD image.
+  - CUBENORM - the calibration processing used a columnar gain correction based on columnar statistics of the image.
+  - NONE - the CCD was not operating or was missing for this observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*special_processing_flag_ir10*
+The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: NOMINAL, CUBENORM, NONE
+  - NOMINAL - the standard calibration processing was used for the CCD image.
+  - CUBENORM - the calibration processing used a columnar gain correction based on columnar statistics of the image.
+  - NONE - the CCD was not operating or was missing for this observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*special_processing_flag_ir11*
+The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: NOMINAL, CUBENORM, NONE
+  - NOMINAL - the standard calibration processing was used for the CCD image.
+  - CUBENORM - the calibration processing used a columnar gain correction based on columnar statistics of the image.
+  - NONE - the CCD was not operating or was missing for this observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*special_processing_flag_red0*
+The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: NOMINAL, CUBENORM, NONE
+  - NOMINAL - the standard calibration processing was used for the CCD image.
+  - CUBENORM - the calibration processing used a columnar gain correction based on columnar statistics of the image.
+  - NONE - the CCD was not operating or was missing for this observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*special_processing_flag_red1*
+The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: NOMINAL, CUBENORM, NONE
+  - NOMINAL - the standard calibration processing was used for the CCD image.
+  - CUBENORM - the calibration processing used a columnar gain correction based on columnar statistics of the image.
+  - NONE - the CCD was not operating or was missing for this observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*special_processing_flag_red2*
+The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: NOMINAL, CUBENORM, NONE
+  - NOMINAL - the standard calibration processing was used for the CCD image.
+  - CUBENORM - the calibration processing used a columnar gain correction based on columnar statistics of the image.
+  - NONE - the CCD was not operating or was missing for this observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*special_processing_flag_red3*
+The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: NOMINAL, CUBENORM, NONE
+  - NOMINAL - the standard calibration processing was used for the CCD image.
+  - CUBENORM - the calibration processing used a columnar gain correction based on columnar statistics of the image.
+  - NONE - the CCD was not operating or was missing for this observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*special_processing_flag_red4*
+The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: NOMINAL, CUBENORM, NONE
+  - NOMINAL - the standard calibration processing was used for the CCD image.
+  - CUBENORM - the calibration processing used a columnar gain correction based on columnar statistics of the image.
+  - NONE - the CCD was not operating or was missing for this observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*special_processing_flag_red5*
+The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: NOMINAL, CUBENORM, NONE
+  - NOMINAL - the standard calibration processing was used for the CCD image.
+  - CUBENORM - the calibration processing used a columnar gain correction based on columnar statistics of the image.
+  - NONE - the CCD was not operating or was missing for this observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*special_processing_flag_red6*
+The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: NOMINAL, CUBENORM, NONE
+  - NOMINAL - the standard calibration processing was used for the CCD image.
+  - CUBENORM - the calibration processing used a columnar gain correction based on columnar statistics of the image.
+  - NONE - the CCD was not operating or was missing for this observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*special_processing_flag_red7*
+The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: NOMINAL, CUBENORM, NONE
+  - NOMINAL - the standard calibration processing was used for the CCD image.
+  - CUBENORM - the calibration processing used a columnar gain correction based on columnar statistics of the image.
+  - NONE - the CCD was not operating or was missing for this observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*special_processing_flag_red8*
+The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: NOMINAL, CUBENORM, NONE
+  - NOMINAL - the standard calibration processing was used for the CCD image.
+  - CUBENORM - the calibration processing used a columnar gain correction based on columnar statistics of the image.
+  - NONE - the CCD was not operating or was missing for this observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*special_processing_flag_red9*
+The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: NOMINAL, CUBENORM, NONE
+  - NOMINAL - the standard calibration processing was used for the CCD image.
+  - CUBENORM - the calibration processing used a columnar gain correction based on columnar statistics of the image.
+  - NONE - the CCD was not operating or was missing for this observation.
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+ 
+*spectrometer_housing_temperature*
 The spectrometer_housing_temperature attribute gives the temperature of the CRISM spectrometer housing. This is a backup to direct determination, using measurements with the shutter closed, of the thermal background measured by the IR detector. The primary source of this temperature is a measurement digitized by the VNIR focal plane electronics, column 58 in the EDR list file. The backup source of this temperature is a measurement digitized by the IR focal plane electronics, column 69 in the EDR list file.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1720,7 +2390,7 @@ The spectrometer_housing_temperature attribute gives the temperature of the CRIS
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: K
 
-sphere_temperature
+*sphere_temperature*
 The sphere_temperature attribute gives the temperature of the CRISM onboard integrating sphere. It is used for modeling the output radiance of the sphere as a function of sphere temperature.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1730,7 +2400,7 @@ The sphere_temperature attribute gives the temperature of the CRISM onboard inte
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: K
           
-spider_leg_150_temperature
+*spider_leg_150_temperature*
 The spider_leg_150_temperature attribute provides the temperature of the HiRISE instrument's spider leg at the 150 degree location in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1740,7 +2410,7 @@ The spider_leg_150_temperature attribute provides the temperature of the HiRISE 
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
          
-spider_leg_270_temperature       
+*spider_leg_270_temperature*       
 The spider_leg_270_temperature attribute provides the temperature of the HiRISE instrument's spider leg at the 270 degree location in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1750,7 +2420,7 @@ The spider_leg_270_temperature attribute provides the temperature of the HiRISE 
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
           
-spider_leg_30_temperature
+*spider_leg_30_temperature*
 The spider_leg_30_temperature attribute provides the temperature of the HiRISE instrument's spider leg at the 30 degree location in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1760,7 +2430,7 @@ The spider_leg_30_temperature attribute provides the temperature of the HiRISE i
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
          
-stimulation_lamp_flag_01
+*stimulation_lamp_flag_01*
 stimulation_lamp_flag attribute is a set of three flags that identify which of the three HiRISE stimulation lamps have been turned on or off. Stimulation lamps are used to evaluate relative changes in instrument calibration throughout the mission.  Stimulation lamps are always turned off for science observation data.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1770,7 +2440,7 @@ stimulation_lamp_flag attribute is a set of three flags that identify which of t
 - Maximum occurrences: 1
 - Nillable: No
           
-stimulation_lamp_flag_02
+*stimulation_lamp_flag_02*
 The stimulation_lamp_flag attribute is a set of three flags that identify which of the three HiRISE stimulation lamps have been turned on or off. Stimulation lamps are used to evaluate relative changes in instrument calibration throughout the mission.  Stimulation lamps are always turned off for science observation data.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1780,7 +2450,7 @@ The stimulation_lamp_flag attribute is a set of three flags that identify which 
 - Maximum occurrences: 1
 - Nillable: No
           
-stimulation_lamp_flag_03
+*stimulation_lamp_flag_03*
 The stimulation_lamp_flag attribute is a set of three flags that identify which of the three HiRISE stimulation lamps have been turned on or off. Stimulation lamps are used to evaluate relative changes in instrument calibration throughout the mission.  Stimulation lamps are always turned off for science observation data.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -1790,7 +2460,7 @@ The stimulation_lamp_flag attribute is a set of three flags that identify which 
 - Maximum occurrences: 1
 - Nillable: No 
 
-sun_shade_temperature
+*sun_shade_temperature*
 The sun_shade_temperature attribute provides the temperature of the HiRISE instrument's sun shade under the MLI in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1800,7 +2470,16 @@ The sun_shade_temperature attribute provides the temperature of the HiRISE instr
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
 
-tdi
+*synthetic_aperture_duration*
+The coherent integration time for SHARAD signals processed using the synthetic aperture technique. Multiplication of this value by the MRO tangential velocity tabulated in the SHARAD radargram GEOM.TAB files yields an approximate physical length of the aperture.
+- PDS4 data type: ASCII_Real
+- Valid values: N/A
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+- Unit of measure type: Units_of_Time
+
+*tdi*
 The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
 - PDS4 data type: ASCII_Integer
 - Valid values: N/A
@@ -1809,8 +2488,176 @@ The tdi attribute provides the number of time delay and integration (TDI) stages
 - Nillable: No
 - Minimum value: 8
 - Maximum value:128
-        
-trim_lines
+
+*tdi_bg12*
+The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
+- PDS4 data type: ASCII_Integer
+- Valid values: 8, 32, 64, 128
+  - 8 - 8 stages
+  - 32 - 32 stages
+  - 64 - 64 stages
+  - 128 - 128 stages
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*tdi_bg13*
+The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
+- PDS4 data type: ASCII_Integer
+- Valid values: 8, 32, 64, 128
+  - 8 - 8 stages
+  - 32 - 32 stages
+  - 64 - 64 stages
+  - 128 - 128 stages
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*tdi_ir10*
+The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
+- PDS4 data type: ASCII_Integer
+- Valid values: 8, 32, 64, 128
+  - 8 - 8 stages
+  - 32 - 32 stages
+  - 64 - 64 stages
+  - 128 - 128 stages
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*tdi_ir11*
+The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
+- PDS4 data type: ASCII_Integer
+- Valid values: 8, 32, 64, 128
+  - 8 - 8 stages
+  - 32 - 32 stages
+  - 64 - 64 stages
+  - 128 - 128 stages
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*tdi_red0*
+The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
+- PDS4 data type: ASCII_Integer
+- Valid values: 8, 32, 64, 128
+  - 8 - 8 stages
+  - 32 - 32 stages
+  - 64 - 64 stages
+  - 128 - 128 stages
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*tdi_red1*
+The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
+- PDS4 data type: ASCII_Integer
+- Valid values: 8, 32, 64, 128
+  - 8 - 8 stages
+  - 32 - 32 stages
+  - 64 - 64 stages
+  - 128 - 128 stages
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*tdi_red2*
+The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
+- PDS4 data type: ASCII_Integer
+- Valid values: 8, 32, 64, 128
+  - 8 - 8 stages
+  - 32 - 32 stages
+  - 64 - 64 stages
+  - 128 - 128 stages
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*tdi_red3*
+The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
+- PDS4 data type: ASCII_Integer
+- Valid values: 8, 32, 64, 128
+  - 8 - 8 stages
+  - 32 - 32 stages
+  - 64 - 64 stages
+  - 128 - 128 stages
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*tdi_red4*
+The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
+- PDS4 data type: ASCII_Integer
+- Valid values: 8, 32, 64, 128
+  - 8 - 8 stages
+  - 32 - 32 stages
+  - 64 - 64 stages
+  - 128 - 128 stages
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*tdi_red5*
+The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
+- PDS4 data type: ASCII_Integer
+- Valid values: 8, 32, 64, 128
+  - 8 - 8 stages
+  - 32 - 32 stages
+  - 64 - 64 stages
+  - 128 - 128 stages
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*tdi_red6*
+The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
+- PDS4 data type: ASCII_Integer
+- Valid values: 8, 32, 64, 128
+  - 8 - 8 stages
+  - 32 - 32 stages
+  - 64 - 64 stages
+  - 128 - 128 stages
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*tdi_red7*
+The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
+- PDS4 data type: ASCII_Integer
+- Valid values: 8, 32, 64, 128
+  - 8 - 8 stages
+  - 32 - 32 stages
+  - 64 - 64 stages
+  - 128 - 128 stages
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*tdi_red8*
+The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
+- PDS4 data type: ASCII_Integer
+- Valid values: 8, 32, 64, 128
+  - 8 - 8 stages
+  - 32 - 32 stages
+  - 64 - 64 stages
+  - 128 - 128 stages
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*tdi_red9*
+The tdi attribute provides the number of time delay and integration (TDI) stages used to increase the exposure time of a HiRISE observation.
+- PDS4 data type: ASCII_Integer
+- Valid values: 8, 32, 64, 128
+  - 8 - 8 stages
+  - 32 - 32 stages
+  - 64 - 64 stages
+  - 128 - 128 stages
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: Yes
+
+*trim_lines*
 The trim_lines attribute provides the number of lines that have been trimmed at the beginning of a HiRISE observation.
 - PDS4 data type: ASCII_Integer
 - Valid values: N/A
@@ -1819,7 +2666,7 @@ The trim_lines attribute provides the number of lines that have been trimmed at 
 - Nillable: No
 - Minimum value: 0
 
-value_offset
+*value_offset*
 The value_offset attribute is the offset to be applied to each stored value in order to recover an original value. The observed value (Ov) is calculated from the stored value (Sv) thus: Ov = (Sv * scaling_factor) + value_offset. 
 - PDS4 data type: ASCII_Real
 - Valid values: N/A
@@ -1836,6 +2683,7 @@ Example PDS4 label snippet for MRO CRISM MTRDR data product:
       <mro:MRO_Parameters>
         <mro:product_type>MTRDR</mro:product_type>
         <mro:product_version_id>V1.0</mro:product_version_id>
+        <mro:release_id>0001</mro:release_id>        
         <mro:orbit_number>3152</mro:orbit_number>
         <mro:spacecraft_clock_start_count>2/0859685149:21592</mro:spacecraft_clock_start_count>
         <mro:spacecraft_clock_stop_count>2/0859685269:04176</mro:spacecraft_clock_stop_count>
@@ -1882,10 +2730,10 @@ Example PDS4 label snippet for MRO CRISM ATO data product:
     <Mission_Area>
         <mro:MRO_Parameters>
             <mro:CRISM_ATO_Parameters>
-                <mro:min_row>2</mro:min_row>
-                <mro:max_row>172</mro:max_row>
-                <mro:min_column>26</mro:min_column>
-                <mro:max_column>626</mro:max_column>
+                <mro:min_line>2</mro:min_row>
+                <mro:max_line>172</mro:max_row>
+                <mro:min_sample>26</mro:min_column>
+                <mro:max_sample>626</mro:max_column>
             </mro:CRISM_ATO_Parameters>
         </mro:MRO_Parameters>
     </Mission_Area>>
