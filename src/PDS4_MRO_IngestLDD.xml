@@ -1070,7 +1070,7 @@
         <nillable_flag>false</nillable_flag>
         <submitter_name>IMG</submitter_name>
         <definition>
-            The calibrationr_start_count attribute provides the spacecraft clock count
+            The calibration_start_count attribute provides the spacecraft clock count
             at the beginning of the first calibration image line.  
         </definition>
         <DD_Value_Domain>
