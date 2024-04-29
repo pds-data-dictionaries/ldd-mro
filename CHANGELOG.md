@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.1.0
+- 2024-02-27 PG fixes to HiRISE
+
 ## 1.3.0.0
 - 2024-01-09 JGW. Added SHARAD_Observation_Parameters class
 
