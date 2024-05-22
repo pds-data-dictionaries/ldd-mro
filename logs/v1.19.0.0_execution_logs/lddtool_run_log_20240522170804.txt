@@ -1,13 +1,12 @@
 
 >>  INFO LDDTOOL Version: 15.0.6
->>  INFO IM Version Id: 1.20.0.0
+>>  INFO IM Version Id: 1.19.0.0
 >>  INFO IM Namespace Id: pds
->>  INFO IM Label Version Id: 1.26
->>  INFO Date: Mon Apr 29 21:48:20 UTC 2024
+>>  INFO IM Label Version Id: 1.25
+>>  INFO Date: Wed May 22 17:08:04 UTC 2024
 >>  INFO PARENT_DIR: /tmp/lddtool-15.0.6/Data/
 
->>> INFO Init:  - Config.Properties Namespace Id Found:mro
->>> INFO Init:  - Config.Properties Namespace Id Using:mro
+>>> INFO Init:  - Config.Properties Namespace Id Using:pds
 >>> INFO Init:  - LDD Dictionary_Type is Mission
 >>> INFO Attribute: <binning_red0> - A 'nillable' attribute was found that is not a required attribute in at least one class.
 >>> INFO Attribute: <binning_red1> - A 'nillable' attribute was found that is not a required attribute in at least one class.
@@ -85,16 +84,17 @@
 >>> INFO Attribute: <maximum_stretch> - The default maximum value provided by the attribute's data type is being overridden with 1024
 >>> INFO Attribute: <minimum_stretch> - The default minimum value provided by the attribute's data type is being overridden with 0
 >>> INFO Attribute: <minimum_stretch> - The default maximum value provided by the attribute's data type is being overridden with 1024
+>>> WARNING Init:  - Config.Properties Namespace Id Not Found:mro
 >>> WARNING Attribute: <array_unit> - The terms 'unit', 'units', 'unit_of_measure' should not be used as the rightmost part of an attribute's name.
 
  -- LDDTool Execution Summary --
-     1 warning(s)
+     2 warning(s)
      0 error(s)
      0 fatal error(s)
 
 Input:
 
-     - IM Version: 1K00
+     - IM Version: 1J00
      - PDS4 Flag: true
      - LDD Flag: true
      - IM Version: true
@@ -104,9 +104,9 @@ Input:
 
 Output:
 
-     - ./PDS4_MRO_1K00_1310.xsd
-     - ./PDS4_MRO_1K00_1310.sch
-     - ./PDS4_MRO_1K00_1310.xml
-     - ./export/JSON/PDS4_PDS_1K00.JSON
+     - ./PDS4_MRO_1J00_1310.xsd
+     - ./PDS4_MRO_1J00_1310.sch
+     - ./PDS4_MRO_1J00_1310.xml
+     - ./export/JSON/PDS4_PDS_1J00.JSON
 
 >>  INFO Exit(0)
