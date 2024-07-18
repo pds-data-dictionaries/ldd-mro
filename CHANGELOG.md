@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.3.2.0
+- 2024-07-18 JGW. Revised SCLK pattern to allow between 2 and 6 fractional digits.
+
 ## 1.3.1.0
 - 2024-02-27 PG fixes to HiRISE
 
