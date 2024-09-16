@@ -1,5 +1,5 @@
 PDS4 Mars Reconnainssance Orbiter Mission Dictionary User's Guide  
-2024-01-09
+2024-09-16
 Jennifer Ward
 
 # Introduction
@@ -117,6 +117,8 @@ See the Definitions section for complete definitions.
 - spacecraft_clock_start_count
 - spacecraft_clock_stop_count
 - producer_institution_name
+- line_prefix_bytes
+- line_suffix_bytes
 - HiRISE_Time_Parameters
 - HiRISE_Instrument_Setting_Parameters
 - HiRISE_Temperature_Parameters
@@ -130,6 +132,10 @@ See the Definitions section for complete definitions.
 - observation_start_time
 - readout_start_time
 - readout_start_count
+- analog_power_start_time
+- analog_power_start_count
+- calibration_start_time
+- calibration_start_count
 
 ## HiRISE_Instrument_Setting_Parameters Class
 - cpmm_number
@@ -138,6 +144,7 @@ See the Definitions section for complete definitions.
 - line_exposure_duration
 - image_exposure_duration
 - delta_line_timer_count
+- powered_cpmm_flag_00
 - powered_cpmm_flag_01
 - powered_cpmm_flag_02
 - powered_cpmm_flag_03
@@ -151,16 +158,16 @@ See the Definitions section for complete definitions.
 - powered_cpmm_flag_11
 - powered_cpmm_flag_12
 - powered_cpmm_flag_13
-- powered_cpmm_flag_14
 - binning
 - tdi
 - trim_lines
 - focus_position_count
 - felics_compression_flag
-- stimulation_lamp_flag_01
-- stimulation_lamp_flag_02
-- stimulation_lamp_flag_03
+- stimulation_lamp_flag_red
+- stimulation_lamp_flag_blg
+- stimulation_lamp_flag_nir
 - heater_control_mode
+- heater_control_flag_00
 - heater_control_flag_01
 - heater_control_flag_02
 - heater_control_flag_03
@@ -174,7 +181,6 @@ See the Definitions section for complete definitions.
 - heater_control_flag_11
 - heater_control_flag_12
 - heater_control_flag_13
-- heater_control_flag_14
 - lookup_table_type
 - lookup_table_minimum
 - lookup_table_maximum
@@ -459,6 +465,22 @@ adc_timing_settings_reset attribute provides the HiRISE Channel 0 analog-to-digi
   - 4 - 4
   - 5 - 5
   - 6 - 6
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*analog_power_start_count*
+The analog_power_start_count attribute provides the spacecraft clock count when power to the CPMM units was applied.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: N/A
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*analog_power_start_time*
+The analog_power_start_time attribute provides the UTC time when power to the CPMM units was applied.
+- PDS4 data type: ASCII_Date_Time_YMD_UTC
+- Valid values: N/A
 - Minimum occurrences: 0
 - Maximum occurrences: 1
 - Nillable: No
@@ -765,6 +787,22 @@ mro:line_exposure_duration = mro:binning * mro:scan_line_duration
 - Minimum occurrences: 0
 - Maximum occurrences: 1
 - Nillable: Yes
+
+*calibration_start_count*
+The calibration_start_count attribute provides the spacecraft clock count at the beginning of the first calibration image line.
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: N/A
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*calibration_start_time*
+The calibration_start_time attribute provides the UTC time at the beginning of the first calibration image line.
+- PDS4 data type: ASCII_Date_Time_YMD_UTC
+- Valid values: N/A
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No 
 
 *ccd_flag_bg12*
 The ccd_flag elements identify which CCDs were operating at the time of an observation. There is a special processing flag for each CCD used in the observation.
@@ -1245,6 +1283,16 @@ The fpe_temperature attribute provides the temperature of the HiRISE or CRISM in
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: K
       
+*heater_control_flag_00*
+heater_control_flag element is a set of 14 on/off flags that indicate which of the 14 heater control areas were on at the time of a HiRISE observation.        
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - heater on
+  - OFF - heater off
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
 *heater_control_flag_01*
 heater_control_flag element is a set of 14 on/off flags that indicate which of the 14 heater control areas were on at the time of a HiRISE observation.        
 - PDS4 data type: ASCII_Short_String_Collapsed
@@ -1375,16 +1423,6 @@ heater_control_flag element is a set of 14 on/off flags that indicate which of t
 - Maximum occurrences: 1
 - Nillable: No
 
-*heater_control_flag_14*
-heater_control_flag element is a set of 14 on/off flags that indicate which of the 14 heater control areas were on at the time of a HiRISE observation.        
-- PDS4 data type: ASCII_Short_String_Collapsed
-- Valid values: ON, OFF
-  - ON - heater on
-  - OFF - heater off
-- Minimum occurrences: 0
-- Maximum occurrences: 1
-- Nillable: No
-     
 *heater_control_mode*
 heater_control_mode attribute provides the state of the HiRISE heater control, either closed-loop or duty-cycle.  Normally the closed-loop mode is used to keep nominal operating temperatures of the instrument. A duty-cycle mode is enabled during periods of high EM emissions from other MRO instruments.        
 - PDS4 data type: ASCII_Short_String_Collapsed
@@ -1504,6 +1542,22 @@ Units of microseconds.
 - Maximum occurrences: 1
 - Nillable: No
 - Unit of measure type: Units_of_Time
+
+*line_prefix_bytes*
+The line prefix bytes attribute reports the number of bytes that precede the observational data for each line of a HiRISE or CTX image. For HiRISE, the prefix includes 6 bytes of line identification information and the values of 12 buffer pixels, which contain the value of empty pixels after going through the instrument electronics.
+- PDS4 data type: ASCII_NonNegative_Integer
+- Valid values: N/A
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
+*line_suffix_bytes*
+The line suffix bytes attribute reports the number of bytes that follow the observational data for each line of a HiRISE or CTX image. For HiRISE, the suffix contains 16 dark reference pixel values produced by masked detectors.
+- PDS4 data type: ASCII_NonNegative_Integer
+- Valid values: N/A
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
      
 *lookup_table_k_value*
 lookup_table_k_value attribute provides the 'pixel spread' value in a HiRISE image. This parameter is used only for the HiRISE SQUARE-ROOT LUT table mode.  A -9998 value indicates a K value was not used.
@@ -1901,6 +1955,16 @@ The orbit_number attribute identifies the orbit number when the observation was 
 - Maximum occurrences: 1
 - Nillable: No
 
+*powered_cpmm_flag_00*
+powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - CPMM powered on
+  - OFF - CPMM powered off
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+
 *powered_cpmm_flag_01*
 powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
 - PDS4 data type: ASCII_Short_String_Collapsed
@@ -2030,17 +2094,7 @@ powered_cpmm_flag attribute provides a set of 14 values that identify which HiRI
 - Minimum occurrences: 0
 - Maximum occurrences: 1
 - Nillable: No
-
-*powered_cpmm_flag_14*
-powered_cpmm_flag attribute provides a set of 14 values that identify which HiRISE CCD Processing/Memory Modules were commanded to acquire imaging during the observation. The first element is for CPMM 0 and the last element is for CPMM 13.        
-- PDS4 data type: ASCII_Short_String_Collapsed
-- Valid values: ON, OFF
-  - ON - CPMM powered on
-  - OFF - CPMM powered off
-- Minimum occurrences: 0
-- Maximum occurrences: 1
-- Nillable: No
-          
+       
 *primary_mirror_baf_temperature*       
 The primary_mirror_baf_temperature attribute provides the temperature of the HiRISE instrument's primary mirror baffle near the base (external) in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
@@ -2215,7 +2269,7 @@ The spacecraft_clock_start_count attribute provides the value of the spacecraft 
 - Minimum occurrences: 0
 - Maximum occurrences: 1
 - Nillable: No
-- Pattern: ([0-9]{1,2}/)?[0-9]{1,10}(:[0-9]{3,6})?
+- Pattern: ([0-9]{1,2}/)?[0-9]{1,10}(:[0-9]{1,6})?
 
 *spacecraft_clock_stop_count*
 The spacecraft_clock_stop_count attribute provides the value of the spacecraft clock at the end of a time period of interest.
@@ -2224,7 +2278,7 @@ The spacecraft_clock_stop_count attribute provides the value of the spacecraft c
 - Minimum occurrences: 0
 - Maximum occurrences: 1
 - Nillable: No
-- Pattern: ([0-9]{1,2}/)?[0-9]{1,10}(:[0-9]{3,6})?
+- Pattern: ([0-9]{1,2}/)?[0-9]{1,10}(:[0-9]{1,6})?
 
 *special_processing_flag_bg12*
 The special_processing_flag elements indicate if special calibration processing was applied to a HiRISE CCD image. The HiRISE instrument may experience instability problems or a low-signal image may have been poorly calibrated requiring an alternate calibration strategy. There is a special processing flag for each CCD used in the observation.
@@ -2429,18 +2483,8 @@ The spider_leg_30_temperature attribute provides the temperature of the HiRISE i
 - Nillable: No
 - Unit of measure type: Units_of_Temperature
 - Specified unit id: C
-         
-*stimulation_lamp_flag_01*
-stimulation_lamp_flag attribute is a set of three flags that identify which of the three HiRISE stimulation lamps have been turned on or off. Stimulation lamps are used to evaluate relative changes in instrument calibration throughout the mission.  Stimulation lamps are always turned off for science observation data.        
-- PDS4 data type: ASCII_Short_String_Collapsed
-- Valid values: ON, OFF
-  - ON - stim lamp on
-  - OFF - stim lamp off
-- Minimum occurrences: 0
-- Maximum occurrences: 1
-- Nillable: No
-          
-*stimulation_lamp_flag_02*
+                
+*stimulation_lamp_flag_blg*
 The stimulation_lamp_flag attribute is a set of three flags that identify which of the three HiRISE stimulation lamps have been turned on or off. Stimulation lamps are used to evaluate relative changes in instrument calibration throughout the mission.  Stimulation lamps are always turned off for science observation data.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -2450,7 +2494,7 @@ The stimulation_lamp_flag attribute is a set of three flags that identify which 
 - Maximum occurrences: 1
 - Nillable: No
           
-*stimulation_lamp_flag_03*
+*stimulation_lamp_flag_nir*
 The stimulation_lamp_flag attribute is a set of three flags that identify which of the three HiRISE stimulation lamps have been turned on or off. Stimulation lamps are used to evaluate relative changes in instrument calibration throughout the mission.  Stimulation lamps are always turned off for science observation data.        
 - PDS4 data type: ASCII_Short_String_Collapsed
 - Valid values: ON, OFF
@@ -2460,6 +2504,16 @@ The stimulation_lamp_flag attribute is a set of three flags that identify which 
 - Maximum occurrences: 1
 - Nillable: No 
 
+*stimulation_lamp_flag_red*
+stimulation_lamp_flag attribute is a set of three flags that identify which of the three HiRISE stimulation lamps have been turned on or off. Stimulation lamps are used to evaluate relative changes in instrument calibration throughout the mission.  Stimulation lamps are always turned off for science observation data.        
+- PDS4 data type: ASCII_Short_String_Collapsed
+- Valid values: ON, OFF
+  - ON - stim lamp on
+  - OFF - stim lamp off
+- Minimum occurrences: 0
+- Maximum occurrences: 1
+- Nillable: No
+  
 *sun_shade_temperature*
 The sun_shade_temperature attribute provides the temperature of the HiRISE instrument's sun shade under the MLI in degrees Centigrade. See Figure 2.3, MRO HiRISE EDR SIS, REFKEYID JPLD-32004.
 - PDS4 data type: ASCII_Real
