@@ -1,19 +1,22 @@
 # Changelog
 
+## 1.4.1.0
+- 2025-07-18 JGW. Added additional allowed values to mro:observation_type, 1.4.1.0.
+
 ## 1.4.0.0
-- JGW. Added CRISM TRDR parameters. Added CRISM VRDR product types.
+- 2025-06-27 JGW. Added CRISM TRDR parameters. Added CRISM VRDR product types, 1.4.0.0.
 
 ## 1.3.3.0
-- 2025-12-16 TMH. Added BADCAL enumeration to special_processing_flag_* for HiRISE.
+- 2025-12-16 TMH. Added BADCAL enumeration to special_processing_flag_* for HiRISE, 1.3.3.0.
 
 ## 1.3.2.0
-- 2024-09-16 JGW. Revised SCLK pattern to allow between 1 and 6 fractional digits.
+- 2024-09-16 JGW. Revised SCLK pattern to allow between 1 and 6 fractional digits, 1.3.2.0.
 
 ## 1.3.1.0
-- 2024-02-27 PG fixes to HiRISE.
+- 2024-02-27 PG fixes to HiRISE, 1.3.1.0, 1.3.1.0.
 
 ## 1.3.0.0
-- 2024-01-09 JGW. Added SHARAD_Observation_Parameters class.
+- 2024-01-09 JGW. Added SHARAD_Observation_Parameters class, bump to 1.3.0.0.
 
 ## 1.2.2.0
 - 2023-08-31 PG (pgeissler@usgs.gov) added observation_rationale attribute for HiRISE, bump to 1.2.2.0.
