@@ -9,7 +9,7 @@
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1
                         http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1O00.xsd">
     <name>MRO</name>
-    <ldd_version_id>1.4.0.0</ldd_version_id>
+    <ldd_version_id>1.4.1.0</ldd_version_id>
     <dictionary_type>Mission</dictionary_type>
     <full_name>Jennifer Ward</full_name>
     <steward_id>geo</steward_id>
@@ -18,7 +18,7 @@
         The MRO dictionary contains classes that describe aspects of the 
         Mars Reconnaissance Orbiter mission and related instruments.
         
-        MRO version 1.4.0.0
+        MRO version 1.4.1.0
         PDS Build 1.19.0.0, 1.20.0.0, 1.21.0.0, 1.22.0.0, 1.23.0.0, 1.24.0.0
         LDDTool version 15.2.4
         
@@ -52,7 +52,9 @@
         
         2025-12-16 TMH. Added BADCAL enumeration to special_processing_flag_* for HiRISE, 1.3.3.0
         
-        2025-06-27 JGW. Added CRISM TRDR parameters. Added CRISM VRDR product types, 1.4.0.0.
+        2025-06-27 JGW. Added CRISM TRDR parameters. Added CRISM VRDR product types, 1.4.0.0
+        
+        2025-07-18 JGW. Added additional allowed values to mro:observation_type, 1.4.1.0 
         
     </comment>
     <last_modification_date_time>2025-06-27</last_modification_date_time>
@@ -1268,6 +1270,18 @@
             <DD_Permissible_Value>
                 <value>STO</value>
                 <value_meaning>Star Observation</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>CRL</value>
+                <value_meaning>Comet Resolution Long Scan Observation</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>CRM</value>
+                <value_meaning>Comet Resolution Medium Scan Observation</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>CRS</value>
+                <value_meaning>Comet Resolution Short Scan Observation</value_meaning>
             </DD_Permissible_Value>
         </DD_Value_Domain>
     </DD_Attribute>    
