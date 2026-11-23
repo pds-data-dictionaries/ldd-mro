@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-model 
-    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1O00.sch"
+    href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1Q00.sch"
     schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <Ingest_LDD 
     xmlns="http://pds.nasa.gov/pds4/pds/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:pds="http://pds.nasa.gov/pds4/pds/v1"
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1
-                        http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1O00.xsd">
+                        http://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1Q00.xsd">
     <name>MRO</name>
-    <ldd_version_id>1.4.1.0</ldd_version_id>
+    <ldd_version_id>1.4.2.0</ldd_version_id>
     <dictionary_type>Mission</dictionary_type>
     <full_name>Jennifer Ward</full_name>
     <steward_id>geo</steward_id>
@@ -17,12 +17,6 @@
     <comment>
         The MRO dictionary contains classes that describe aspects of the 
         Mars Reconnaissance Orbiter mission and related instruments.
-        
-        MRO version 1.4.1.0
-        PDS Build 1.19.0.0, 1.20.0.0, 1.21.0.0, 1.22.0.0, 1.23.0.0, 1.24.0.0
-        LDDTool version 15.2.4
-        
-        Built with lddtool -plJ PDS4_MRO_IngestLDD.xml
         
         2022-09-27 JGW. Revised SCLK pattern to allow between 3 and 6 fractional digits.
         Added release_id.
@@ -54,10 +48,13 @@
         
         2025-06-27 JGW. Added CRISM TRDR parameters. Added CRISM VRDR product types, 1.4.0.0
         
-        2025-07-18 JGW. Added additional allowed values to mro:observation_type, 1.4.1.0 
+        2025-07-18 JGW. Added additional allowed values to mro:observation_type, 1.4.1.0
+        
+        2026-11-23 JGW. Added attributes to SHARAD_Observation_Parameters class
+                        Added attributes to CRISM_Parameters class, 1.4.2.0
         
     </comment>
-    <last_modification_date_time>2025-06-27</last_modification_date_time>
+    <last_modification_date_time>2026-11-23</last_modification_date_time>
 
 <!--Hierarchy of classes and attributes 
     mro:MRO_Parameters
@@ -212,14 +209,6 @@
             <enumeration_flag>true</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
             <DD_Permissible_Value>
-                <value>EDR</value>
-                <value_meaning>Experiment Data Record</value_meaning>
-            </DD_Permissible_Value>
-            <DD_Permissible_Value>
-                <value>RDR</value>
-                <value_meaning>Reduced Data Record</value_meaning>
-            </DD_Permissible_Value>
-            <DD_Permissible_Value>
                 <value>CDR</value>
                 <value_meaning>Calibrated Data Record</value_meaning>
             </DD_Permissible_Value>
@@ -228,17 +217,17 @@
                 <value_meaning>Derived Data Record</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
-                <value>MTRDR</value>
-                <value_meaning>Map-Projected Targeted Reduced Data Record</value_meaning>
+                <value>DTM</value>
+                <value_meaning>Digital Terrain Model</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
-                <value>TER</value>
-                <value_meaning>Targeted Empirical Record</value_meaning>
+                <value>EDR</value>
+                <value_meaning>Experiment Data Record</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
-                <value>TRDR</value>
-                <value_meaning>Targeted Reduced Data Record</value_meaning>
-            </DD_Permissible_Value>
+                <value>EDR_Browse</value>
+                <value_meaning>Experiment Data Record - Browse</value_meaning>
+            </DD_Permissible_Value>           
             <DD_Permissible_Value>
                 <value>LDR</value>
                 <value_meaning>Limb Data Record</value_meaning>
@@ -248,12 +237,28 @@
                 <value_meaning>Multispectral Reduced Data Record</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
+                <value>MTRDR</value>
+                <value_meaning>Map-Projected Targeted Reduced Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>MTRDR_Browse</value>
                 <value_meaning>Map-Projected Targeted Reduced Data Record - Browse</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
                 <value>MTRDR_Extras</value>
                 <value_meaning>Map-Projected Targeted Reduced Data Record - Extras</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>ORTHOIMAGE</value>
+                <value_meaning>Image orthorectified to a digital terrain model</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>RDR</value>
+                <value_meaning>Reduced Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>TER</value>
+                <value_meaning>Targeted Empirical Record</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
                 <value>TER_Browse</value>
@@ -268,6 +273,10 @@
                 <value_meaning>Targeted Reduced Data Record - Extras</value_meaning>
             </DD_Permissible_Value>
             <DD_Permissible_Value>
+                <value>TRDR</value>
+                <value_meaning>Targeted Reduced Data Record</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
                 <value>TRDR_Browse</value>
                 <value_meaning>Targeted Reduced Data Record - Browse</value_meaning>
             </DD_Permissible_Value>
@@ -278,15 +287,7 @@
             <DD_Permissible_Value>
                 <value>VRDR_Browse</value>
                 <value_meaning>VNIR Hyperspectral Reduced Data Record - Browse</value_meaning>
-            </DD_Permissible_Value>
-            <DD_Permissible_Value>
-                <value>DTM</value>
-                <value_meaning>Digital Terrain Model</value_meaning>
-            </DD_Permissible_Value>
-            <DD_Permissible_Value>
-                <value>ORTHOIMAGE</value>
-                <value_meaning>Image orthorectified to a digital terrain model</value_meaning>
-            </DD_Permissible_Value>
+            </DD_Permissible_Value>            
         </DD_Value_Domain>
     </DD_Attribute>    
     <DD_Attribute> <name>product_version_id</name>
@@ -344,7 +345,7 @@
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-            <pattern>([0-9]{1,2}/)?[0-9]{1,10}(:[0-9]{1,6})?</pattern>
+            <pattern>([0-9]{1,2}/)?[0-9]{1,10}([:.][0-9]{1,6})?</pattern>
         </DD_Value_Domain>
     </DD_Attribute>      
     <DD_Attribute> <name>spacecraft_clock_stop_count</name>
@@ -358,7 +359,7 @@
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
-            <pattern>([0-9]{1,2}/)?[0-9]{1,10}(:[0-9]{1,6})?</pattern>
+            <pattern>([0-9]{1,2}/)?[0-9]{1,10}([:.][0-9]{1,6})?</pattern>
         </DD_Value_Domain>
     </DD_Attribute>      
     <DD_Attribute> 
@@ -402,6 +403,8 @@
         activity_id
         band_name
         band_sequence_number
+        calibration_lamp_level
+        calibration_lamp_status
 	    detector_temperature
 	    exposure_parameter
 	    fpe_temperature
@@ -437,7 +440,9 @@
 	    ikf_weighting_stddev_r2
 	    instrument_pointing_mode
 	    inv_lookup_table_file_name
+	    light_source_name
 	    log_xform_neg_clip_value
+	    lookup_table_file_name
         observation_id
 	    observation_number
 	    observation_type
@@ -457,6 +462,9 @@
 	    scaling_factor
 	    scan_mode_id
 	    sensor_id
+	    shutter_mode_id
+	    spectral_resampling_file
+	    spectral_resampling_flag
 	    spectrometer_housing_temperature
 	    sphere_temperature
 	    trace_max_value
@@ -533,7 +541,68 @@
             <value_data_type>ASCII_Integer</value_data_type>
             <minimum_value>1</minimum_value>
         </DD_Value_Domain>
-    </DD_Attribute>    
+    </DD_Attribute>
+    <DD_Attribute> <name>calibration_lamp_level</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.calibration_lamp_level</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The calibration_lamp_level attribute provides the level of the
+            CRISM calibration lamp identified by light_source_name. 0
+            indicates that a lamp is unpowered. Also if the lamp level is a
+            non-zero value, calibration_lamp_status must equal ON, OPEN
+            LOOP or CLOSED LOOP. For any lamp, if calibration_lamp_status
+            = ON or OPEN LOOP, the lamp level is proportional to the current
+            being supplied to the lamp. In the special cases of
+            light_source_name = SPHERE LAMP 1 or light_source_name = SPHERE
+            LAMP 2, if calibration_lamp_status = CLOSED LOOP, then the
+            lamp level gives the setting of the photodiode in the integrating
+            sphere that provides feedback to control the lamp current.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <minimum_value>0</minimum_value>
+            <maximum_value>4095</maximum_value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>calibration_lamp_status</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.calibration_lamp_status</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>The calibration_lamp_status attribute gives the status of the CRISM
+            calibration lamp identified by light_source_name. OFF indicates
+            that the lamp is unpowered. ON or OPEN LOOP indicates that the
+            lamp is on with the current at the digital values indicated in
+            calibration_lamp_level. CLOSED LOOP is only applicable for
+            the integrating sphere (light_source_name = SPHERE LAMP 1 or
+            light_source_name = SPHERE LAMP 2). In that case
+            calibration_lamp_level gives the setting of the photodiode in
+            the integrating sphere that provides feedback
+            to control the lamp output.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>CLOSED LOOP</value>
+                <value_meaning>Status = CLOSED LOOP. Only applicable for integrating sphere.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>Status = OFF. Lamp is unpowered.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>Status = ON. Lamp is on with current at digital value indicated in calibration_lamp_level.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>OPEN LOOP</value>
+                <value_meaning>Status = OPEN LOOP. Lamp is on with current at digital value indicated in calibration_lamp_level.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
     <DD_Attribute> <name>detector_temperature</name>
         <version_id>1.0</version_id>
         <local_identifier>mro.detector_temperature</local_identifier>
@@ -1125,7 +1194,7 @@
         <nillable_flag>false</nillable_flag>
         <submitter_name>GEO</submitter_name>
         <definition>
-            The inv_lookup_table_file_name element identifies the name of the CRISM file that gives the 12-bit DN value 
+            The inv_lookup_table_file_name attribute identifies the name of the CRISM file that gives the 12-bit DN value 
             replacing each 8-bit DN value if lossy compression was performed (if compression_type=8_BIT). The inverse 
             lookup table file is a nine-column, 4095-row text file. Column 1 gives each 8-bit value, 0 through 255. 
             Columns 2 through 9 give the 12-bit values that replace them if lookup tables 0 through 7, respectively,
@@ -1135,6 +1204,39 @@
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>light_source_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.light_source_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The light_source_name attribute provides the name of the light source used in observations when it is not the Sun. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>IR SPHERE LAMP</value>
+                <value_meaning>Light source is IR SPHERE LAMP.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>NONE</value>
+                <value_meaning>No light source.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>SPHERE LAMP 1</value>
+                <value_meaning>Light source is SPHERE LAMP 1.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>SPHERE LAMP 2</value>
+                <value_meaning>Light source is SPHERE LAMP 2.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>VNIR SPHERE LAMP</value>
+                <value_meaning>Light source is VNIR SPHERE LAMP.</value_meaning>
+            </DD_Permissible_Value>
         </DD_Value_Domain>
     </DD_Attribute>
     <DD_Attribute> <name>log_xform_neg_clip_value</name>
@@ -1151,6 +1253,27 @@
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>lookup_table_file_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.lookup_table_file_name</local_identifier>
+        <nillable_flag>true</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The lookup_table_file_name attribute identifies the name of the CRISM
+            lookup table file that gives the 8-bit DN value replacing each 12-bit DN
+            value if lossy compression is performed (if compression_type=8_BIT). The
+            lookup table file is a nine-column, 4095-row text file. Column 1 gives
+            each 12-bit value, 0 through 4095. Columns 2 through 9 give the 8- bit
+            values that replace them if lookup tables 0 through 7, respectively, are
+            selected. Lookup tables are selected on a line by line basis. Which
+            table is used for each line is indicated in the pixel-processing
+            descriptive file named in pixel_proc_file_name. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
     <DD_Attribute> <name>observation_id</name>
@@ -1563,7 +1686,80 @@
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
         </DD_Value_Domain>
-    </DD_Attribute>    
+    </DD_Attribute>
+    <DD_Attribute> <name>shutter_mode_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.shutter_mode_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The shutter_mode_id attribute identifies the state of an imaging instrument's shutter during image acquisition.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>CLOSED</value>
+                <value_meaning>Shutter is closed.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>OPEN</value>
+                <value_meaning>Shutter is open.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>SPHERE</value>
+                <value_meaning>Integrating sphere measurement.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>OTHER</value>
+                <value_meaning>Other.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>spectral_resampling_file</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.spectral_resampling_file</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The spectral_resampling_file attribute gives the name of the file that has the optical distortions (to the 
+            nearest whole detector element) that are removed when spectral resampling of CRISM data occurs in sensor space. 
+            Spectral resampling is to remove differences in the wavelength scale of the data between different spatial
+            positions across the field of view. The data are corrected for spectral scale by nearest neighbor resampling 
+            within columns to match the scale, to within 0.5 detector elements, to that of columns 260-359 for the VNIR, or 
+            columns 270-369 for the IR.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>spectral_resampling_flag</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.spectral_resampling_flag</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The spectral_resampling_file attribute identifies whether spectral resampling of CRISM data has occurred in 
+            sensor space. Spectral resampling is to remove differences in the wavelength scale of the data between 
+            different spatial positions across the field of view. The data are corrected for spectral scale by nearest 
+            neighbor resampling within columns to match the scale, to within 0.5 detector elements, to that of columns 
+            260-359 for the VNIR, or columns 270-369 for the IR. OFF indicates no resampling, and ON indicates that 
+            resampling has occurred.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>OFF</value>
+                <value_meaning>No resampling.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>ON</value>
+                <value_meaning>Resampling has occurred.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
     <DD_Attribute> <name>spectrometer_housing_temperature</name>
         <version_id>1.0</version_id>
         <local_identifier>mro.spectrometer_housing_temperature</local_identifier>
@@ -1705,12 +1901,32 @@
         array_scale
         array_unit
         azimuth_processing_window
+        azimuth_spacing_type
         chirp_frequency envelope
+        closed_loop_tracking_flag
+        compression_selection_flag
+        data_quality_desc
+        data_quality_id
+        instrument_mode_desc
+        instrument_mode_id
+        manual_gain_control
         multilook_doppler_bandwidth
         name
+        nominal_along_track_resolution
         number_of_looks
+        numerical_filter_type
+        phase_compensation_type
+        phase_correction_type
+        primary_key_name
+        product_version_type
+        pulse_repetition_interval
+        radargram_return_interval
         range_compression_window
+        reference_function_file_name
+        start_primary_key
+        stop_primary_key
         synthetic_aperture_duration
+        weighting_function_name
 	    
     -->
     <DD_Attribute> <name>array_first_value</name>
@@ -1829,6 +2045,29 @@
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
+    <DD_Attribute> <name>azimuth_spacing_type</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.azimuth_spacing_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The AZIMUTH_SPACING_TYPE element specifies the type of azimuth
+            (i.e. along-track) spacing of SHARAD radar footprints after ground
+            processing. UNIFORM means that azimuth lines are evenly spaced.
+            NOT UNIFORM means that azimuth lines are not evenly spaced.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+            <DD_Permissible_Value>
+                <value>NOT UNIFORM</value>
+                <value_meaning>NOT UNIFORM means that azimuth lines are not evenly spaced.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>UNIFORM</value>
+                <value_meaning>UNIFORM means that azimuth lines are evenly spaced.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
     <DD_Attribute> <name>chirp_frequency_envelope</name>
         <version_id>1.0</version_id>
         <local_identifier>mro.chirp_frequency_envelope</local_identifier>
@@ -1843,6 +2082,160 @@
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
+    <DD_Attribute> <name>closed_loop_tracking_flag</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.closed_loop_tracking_flag</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The closed_loop_tracking_flag element is a flag used by the SHARAD on-
+            board processing software to enable or disable the closed-loop tracking
+            algorithm, which dynamically determines the opening of the receiving
+            window based on the time delay of previous echoes.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>DISABLED</value>
+                <value_meaning>The closed-loop tracking algorithm is disabled.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>ENABLED</value>
+                <value_meaning>The closed-loop tracking algorithm is enabled.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>compression_selection_flag</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.compression_selection_flag</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The compression_selection_flag element is a flag used by the
+            SHARAD on-board processing software to enable or disable the dynamic
+            bit compression algorithm, which reduces the signal dynamic
+            range based on the value of the echo strength.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>DYNAMIC</value>
+                <value_meaning>The dynamic bit compression algorithm is enabled.</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>STATIC</value>
+                <value_meaning>The dynamic bit compression algorithm is disabled.</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>data_quality_desc</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.data_quality_desc</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The data_quality_desc element describes the data
+            quality which is associated with a particular
+            data_quality_id value.
+            The various values of data_quality_id and
+            data_quality_desc are instrument dependent.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Text_Preserved</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>data_quality_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.data_quality_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The data_quality_id element provides a numeric
+            key which identifies the quality of data available for a
+            particular time period.
+            The data_quality_id scheme is unique to a given
+            instrument and is described by the associated
+            data_quality_desc element.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>0</value>
+                <value_meaning>no corrupted data</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>1</value>
+                <value_meaning>less than 2% corrupted data</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>2</value>
+                <value_meaning>less than 5% corrupted data</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>3</value>
+                <value_meaning>less than 10% corrupted data</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>4</value>
+                <value_meaning>more than 10% corrupted data</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>N/A</value>
+                <value_meaning>not applicable</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute> 
+    <DD_Attribute> <name>instrument_mode_desc</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.instrument_mode_desc</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The instrument_mode_desc element describes the
+            instrument mode which is identified by the
+            instrument_mode_id element.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Text_Preserved</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>instrument_mode_id</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.instrument_mode_id</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The instrument_mode_id element provides an
+            instrument-dependent designation of operating mode.  This
+            may be simply a number, letter or code, or a word such as
+            'normal', 'full resolution', 'near encounter', or
+            'fixed grating'.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>manual_gain_control</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.manual_gain_control</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>GEO</submitter_name>
+        <definition>
+            The MRO:MANUAL_GAIN_CONTROL element is a parameter used by the
+            SHARAD on-board processing software to set the receiver gain to a
+            fixed value during data acquisition.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>   
     <DD_Attribute> <name>multilook_doppler_bandwidth</name>
         <version_id>1.0</version_id>
         <local_identifier>mro.multilook_doppler_bandwidth</local_identifier>
@@ -1874,6 +2267,22 @@
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
+    <DD_Attribute> <name>nominal_along_track_resolution</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.nominal_along_track_resolution</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The MRO:NOMINAL_ALONG_TRACK_RESOLUTION element gives the horizontal
+            resolution of the instrument in the along-track direction achieved
+            through azimuth processing, expressed in meters.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+            <unit_of_measure_type>Units_of_Length</unit_of_measure_type>
+            <specified_unit_id>meters</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>
     <DD_Attribute> <name>number_of_looks</name>
         <version_id>1.0</version_id>
         <local_identifier>mro.number_of_looks</local_identifier>
@@ -1888,6 +2297,152 @@
             <value_data_type>ASCII_Integer</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
+    <DD_Attribute> <name>numerical_filter_type</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.numerical_filter_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The MRO:NUMERICAL_FILTER_TYPE element is the parameter used by the
+            SHARAD ground processing software for the selection of the method
+            used for building the numerical filter used in the range compression
+            of the signal.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>INVERSE</value>
+                <value_meaning>Filter Type = Inverse</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>MATCHED</value>
+                <value_meaning>Filter Type = Matched</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>phase_compensation_type</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.phase_compensation_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The MRO:PHASE_COMPENSATION_TYPE element is a parameter used by
+            the SHARAD on-board processing software to select the type of
+            time shifting applied to received echoes before coherent summing.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+            <DD_Permissible_Value>
+                <value>NO COMPENSATION</value>
+                <value_meaning>PHASE_COMPENSATION_TYPE = NO COMPENSATION</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>RADIAL VELOCITY</value>
+                <value_meaning>PHASE_COMPENSATION_TYPE = RADIAL VELOCITY</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>RADIAL VELOCITY AND SURFACE SLOPE</value>
+                <value_meaning>PHASE_COMPENSATION_TYPE = RADIAL VELOCITY AND SURFACE SLOPE</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>SURFACE SLOPE</value>
+                <value_meaning>PHASE_COMPENSATION_TYPE = SURFACE SLOPE</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>phase_correction_type</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.phase_correction_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The MRO:PHASE_CORRECTION_TYPE element is the Parameter used by the
+            SHARAD ground processing software for the selection of the algorithm
+            used for the correction of any phase distortion in the signal caused
+            by the ionosphere.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+            <DD_Permissible_Value>
+                <value>NONE</value>
+                <value_meaning>Phase Correction Type = None</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>PHASE GRADIENT AUTOFOCUS</value>
+                <value_meaning>Phase Correction Type = Phase Gradient Autofocus</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>primary_key_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.primary_key_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>Indicates the name(s) of one or more columns in the table that
+            may be used to uniquely identify each row in the table. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>product_version_type</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.product_version_type</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The product_version_type element identifies the version of
+            an individual data product.  It can be applied to any type
+            of data that might appear in several incarnations, including
+            ephemeris files, sequence files, or software.  Example
+            values:  VERSION 1, PREDICT, ACTUAL, DRAFT, PRELIMINARY,
+            FINAL, REVISION A. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+            <DD_Permissible_Value>
+                <value>PREDICTED</value>
+                <value_meaning>Predicted spacecraft trajectory data</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>RECONSTRUCTED</value>
+                <value_meaning>Reconstructed spacecraft trajectory data</value_meaning>
+            </DD_Permissible_Value>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>pulse_repetition_interval</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.pulse_repetition_interval</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The MRO:PULSE_REPETITION_INTERVAL element gives the time between
+            the transmission of two consecutive SHARAD radar pulses, expressed
+            in microseconds. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+            <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+            <specified_unit_id>microseconds</specified_unit_id>
+        </DD_Value_Domain>
+    </DD_Attribute>   
+    <DD_Attribute> <name>radargram_return_interval</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.radargram_return_interval</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The MRO:RADARGRAM_RETURN_INTERVAL element gives the round trip time of
+            an electromagnetic pulse from the center of Mars to the first sample of
+            each echo in the data product. This time delay is expressed in terms of
+            number of echo samples. Time distance between echo samples in SHARAD RDR
+            data products is 0.075 microseconds. 
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Real</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>   
     <DD_Attribute> <name>range_compression_window</name>
         <version_id>1.0</version_id>
         <local_identifier>mro.range_compression_window</local_identifier>
@@ -1900,6 +2455,49 @@
         <DD_Value_Domain>
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>reference_function_file_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.reference_function_file_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The MRO:REFERENCE_FUNCTION_FILE_NAME element gives the name of the file
+            located in the CALIB directory containing the function used for
+            building the numerical filter used in the range compression of the
+            signal. The usual value for this keyword is 'AUTO', meaning that, as the 
+            temperatures of transmitter and receiver were changing during the observation, 
+            the ground processing software automatically selected the optimal reference chirp.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Preserved</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>start_primary_key</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.start_primary_key</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>Indicates the beginning of
+            the range of values for the PRIMARY_KEY column in the table.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>stop_primary_key</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.stop_primary_key</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>Indicates the end of
+            the range of values for the PRIMARY_KEY column in the table.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>false</enumeration_flag>
+            <value_data_type>ASCII_Integer</value_data_type>
         </DD_Value_Domain>
     </DD_Attribute>
     <DD_Attribute> <name>synthetic_aperture_duration</name>
@@ -1916,6 +2514,37 @@
             <enumeration_flag>false</enumeration_flag>
             <value_data_type>ASCII_Real</value_data_type>
             <unit_of_measure_type>Units_of_Time</unit_of_measure_type>
+        </DD_Value_Domain>
+    </DD_Attribute>
+    <DD_Attribute> <name>weighting_function_name</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.weighting_function_name</local_identifier>
+        <nillable_flag>false</nillable_flag>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>The MRO:WEIGHTING_FUNCTION_NAME element gives the Parameter used by
+            the SHARAD ground processing software for the selection of the
+            function used for weighting the contribution of different frequencies
+            in the signal before range compression.
+        </definition>
+        <DD_Value_Domain>
+            <enumeration_flag>true</enumeration_flag>
+            <value_data_type>ASCII_Short_String_Collapsed</value_data_type>
+            <DD_Permissible_Value>
+                <value>CHEBYCHEV</value>
+                <value_meaning>Parameter = CHEBYCHEV</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>HANNING</value>
+                <value_meaning>Parameter = HANNING</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>KAISER</value>
+                <value_meaning>Parameter = KAISER</value_meaning>
+            </DD_Permissible_Value>
+            <DD_Permissible_Value>
+                <value>UNIFORM</value>
+                <value_meaning>Parameter = UNIFORM</value_meaning>
+            </DD_Permissible_Value>
         </DD_Value_Domain>
     </DD_Attribute>
     
@@ -7925,6 +8554,30 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
+            <identifier_reference>mro.shutter_mode_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.light_source_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.calibration_lamp_status</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.calibration_lamp_level</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
             <identifier_reference>mro.instrument_pointing_mode</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
@@ -7949,6 +8602,18 @@
             <maximum_occurrences>1</maximum_occurrences>
         </DD_Association>
         <DD_Association>
+            <identifier_reference>mro.spectral_resampling_flag</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.spectral_resampling_file</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
             <identifier_reference>mro.sampling_mode_id</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
@@ -7968,6 +8633,12 @@
         </DD_Association>
         <DD_Association>
             <identifier_reference>mro.pixel_proc_file_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.lookup_table_file_name</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>1</maximum_occurrences>
@@ -8045,6 +8716,108 @@
         <abstract_flag>false</abstract_flag>
         <element_flag>false</element_flag>
         <DD_Association>
+            <identifier_reference>mro.product_version_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.instrument_mode_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.instrument_mode_desc</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.pulse_repetition_interval</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.phase_compensation_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.manual_gain_control</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.compression_selection_flag</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.closed_loop_tracking_flag</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.data_quality_id</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.data_quality_desc</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.weighting_function_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.numerical_filter_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.phase_correction_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.reference_function_file_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.nominal_along_track_resolution</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.azimuth_spacing_type</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.radargram_return_interval</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
             <identifier_reference>mro.synthetic_aperture_duration</identifier_reference>
             <reference_type>attribute_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
@@ -8082,6 +8855,38 @@
         </DD_Association>
     </DD_Class>
     <!-- End of SHARAD_Observation_Parameters Class definition -->
+    
+    <!-- Beginning of Primary_Key Class definition with attributes in the order as they appear in the label -->    
+    <DD_Class> <name>Primary_Key</name>
+        <version_id>1.0</version_id>
+        <local_identifier>mro.Primary_Key</local_identifier>
+        <submitter_name>Jennifer Ward</submitter_name>
+        <definition>
+            The Primary_Key class indicates a column in a table whose values in a given row 
+            uniquely identify the row in the table.
+        </definition>
+        <abstract_flag>false</abstract_flag>
+        <element_flag>false</element_flag>
+        <DD_Association>
+            <identifier_reference>mro.primary_key_name</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>1</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.start_primary_key</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.stop_primary_key</identifier_reference>
+            <reference_type>attribute_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>1</maximum_occurrences>
+        </DD_Association>
+    </DD_Class>
+    <!-- End of Primary_Key Class definition -->
     
     <!-- Beginning of Array_Sampled Class definition with attributes in the order as they appear in the label -->    
     <DD_Class> <name>Array_Sampled</name>
@@ -8142,6 +8947,12 @@
         <element_flag>false</element_flag>
         <DD_Association>
             <identifier_reference>mro.SHARAD_Observation_Parameters</identifier_reference>
+            <reference_type>component_of</reference_type>
+            <minimum_occurrences>0</minimum_occurrences>
+            <maximum_occurrences>*</maximum_occurrences>
+        </DD_Association>
+        <DD_Association>
+            <identifier_reference>mro.Primary_Key</identifier_reference>
             <reference_type>component_of</reference_type>
             <minimum_occurrences>0</minimum_occurrences>
             <maximum_occurrences>*</maximum_occurrences>

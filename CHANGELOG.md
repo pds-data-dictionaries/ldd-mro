@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.2.0
+- 2026-11-23 JGW. Added attributes to SHARAD_Observation_Parameters class
+                  Added attributes to CRISM_Parameters class, 1.4.2.0
+
 ## 1.4.1.0
 - 2025-07-18 JGW. Added additional allowed values to mro:observation_type, 1.4.1.0.
 
